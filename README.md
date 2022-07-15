@@ -53,3 +53,6 @@ README~ER図作成：7/10〆切
 
 ## ■画面遷移図  
 [画面遷移図](https://www.figma.com/file/0GYR4hAqbkxiboaOHawOCs/View-only?node-id=0%3A1)
+
+## ■ ER図
+  [![image.png](https://i.gyazo.com/0876d22cf748872d464d193845c9dd95.png)](https://gyazo.com/0876d22cf748872d464d193845c9dd95)
