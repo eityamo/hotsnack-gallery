@@ -1,0 +1,96 @@
+# 将来的には対応する規約の読込(ファイル内が空になったら、この行は削除)
+inherit_from: .rubocop_todo.yml
+
+# 追加した規約ファイル読込
+require:
+  - rubocop-rails
+
+# 全体に適応する項目を定義。ここで Exclude に設定したファイルは、チェック対象外になる。
+AllCops:
+  # 除外
+  Exclude:
+    - 'vendor/**/*'
+    - 'bin/**'
+    - 'db/**/*'
+    - 'lib/**/*'
+    - 'spec/**/*'
+    - 'node_modules/**/*'
+    - 'Gemfile'
+  DisplayCopNames: true
+  # RuboCopのバージョンがあがった際に追加されたCopを自動で有効
+  NewCops: enable
+  SuggestExtensions: false
+
+Rails:
+  Enabled: true
+
+# ブロックの改行チェック
+Layout/MultilineBlockLayout:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+
+# ソースコードの行の長さチェック
+Layout/LineLength:
+  Enabled: false
+
+# ブロックの長さチェック
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - 'Gemfile'
+    - 'config/routes.rb'
+    - 'spec/**/*'
+
+# クラスの長さチェック
+Metrics/ClassLength:
+  CountComments: false
+  Max: 300
+
+# メソッドの複雑さチェック
+Metrics/CyclomaticComplexity:
+  Max: 30
+
+# メソッドの長さチェック
+Metrics/MethodLength:
+  CountComments: false
+  Max: 30
+
+# 中括弧や do/end が一行または複数行のブロックに使用されているかチェック
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*'
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# trueかfalseを設定しないと警告が出る
+# https://rubocop.readthedocs.io/en/stable/cops_style/#stylehasheachmethods
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+# モジュール名::クラス名の定義を許可
+ClassAndModuleChildren:
+  Enabled: false
+
+# ドキュメントの無いpublic classを許可する
+Style/Documentation:
+  Enabled: false
+
+# 文字リテラルのイミュータブル宣言を無視（freezeになるのはRuby3以降）
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# アルファベット順にソートチェック
+Bundler/OrderedGems:
+  Enabled: false
+
+# ダブルクオートを使う
+StringLiterals:
+  EnforcedStyle: double_quotes
