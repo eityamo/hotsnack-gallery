@@ -9,9 +9,23 @@ import Vue from 'vue'
 import App from '../app.vue'
 import router from '../router'
 
+Vue.config.productionTip = false
+
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import '@mdi/font/css/materialdesignicons.css'
+
+Vue.use(Vuetify)
+const vuetify = new Vuetify({
+  icons: {
+    iconfont: 'mdi',
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     router,
+    vuetify,
     render: h => h(App)
   }).$mount()
   document.body.appendChild(app.$el)
