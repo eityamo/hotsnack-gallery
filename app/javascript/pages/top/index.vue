@@ -1,5 +1,5 @@
 <template>
-  <p>hotsnack</p>
+  <p>ホットスナック美術館</p>
 </template>
 
 <script>
