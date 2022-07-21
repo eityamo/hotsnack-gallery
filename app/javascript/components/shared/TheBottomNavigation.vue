@@ -1,9 +1,5 @@
 <template>
   <v-row align="center" justify="center" class="mb-0 mt-0">
-  <v-bottom-navigation
-    v-model="value"
-    absolute
-  >
     <v-btn
       value="home"
       to="/"
@@ -30,7 +26,6 @@
 
       <v-icon>mdi-twitter</v-icon>
     </v-btn>
-  </v-bottom-navigation>
   </v-row>
 </template>
 
