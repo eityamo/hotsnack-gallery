@@ -9,13 +9,19 @@
       <v-icon>mdi-bank</v-icon>
     </v-btn>
 
-      <v-btn value="random">
+    <v-btn
+      value="random"
+      :to="{ name: 'HotsnackDetail', params: { item_uuid: 1 } }"
+    >
       <span>Random</span>
 
       <v-icon>mdi-palette-swatch</v-icon>
     </v-btn>
 
-    <v-btn value="category">
+    <v-btn
+      value="category"
+      :to="{ name: 'CategoryList' }"
+    >
       <span>Category</span>
 
       <v-icon>mdi-palette</v-icon>
