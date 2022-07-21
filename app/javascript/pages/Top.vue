@@ -17,26 +17,22 @@
             <p class="xs-font mt-2">※下の利用規約・プライバシーポリシーをご確認ください。</p>
         </v-col>
         <v-divider />
-        <v-row>
-            <v-col align="center">
-                <v-card max-width="320" height="400" color="transparent" outlined>
-                    <v-card-title class="pl-2 pa-1 pb-3 nowrap">
-                        <v-icon color="blue"> mdi-help-box </v-icon>
-                        <span class="s-font"> ホットスナック美術館の使い方 </span>
-                    </v-card-title>
-                    <!-- carousels -->
-                    <v-card>
-                        <v-carousel cycle :continuous="true" height="100%">
-                            <v-carousel-item v-for="(rule_image, i) in rule_images" :key="i">
-                                <img :src="rule_image.src" width="100%" height="100%" eager />
-                            </v-carousel-item>
-                        </v-carousel>
-                    </v-card>
-                    <!-- carousels end -->
-                </v-card>
-            </v-col>
-        </v-row>
-        <v-divider style="border: 1px solid red" />
+        <v-col align="center">
+            <v-card-title class="pl-2 pa-1 pb-3 nowrap">
+                <v-icon color="blue"> mdi-help-box </v-icon>
+                <span class="s-font"> ホットスナック美術館の使い方 </span>
+            </v-card-title>
+            <!-- carousels -->
+            <v-card>
+                <v-carousel cycle :continuous="true" height="100%">
+                    <v-carousel-item v-for="(rule_image, i) in rule_images" :key="i">
+                        <img :src="rule_image.src" width="100%" height="100%" eager />
+                    </v-carousel-item>
+                </v-carousel>
+            </v-card>
+            <!-- carousels end -->
+        </v-col>
+        <v-divider />
         <v-row justify="center" class="my-8">
             <v-card rounded="xl" color="transparent" outlined class="mx-4 px-4">
                 <v-col align="center" class="m-font"> このアプリの対象者 </v-col>
