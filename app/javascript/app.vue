@@ -1,43 +1,15 @@
 <template>
-  <div id="app">
-    <v-app>
-      <TheHeader />
-      <v-main>
-        <transition
-          name="slide"
-          mode="out-in"
-        >
-          <router-view />
-        </transition>
-        <v-row class="ma-6" />
-      </v-main>
-      <v-bottom-navigation
-        app
-        color="primary"
-        height="70"
-      >
-        <TheBottomNavigation />
-      </v-bottom-navigation>
-    </v-app>
-  </div>
+    <base-layout>
+        <router-view />
+    </base-layout>
 </template>
 
 <script>
-import TheHeader from "components/shared/TheHeader"
-import TheBottomNavigation from "./components/shared/TheBottomNavigation"
+import { BaseLayout } from './components/layout'
 
 export default {
-  components: {
-    TheHeader,
-    TheBottomNavigation
-  },
-  data() {
-    return {
-    };
-  },
+    components: {
+        BaseLayout,
+    },
 }
 </script>
-
-<style>
-
-</style>

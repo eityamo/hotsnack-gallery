@@ -9,11 +9,12 @@
                 そんな事態を解決するサービス
             </div>
         </v-row>
-        <v-col class="mt-0" align="center">
-            <v-img max-width="340" height="200" class="" src="/img/TOP_TITLE.jpg" />
-        </v-col>
         <v-col align="center">
-            <p class="s-font">
+            <v-img max-width="340" height="200" src="/img/TOP_TITLE.jpg" />
+        </v-col>
+        <v-divider />
+        <v-col align="center">
+            <p class="s-font mt-2">
                 美術館に来館して
                 <br />
                 ＼ホットスナックを鑑賞しよう／
@@ -25,22 +26,22 @@
             <p class="xs-font mt-2">※下の利用規約・プライバシーポリシーをご確認ください。</p>
         </v-col>
         <v-divider />
-        <v-col align="center">
-            <v-card-title class="pl-2 pa-1 pb-3 nowrap">
+        <v-col align="center" class="mb-4">
+            <v-card-title class="pa-1 pb-3 nowrap">
                 <v-icon color="blue"> mdi-help-box </v-icon>
                 <span class="s-font"> ホットスナック美術館の使い方 </span>
             </v-card-title>
             <v-card>
                 <v-carousel cycle :continuous="true" height="100%">
                     <v-carousel-item v-for="(rule_image, i) in rule_images" :key="i">
-                        <img :src="rule_image.src" width="100%" height="100%" eager />
+                        <img :src="rule_image" width="100%" height="100%" eager />
                     </v-carousel-item>
                 </v-carousel>
             </v-card>
         </v-col>
         <v-divider />
-        <v-row justify="center" class="my-8">
-            <v-card rounded="xl" color="transparent" outlined class="mx-4 px-4">
+        <v-row justify="center" class="my-4">
+            <v-card rounded="xl" color="transparent" outlined>
                 <v-col align="center" class="m-font"> このアプリの対象者 </v-col>
                 <v-col class="p-font nowrap" align="left">
                     <p>コンビニでホットスナックを選んでいる時に、、、</p>
@@ -58,8 +59,8 @@
             </v-card>
         </v-row>
         <v-divider />
-        <v-card color="transparent" outlined ma-2>
-            <v-card-actions class="justify-center mb-8">
+        <v-card color="transparent" outlined>
+            <v-card-actions class="justify-center mt-4 mb-8">
                 <v-btn dense text @click="openTermsModal"> 利用規約 </v-btn>
                 <v-btn dense text @click="openPrivacyPolicyModal"> プライバシーポリシー </v-btn>
                 <v-btn dense text href="https://twitter.com/eityamo"> 問い合わせ </v-btn>
@@ -74,8 +75,7 @@
 </template>
 
 <script>
-import TheTerms from '../components/static/TheTerms'
-import ThePrivacyPolicy from '../components/static/ThePrivacyPolicy'
+import { ThePrivacyPolicy, TheTerms } from '../components/static'
 import { BaseContainer } from '../components/layout'
 
 export default {
@@ -89,7 +89,7 @@ export default {
         return {
             isVisibleTermsModal: false,
             isVisiblePrivacyPolicyModal: false,
-            rule_images: ['/img/rules/rule_0.jpg', '/img/rules/rule_1.jpg', '/img/rule_2.jpg'],
+            rule_images: ['/img/rules/rule_0.jpg', '/img/rules/rule_1.jpg', '/img/rules/rule_2.jpg'],
         }
     },
     methods: {

@@ -1,18 +1,19 @@
 <template>
-  <v-container>
-
-  </v-container>
+    <base-container>
+        <p>すみません、、、実装してません</p>
+    </base-container>
 </template>
 
 <script>
+import { BaseContainer } from '../components/layout'
+
 export default {
-  name: "HotsnackDetail",
-  data() {
-    return {
-    }
-  }
+    name: 'HotsnackDetail',
+    components: {
+        BaseContainer,
+    },
+    data() {
+        return {}
+    },
 }
 </script>
-
-<style scoped>
-</style>
