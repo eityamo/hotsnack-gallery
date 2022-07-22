@@ -1,15 +1,24 @@
 <template>
-    <v-container class="container" fluid>
+    <base-container>
         <v-row justify="center">
             <div class="text-center s-font mt-8 pb-4 nowrap">
-                コンビニのホットスナック<br />じっくり選びたいけど選べない<br />そんな事態を解決するサービス
+                コンビニのホットスナック
+                <br />
+                じっくり選びたいけど選べない
+                <br />
+                そんな事態を解決するサービス
             </div>
         </v-row>
-        <v-col class="mt-0" align="center">
-            <v-img max-width="340" height="200" class="" src="/img/TOP_TITLE.jpg" />
-        </v-col>
         <v-col align="center">
-            <p class="s-font">美術館に来館して<br />＼ホットスナックを鑑賞しよう／</p>
+            <v-img max-width="340" height="200" src="/img/TOP_TITLE.jpg" />
+        </v-col>
+        <v-divider />
+        <v-col align="center">
+            <p class="s-font mt-2">
+                美術館に来館して
+                <br />
+                ＼ホットスナックを鑑賞しよう／
+            </p>
             <v-btn color="black" class="white--text" rounded large style="text-transform: none">
                 <v-icon>mdi-bank</v-icon>
                 <span class="m-font white--text ml-2">美術館に入る</span>
@@ -17,24 +26,22 @@
             <p class="xs-font mt-2">※下の利用規約・プライバシーポリシーをご確認ください。</p>
         </v-col>
         <v-divider />
-        <v-col align="center">
-            <v-card-title class="pl-2 pa-1 pb-3 nowrap">
+        <v-col align="center" class="mb-4">
+            <v-card-title class="pa-1 pb-3 nowrap">
                 <v-icon color="blue"> mdi-help-box </v-icon>
                 <span class="s-font"> ホットスナック美術館の使い方 </span>
             </v-card-title>
-            <!-- carousels -->
             <v-card>
                 <v-carousel cycle :continuous="true" height="100%">
                     <v-carousel-item v-for="(rule_image, i) in rule_images" :key="i">
-                        <img :src="rule_image.src" width="100%" height="100%" eager />
+                        <img :src="rule_image" width="100%" height="100%" eager />
                     </v-carousel-item>
                 </v-carousel>
             </v-card>
-            <!-- carousels end -->
         </v-col>
         <v-divider />
-        <v-row justify="center" class="my-8">
-            <v-card rounded="xl" color="transparent" outlined class="mx-4 px-4">
+        <v-row justify="center" class="my-4">
+            <v-card rounded="xl" color="transparent" outlined>
                 <v-col align="center" class="m-font"> このアプリの対象者 </v-col>
                 <v-col class="p-font nowrap" align="left">
                     <p>コンビニでホットスナックを選んでいる時に、、、</p>
@@ -52,8 +59,8 @@
             </v-card>
         </v-row>
         <v-divider />
-        <v-card color="transparent" outlined ma-2>
-            <v-card-actions class="justify-center mb-8">
+        <v-card color="transparent" outlined>
+            <v-card-actions class="justify-center mt-4 mb-8">
                 <v-btn dense text @click="openTermsModal"> 利用規約 </v-btn>
                 <v-btn dense text @click="openPrivacyPolicyModal"> プライバシーポリシー </v-btn>
                 <v-btn dense text href="https://twitter.com/eityamo"> 問い合わせ </v-btn>
@@ -64,34 +71,25 @@
             :is-visible-privacy-policy-modal="isVisiblePrivacyPolicyModal"
             @close-privacy-policy-modal="closePrivacyPolicyModal"
         />
-    </v-container>
+    </base-container>
 </template>
 
 <script>
-import TheTerms from '../components/static/TheTerms'
-import ThePrivacyPolicy from '../components/static/ThePrivacyPolicy'
+import { ThePrivacyPolicy, TheTerms } from '../components/static'
+import { BaseContainer } from '../components/layout'
 
 export default {
     name: 'Top',
     components: {
         TheTerms,
         ThePrivacyPolicy,
+        BaseContainer,
     },
     data() {
         return {
             isVisibleTermsModal: false,
             isVisiblePrivacyPolicyModal: false,
-            rule_images: [
-                {
-                    src: '/img/rules/rule_0.jpg',
-                },
-                {
-                    src: '/img/rules/rule_1.jpg',
-                },
-                {
-                    src: '/img/rules/rule_2.jpg',
-                },
-            ],
+            rule_images: ['/img/rules/rule_0.jpg', '/img/rules/rule_1.jpg', '/img/rules/rule_2.jpg'],
         }
     },
     methods: {
@@ -112,23 +110,9 @@ export default {
 </script>
 
 <style scoped>
-.container {
-    max-width: 375px;
-}
-.img {
-    mix-blend-mode: multiply;
-    z-index: 100;
-}
 .p-font {
     font-size: 0.7em;
     color: #2c281e;
-}
-.l-font {
-    font-size: 1.2em;
-    font-weight: bold;
-    line-height: 1;
-    color: #2c281e;
-    letter-spacing: 3px;
 }
 .m-font {
     font-size: 0.85em;
@@ -150,19 +134,5 @@ export default {
 }
 .nowrap {
     white-space: nowrap;
-}
-.position {
-    position: absolute;
-    top: 45px;
-    left: 15px;
-}
-.tranceparent {
-    mix-blend-mode: multiply;
-}
-.carousel {
-    max-width: 330px;
-}
-.carousel img {
-    width: 100%;
 }
 </style>
