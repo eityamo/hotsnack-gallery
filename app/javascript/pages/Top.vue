@@ -1,15 +1,23 @@
 <template>
-    <v-container class="container" fluid>
+    <base-container>
         <v-row justify="center">
             <div class="text-center s-font mt-8 pb-4 nowrap">
-                コンビニのホットスナック<br />じっくり選びたいけど選べない<br />そんな事態を解決するサービス
+                コンビニのホットスナック
+                <br />
+                じっくり選びたいけど選べない
+                <br />
+                そんな事態を解決するサービス
             </div>
         </v-row>
         <v-col class="mt-0" align="center">
             <v-img max-width="340" height="200" class="" src="/img/TOP_TITLE.jpg" />
         </v-col>
         <v-col align="center">
-            <p class="s-font">美術館に来館して<br />＼ホットスナックを鑑賞しよう／</p>
+            <p class="s-font">
+                美術館に来館して
+                <br />
+                ＼ホットスナックを鑑賞しよう／
+            </p>
             <v-btn color="black" class="white--text" rounded large style="text-transform: none">
                 <v-icon>mdi-bank</v-icon>
                 <span class="m-font white--text ml-2">美術館に入る</span>
@@ -22,7 +30,6 @@
                 <v-icon color="blue"> mdi-help-box </v-icon>
                 <span class="s-font"> ホットスナック美術館の使い方 </span>
             </v-card-title>
-            <!-- carousels -->
             <v-card>
                 <v-carousel cycle :continuous="true" height="100%">
                     <v-carousel-item v-for="(rule_image, i) in rule_images" :key="i">
@@ -30,7 +37,6 @@
                     </v-carousel-item>
                 </v-carousel>
             </v-card>
-            <!-- carousels end -->
         </v-col>
         <v-divider />
         <v-row justify="center" class="my-8">
@@ -64,34 +70,26 @@
             :is-visible-privacy-policy-modal="isVisiblePrivacyPolicyModal"
             @close-privacy-policy-modal="closePrivacyPolicyModal"
         />
-    </v-container>
+    </base-container>
 </template>
 
 <script>
 import TheTerms from '../components/static/TheTerms'
 import ThePrivacyPolicy from '../components/static/ThePrivacyPolicy'
+import { BaseContainer } from '../components/layout'
 
 export default {
     name: 'Top',
     components: {
         TheTerms,
         ThePrivacyPolicy,
+        BaseContainer,
     },
     data() {
         return {
             isVisibleTermsModal: false,
             isVisiblePrivacyPolicyModal: false,
-            rule_images: [
-                {
-                    src: '/img/rules/rule_0.jpg',
-                },
-                {
-                    src: '/img/rules/rule_1.jpg',
-                },
-                {
-                    src: '/img/rules/rule_2.jpg',
-                },
-            ],
+            rule_images: ['/img/rules/rule_0.jpg', '/img/rules/rule_1.jpg', '/img/rule_2.jpg'],
         }
     },
     methods: {
@@ -112,23 +110,9 @@ export default {
 </script>
 
 <style scoped>
-.container {
-    max-width: 375px;
-}
-.img {
-    mix-blend-mode: multiply;
-    z-index: 100;
-}
 .p-font {
     font-size: 0.7em;
     color: #2c281e;
-}
-.l-font {
-    font-size: 1.2em;
-    font-weight: bold;
-    line-height: 1;
-    color: #2c281e;
-    letter-spacing: 3px;
 }
 .m-font {
     font-size: 0.85em;
@@ -150,19 +134,5 @@ export default {
 }
 .nowrap {
     white-space: nowrap;
-}
-.position {
-    position: absolute;
-    top: 45px;
-    left: 15px;
-}
-.tranceparent {
-    mix-blend-mode: multiply;
-}
-.carousel {
-    max-width: 330px;
-}
-.carousel img {
-    width: 100%;
 }
 </style>
