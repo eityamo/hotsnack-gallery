@@ -10,11 +10,10 @@
             </div>
         </v-row>
         <v-col align="center">
-            <v-img max-width="340" height="200" src="/img/TOP_TITLE.jpg" />
+            <v-img max-width="340" height="200" class="" src="/img/TOP_TITLE.jpg" />
         </v-col>
-        <v-divider />
         <v-col align="center">
-            <p class="s-font mt-2">
+            <p class="s-font">
                 美術館に来館して
                 <br />
                 ＼ホットスナックを鑑賞しよう／
@@ -28,8 +27,8 @@
         <v-divider />
         <v-col align="center" class="mb-4">
             <v-card-title class="pa-1 pb-3 nowrap">
-                <v-icon color="blue"> mdi-help-box </v-icon>
-                <span class="s-font"> ホットスナック美術館の使い方 </span>
+                <v-icon color="blue">mdi-help-box</v-icon>
+                <span class="s-font">ホットスナック美術館の使い方</span>
             </v-card-title>
             <v-card>
                 <v-carousel cycle :continuous="true" height="100%">
@@ -40,8 +39,8 @@
             </v-card>
         </v-col>
         <v-divider />
-        <v-row justify="center" class="my-4">
-            <v-card rounded="xl" color="transparent" outlined>
+        <v-row justify="center" class="my-8">
+            <v-card rounded="xl" color="transparent">
                 <v-col align="center" class="m-font"> このアプリの対象者 </v-col>
                 <v-col class="p-font nowrap" align="left">
                     <p>コンビニでホットスナックを選んでいる時に、、、</p>
@@ -60,50 +59,54 @@
         </v-row>
         <v-divider />
         <v-card color="transparent" outlined>
-            <v-card-actions class="justify-center mt-4 mb-8">
-                <v-btn dense text @click="openTermsModal"> 利用規約 </v-btn>
-                <v-btn dense text @click="openPrivacyPolicyModal"> プライバシーポリシー </v-btn>
+            <v-card-actions class="justify-center my-2">
+                <v-btn dense text @click="openModal('terms')"> 利用規約 </v-btn>
+                <v-btn dense text @click="openModal('privacypolicy')"> プライバシーポリシー </v-btn>
                 <v-btn dense text href="https://twitter.com/eityamo"> 問い合わせ </v-btn>
             </v-card-actions>
         </v-card>
-        <TheTerms :is-visible-terms-modal="isVisibleTermsModal" @close-terms-modal="closeTermsModal" />
-        <ThePrivacyPolicy
-            :is-visible-privacy-policy-modal="isVisiblePrivacyPolicyModal"
-            @close-privacy-policy-modal="closePrivacyPolicyModal"
-        />
+        <the-terms :is-visible="getModalVisible('terms')" @close-terms-modal="closeModal" />
+        <the-privacy-policy :is-visible="getModalVisible('privacypolicy')" @close-privacy-policy-modal="closeModal" />
     </base-container>
 </template>
 
 <script>
-import { ThePrivacyPolicy, TheTerms } from '../components/static'
+import { TheTerms, ThePrivacyPolicy } from '../components/static'
 import { BaseContainer } from '../components/layout'
 
 export default {
     name: 'Top',
     components: {
+        BaseContainer,
         TheTerms,
         ThePrivacyPolicy,
-        BaseContainer,
     },
     data() {
         return {
-            isVisibleTermsModal: false,
-            isVisiblePrivacyPolicyModal: false,
+            modal: {
+                type: null,
+                status: 'hidden',
+            },
             rule_images: ['/img/rules/rule_0.jpg', '/img/rules/rule_1.jpg', '/img/rules/rule_2.jpg'],
         }
     },
     methods: {
-        openTermsModal() {
-            this.isVisibleTermsModal = true
+        closeModal() {
+            this.modal = {
+                type: null,
+                status: 'hidden',
+            }
         },
-        openPrivacyPolicyModal() {
-            this.isVisiblePrivacyPolicyModal = true
+        openModal(type) {
+            this.modal = {
+                type,
+                status: 'visible',
+            }
         },
-        closeTermsModal() {
-            this.isVisibleTermsModal = false
-        },
-        closePrivacyPolicyModal() {
-            this.isVisiblePrivacyPolicyModal = false
+    },
+    computed: {
+        getModalVisible() {
+            return (type) => this.modal.type === type && this.modal.status === 'visible'
         },
     },
 }
