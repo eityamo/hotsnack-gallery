@@ -57,6 +57,7 @@
                 </p>
                 <h2>お問い合わせ</h2>
                 <p>お問い合わせの際は、公式アカウントのメッセージにて承ります。</p>
+                <div class="text-right">2022年07月25日 制定</div>
                 <div class="text-center">
                     <v-btn icon color="blue" href="https://twitter.com/eityamo" style="text-transform: none">
                         <v-icon>mdi-twitter</v-icon>(@eityamo)
@@ -65,7 +66,6 @@
             </v-card-text>
             <v-card-actions justify="center">
                 <v-btn @click="hundleClosePrivacyPolicyModal"> 閉じる </v-btn>
-                <p>2022年07月25日 制定</p>
             </v-card-actions>
         </v-card>
     </v-dialog>

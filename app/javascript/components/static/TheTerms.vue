@@ -200,10 +200,10 @@
                 <p>
                     本サービスに関して紛争が生じた場合には、当社の本店所在地を管轄する地方裁判所を専属的合意管轄とします。
                 </p>
+                <div class="text-right">2022年07月25日 制定</div>
             </v-card-text>
             <v-card-actions justify="center">
                 <v-btn @click="hundleCloseTermsModal"> 閉じる </v-btn>
-                <p>2022年07月25日 制定</p>
             </v-card-actions>
         </v-card>
     </v-dialog>

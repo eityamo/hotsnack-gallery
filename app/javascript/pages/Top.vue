@@ -1,13 +1,11 @@
 <template>
     <base-container>
-        <v-row justify="center">
-            <div class="text-center s-font mt-8 pb-4 nowrap">
-                コンビニのホットスナック
-                <br />
-                じっくり選びたいけど選べない
-                <br />
-                そんな事態を解決するサービス
-            </div>
+        <v-row justify="center" class="text-center s-font mt-8 pb-4">
+            コンビニのホットスナック
+            <br />
+            じっくり選びたいけど選べない
+            <br />
+            そんな事態を解決するサービス
         </v-row>
         <hr />
         <v-col align="center">
@@ -28,7 +26,7 @@
         </v-col>
         <hr />
         <v-col align="center" class="mb-4">
-            <v-card-title class="pa-1 pb-3 nowrap">
+            <v-card-title class="pa-1 pb-3">
                 <v-icon>mdi-help-circle</v-icon>
                 <span class="s-font ml-1">ホットスナック美術館の使い方</span>
             </v-card-title>
@@ -41,22 +39,17 @@
             </v-card>
         </v-col>
         <hr />
-        <v-row justify="center" class="my-8">
-            <v-card rounded="xl" color="transparent" outlined>
+        <v-row justify="center" class="my-6">
+            <v-card color="transparent" outlined>
                 <v-col align="center" class="m-font"> このアプリの対象者 </v-col>
-                <v-col class="s-font nowrap" align="left">
-                    <p>コンビニでホットスナックを選んでいる時に、、、</p>
+                <v-col class="s-font" align="left"> コンビニでホットスナックを選んでいる時に、、、 </v-col>
+                <v-col class="p-font" align="center">
+                    店員の視線が気になる人。
+                    <br />
+                    他の客の邪魔になっていると感じる人。
                 </v-col>
-                <v-col class="p-font nowrap" align="center">
-                    <p>店員の視線が気になる人。</p>
-                    <p>他の客の邪魔になっていると感じる人。</p>
-                </v-col>
-                <v-col class="s-font nowrap" align="left">
-                    <p>ホットスナックを選ぼうとレジ横に向かったら、、、</p>
-                </v-col>
-                <v-col class="p-font nowrap" align="center">
-                    <p>レジに向かったと間違われ、気まずい思いをした人。</p>
-                </v-col>
+                <v-col class="s-font" align="left"> ホットスナックを選ぼうとレジ横に向かったら、、、 </v-col>
+                <v-col class="p-font" align="center"> レジに向かったと間違われ、気まずい思いをした人。 </v-col>
             </v-card>
         </v-row>
         <hr />
@@ -146,8 +139,5 @@ hr {
     font-weight: lighter;
     line-height: 1.5;
     color: #2c281e;
-}
-.nowrap {
-    white-space: nowrap;
 }
 </style>
