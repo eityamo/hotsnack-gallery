@@ -9,14 +9,16 @@
                 そんな事態を解決するサービス
             </div>
         </v-row>
+        <hr />
         <v-col align="center">
             <v-img max-width="340" height="200" class="" src="/img/TOP_TITLE.jpg" />
         </v-col>
+        <hr />
         <v-col align="center">
-            <p class="s-font">
+            <p class="s-font mb-2">
                 美術館に来館して
                 <br />
-                ＼ホットスナックを鑑賞しよう／
+                ＼展示作品を鑑賞しよう／
             </p>
             <v-btn color="black" class="white--text" rounded large style="text-transform: none">
                 <v-icon>mdi-bank</v-icon>
@@ -24,32 +26,32 @@
             </v-btn>
             <p class="xs-font mt-2">※下の利用規約・プライバシーポリシーをご確認ください。</p>
         </v-col>
-        <v-divider />
+        <hr />
         <v-col align="center" class="mb-4">
             <v-card-title class="pa-1 pb-3 nowrap">
-                <v-icon color="blue">mdi-help-box</v-icon>
-                <span class="s-font">ホットスナック美術館の使い方</span>
+                <v-icon>mdi-help-circle</v-icon>
+                <span class="s-font ml-1">ホットスナック美術館の使い方</span>
             </v-card-title>
             <v-card>
-                <v-carousel cycle :continuous="true" height="100%">
+                <v-carousel cycle :continuous="true" height="100%" light>
                     <v-carousel-item v-for="(rule_image, i) in rule_images" :key="i">
                         <img :src="rule_image" width="100%" height="100%" eager />
                     </v-carousel-item>
                 </v-carousel>
             </v-card>
         </v-col>
-        <v-divider />
+        <hr />
         <v-row justify="center" class="my-8">
-            <v-card rounded="xl" color="transparent">
+            <v-card rounded="xl" color="transparent" outlined>
                 <v-col align="center" class="m-font"> このアプリの対象者 </v-col>
-                <v-col class="p-font nowrap" align="left">
+                <v-col class="s-font nowrap" align="left">
                     <p>コンビニでホットスナックを選んでいる時に、、、</p>
                 </v-col>
                 <v-col class="p-font nowrap" align="center">
                     <p>店員の視線が気になる人。</p>
                     <p>他の客の邪魔になっていると感じる人。</p>
                 </v-col>
-                <v-col class="p-font nowrap" align="left">
+                <v-col class="s-font nowrap" align="left">
                     <p>ホットスナックを選ぼうとレジ横に向かったら、、、</p>
                 </v-col>
                 <v-col class="p-font nowrap" align="center">
@@ -57,7 +59,7 @@
                 </v-col>
             </v-card>
         </v-row>
-        <v-divider />
+        <hr />
         <v-card color="transparent" outlined>
             <v-card-actions class="justify-center my-2">
                 <v-btn dense text @click="openModal('terms')"> 利用規約 </v-btn>
@@ -113,6 +115,16 @@ export default {
 </script>
 
 <style scoped>
+hr {
+    border: none;
+    height: 20px;
+    width: 90%;
+    height: 50px;
+    margin-top: 0;
+    border-bottom: 1px solid #1f1209;
+    box-shadow: 0 20px 20px -20px #333;
+    margin: -50px auto 10px;
+}
 .p-font {
     font-size: 0.7em;
     color: #2c281e;
