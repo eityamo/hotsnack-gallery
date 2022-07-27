@@ -13,3 +13,12 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+#app {
+    --background-color: #f6f5ee;
+    background-color: var(--background-color);
+    font-weight: bold;
+    color: #2e1f1f;
+}
+</style>
