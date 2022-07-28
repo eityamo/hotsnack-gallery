@@ -10,6 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_07_27_111706) do
+
+  create_table "hotsnacks", force: :cascade do |t|
+    t.string "item_uuid", null: false
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.text "description", null: false
+    t.string "image", null: false
+    t.string "ingredient", null: false
+    t.integer "like_count", default: 0
+    t.integer "dislike_count", default: 0
+    t.integer "genre", null: false
+    t.integer "store", null: false
+    t.integer "country", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_uuid"], name: "index_hotsnacks_on_item_uuid", unique: true
+  end
 
 end
