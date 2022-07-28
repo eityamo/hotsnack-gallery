@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_27_111706) do
+ActiveRecord::Schema.define(version: 2022_07_28_061247) do
+
+  create_table "areas", force: :cascade do |t|
+    t.boolean "hokkaido", default: false, null: false
+    t.boolean "tohoku", default: false, null: false
+    t.boolean "kanto", default: false, null: false
+    t.boolean "koshinetsu", default: false, null: false
+    t.boolean "hokuriku", default: false, null: false
+    t.boolean "tokai", default: false, null: false
+    t.boolean "kinki", default: false, null: false
+    t.boolean "chugoku", default: false, null: false
+    t.boolean "shikoku", default: false, null: false
+    t.boolean "kyushu", default: false, null: false
+    t.boolean "okinawa", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "hotsnack_areas", force: :cascade do |t|
+    t.integer "hotsnack_id", null: false
+    t.integer "area_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["area_id"], name: "index_hotsnack_areas_on_area_id"
+    t.index ["hotsnack_id"], name: "index_hotsnack_areas_on_hotsnack_id"
+  end
 
   create_table "hotsnacks", force: :cascade do |t|
     t.string "item_uuid", null: false
@@ -18,10 +43,10 @@ ActiveRecord::Schema.define(version: 2022_07_27_111706) do
     t.integer "price", null: false
     t.text "description", null: false
     t.string "image", null: false
-    t.string "ingredient", null: false
+    t.string "ingredient"
     t.integer "like_count", default: 0
     t.integer "dislike_count", default: 0
-    t.integer "genre", null: false
+    t.integer "genre"
     t.integer "store", null: false
     t.integer "country", null: false
     t.integer "status", default: 0, null: false
@@ -30,4 +55,6 @@ ActiveRecord::Schema.define(version: 2022_07_27_111706) do
     t.index ["item_uuid"], name: "index_hotsnacks_on_item_uuid", unique: true
   end
 
+  add_foreign_key "hotsnack_areas", "areas"
+  add_foreign_key "hotsnack_areas", "hotsnacks"
 end
