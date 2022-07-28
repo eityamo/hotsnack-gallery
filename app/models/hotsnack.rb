@@ -6,9 +6,9 @@
 #  country       :integer          not null
 #  description   :text             not null
 #  dislike_count :integer          default(0)
-#  genre         :integer          not null
+#  genre         :integer
 #  image         :string           not null
-#  ingredient    :string           not null
+#  ingredient    :string
 #  item_uuid     :string           not null
 #  like_count    :integer          default(0)
 #  name          :string           not null
@@ -23,13 +23,14 @@
 #  index_hotsnacks_on_item_uuid  (item_uuid) UNIQUE
 #
 class Hotsnack < ApplicationRecord
+  has_many :areas, through: :hotsnack_areas, dependent: :destroy
+  has_many :hotsnack_areas, dependent: :destroy
+
   validates :item_uuid, presence: true, uniqueness: true
   validates :name, presence: true
   validates :price, presence: true
   validates :description, presence: true
   validates :image, presence: true
-  validates :ingredient, presence: true
-  validates :genre, presence: true
   validates :store, presence: true
   validates :country, presence: true
   validates :status, presence: true
