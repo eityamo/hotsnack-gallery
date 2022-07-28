@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  root 'hotsnacks#gallery'
+  root 'home#gallery'
 
   namespace :api do
     namespace :v1 do
-      get 'random', to: 'visits#random'
+      get 'random', to: 'hotsnack#random'
+      get 'hotsnack/:item_uuid', to: 'hotsnack#show'
     end
   end
 
-  get '*path', to: 'hotsnacks#gallery'
+  get '*path', to: 'home#gallery'
 end
