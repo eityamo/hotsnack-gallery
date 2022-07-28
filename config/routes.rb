@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get 'random', to: 'hotsnack#random'
-      get 'hotsnack/:item_uuid', to: 'hotsnack#show'
+      get 'random', to: 'hotsnacks#random'
+      get 'hotsnack/:item_uuid', to: 'hotsnacks#show'
     end
   end
 
