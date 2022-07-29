@@ -8,7 +8,9 @@ import * as ActiveStorage from '@rails/activestorage'
 import 'channels'
 import Vue from 'vue'
 import App from '../app.vue'
-import router from '../router'
+import router from '../plugins/router'
+import createAxios from '../plugins/axios'
+
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
@@ -17,6 +19,7 @@ Rails.start()
 ActiveStorage.start()
 
 Vue.config.productionTip = false
+Vue.prototype.$axios = createAxios
 
 Vue.use(Vuetify)
 const vuetify = new Vuetify({
