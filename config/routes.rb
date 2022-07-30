@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'random', to: 'hotsnacks#random'
       get 'hotsnack/:item_uuid', to: 'hotsnacks#show'
+      put 'hotsnack/:item_uuid', to: 'hotsnacks#update'
     end
   end
 
