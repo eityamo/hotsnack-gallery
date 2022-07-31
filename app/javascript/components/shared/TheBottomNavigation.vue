@@ -6,7 +6,7 @@
             <v-icon>mdi-bank</v-icon>
         </v-btn>
 
-        <v-btn value="random" :to="{ name: 'HotsnackDetail', params: { item_uuid: 1 } }">
+        <v-btn value="random" :to="{ name: 'HotsnackDetail', params: { item_uuid: 150047 } }">
             <span>Random</span>
 
             <v-icon>mdi-palette-swatch</v-icon>
