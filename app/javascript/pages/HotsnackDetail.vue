@@ -1,11 +1,11 @@
 <template>
     <base-container>
-        <v-card class="mx-auto" max-width="375" color="#f6f5ee" outlined>
+        <v-card class="mx-auto" max-width="375" color="#f6f5ee" outlined v-if="'id' in hotsnack">
             <v-row justify="center" align="center" class="mt-8 mx-4">
-                <v-col class="pa-0">
+                <v-col cols="6" class="pa-0">
                     <v-card outlined color="#f6f5ee">
                         <div class="text-center">
-                            <v-btn text>評価額</v-btn>
+                            <v-btn text class="text-h6">査定額</v-btn>
                         </div>
                     </v-card>
                 </v-col>
@@ -13,7 +13,7 @@
                     <v-card outlined color="#f6f5ee">
                         <div class="text-center">
                             <v-btn icon>
-                                <v-icon icon>mdi-thumb-up</v-icon>
+                                <v-icon icon @click="addLikeCount">mdi-thumb-up</v-icon>
                             </v-btn>
                         </div>
                     </v-card>
@@ -22,26 +22,26 @@
                     <v-card outlined color="#f6f5ee">
                         <div class="text-center">
                             <v-btn icon>
-                                <v-icon icon>mdi-thumb-down</v-icon>
+                                <v-icon icon @click="addDislikeCount">mdi-thumb-down</v-icon>
                             </v-btn>
                         </div>
                     </v-card>
                 </v-col>
             </v-row>
             <v-row justify="center" align="center" class="mb-4 mx-4">
-                <v-col class="pa-0">
+                <v-col cols="6" class="pa-0">
                     <v-card outlined color="#f6f5ee">
-                        <div class="text-center">¥1310</div>
+                        <div class="text-center">¥{{ hotsnack.like_count * hotsnack.price }}</div>
                     </v-card>
                 </v-col>
                 <v-col class="pa-0">
                     <v-card outlined color="#f6f5ee">
-                        <div class="text-center">10</div>
+                        <div class="text-center">{{ hotsnack.like_count }}</div>
                     </v-card>
                 </v-col>
                 <v-col class="pa-0">
                     <v-card outlined color="#f6f5ee">
-                        <div class="text-center">3</div>
+                        <div class="text-center">{{ hotsnack.dislike_count }}</div>
                     </v-card>
                 </v-col>
             </v-row>
@@ -71,12 +71,14 @@
                 </v-container>
 
                 <v-card raised elevation="8" tile class="mx-10 my-10">
-                    <v-col align="center" class="s-font pt-2 pb-0">アメリカンドッグ</v-col>
-                    <v-col align="center" class="xs-font pt-0 pb-2">121円（税込130.68円）</v-col>
+                    <v-col align="center" class="s-font pt-2 pb-0">{{ hotsnack.name }}</v-col>
+                    <v-col align="center" class="xs-font pt-1 pb-2">{{ hotsnack.price }}円（税込）</v-col>
                     <hr class="hr2" />
-                    <v-col align="center" class="s-font pt-2 pb-0">セブン-イレブン</v-col>
-                    <v-col align="center" class="xs-font py-0">1974年 - 現在</v-col>
-                    <v-col align="center" class="xs-font pt-0 pb-2">豚肉 / 小麦粉</v-col>
+                    <v-col align="center" class="s-font pt-2 pb-0">{{ hotsnack.store }}</v-col>
+                    <v-col align="center" class="xs-font pt-1 pb-0">1974年 - 現在</v-col>
+                    <v-col align="center" class="xs-font pt-0 pb-2"
+                        >{{ hotsnack.genre }} / {{ hotsnack.ingredient }}</v-col
+                    >
                 </v-card>
 
                 <v-card-actions>
@@ -96,14 +98,12 @@
                 <v-expand-transition>
                     <div v-show="show">
                         <hr class="hr1" />
-
-                        <v-card-text>
-                            原材料の高騰により、価格を１００円（税抜）から１２１円（税抜）に変更いたします。サクっとした食感とほんのり甘い風味が特長のアメリカンドッグです。
-                        </v-card-text>
+                        <v-card-text>{{ hotsnack.description }}</v-card-text>
                     </div>
                 </v-expand-transition>
             </v-card>
         </v-card>
+        <div v-else>該当のデータは存在しません</div>
     </base-container>
 </template>
 
@@ -118,7 +118,39 @@ export default {
     data() {
         return {
             show: true,
+            hotsnack: {},
         }
+    },
+    created() {
+        this.getHotsnackDetail()
+    },
+    methods: {
+        getHotsnackDetail() {
+            const id = this.$route.params.item_uuid
+            this.$axios.get(`/hotsnack/${id}`).then(({ data }) => {
+                // APIレスポンスのデータがないときは、dataプロパティの初期値を設定
+                if (!data) {
+                    return (this.hotsnack = {})
+                }
+                this.hotsnack = data
+            })
+        },
+        addLikeCount() {
+            const id = this.$route.params.item_uuid
+            this.$axios
+                .put(`/hotsnack/${id}`, {
+                    like_count: (this.hotsnack.like_count += 1),
+                })
+                .catch((error) => console.log(error))
+        },
+        addDislikeCount() {
+            const id = this.$route.params.item_uuid
+            this.$axios
+                .put(`/hotsnack/${id}`, {
+                    dislike_count: (this.hotsnack.dislike_count += 1),
+                })
+                .catch((error) => console.log(error))
+        },
     },
 }
 </script>

@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 2022_07_28_061247) do
     t.string "ingredient"
     t.integer "like_count", default: 0
     t.integer "dislike_count", default: 0
-    t.integer "genre"
-    t.integer "store", null: false
-    t.integer "country", null: false
-    t.integer "status", default: 0, null: false
+    t.string "genre"
+    t.string "store", null: false
+    t.string "country", null: false
+    t.boolean "status", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_uuid"], name: "index_hotsnacks_on_item_uuid", unique: true

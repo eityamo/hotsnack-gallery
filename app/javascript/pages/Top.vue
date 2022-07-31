@@ -41,23 +41,23 @@
         <hr />
         <v-row justify="center" class="my-6">
             <v-card color="transparent" outlined>
-                <v-col align="center" class="m-font"> このアプリの対象者 </v-col>
-                <v-col class="s-font" align="left"> コンビニでホットスナックを選んでいる時に、、、 </v-col>
+                <v-col align="center" class="m-font">ホットスナック美術館に来館してほしい人</v-col>
+                <v-col class="s-font" align="left">コンビニでホットスナックを選んでいる時に、、、</v-col>
                 <v-col class="p-font" align="center">
                     店員の視線が気になる人。
                     <br />
                     他の客の邪魔になっていると感じる人。
                 </v-col>
-                <v-col class="s-font" align="left"> ホットスナックを選ぼうとレジ横に向かったら、、、 </v-col>
-                <v-col class="p-font" align="center"> レジに向かったと間違われ、気まずい思いをした人。 </v-col>
+                <v-col class="s-font" align="left">ホットスナックを選ぼうとレジ横に向かったら、、、</v-col>
+                <v-col class="p-font" align="center">レジに向かったと間違われ、気まずい思いをした人。</v-col>
             </v-card>
         </v-row>
         <hr />
         <v-card color="transparent" outlined>
             <v-card-actions class="justify-center my-2">
-                <v-btn dense text @click="openModal('terms')"> 利用規約 </v-btn>
-                <v-btn dense text @click="openModal('privacypolicy')"> プライバシーポリシー </v-btn>
-                <v-btn dense text href="https://twitter.com/eityamo"> 問い合わせ </v-btn>
+                <v-btn dense text @click="openModal('terms')">利用規約</v-btn>
+                <v-btn dense text @click="openModal('privacypolicy')">プライバシーポリシー</v-btn>
+                <v-btn dense text href="https://twitter.com/eityamo">問い合わせ</v-btn>
             </v-card-actions>
         </v-card>
         <the-terms :is-visible="getModalVisible('terms')" @close-terms-modal="closeModal" />
