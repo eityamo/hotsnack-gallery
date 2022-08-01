@@ -139,7 +139,14 @@ export default {
             const id = this.$route.params.item_uuid
             this.$axios
                 .put(`/hotsnack/${id}`, {
-                    like_count: (this.hotsnack.like_count += 1),
+                    // parameter 定数
+                    like_count: this.hotsnack.like_count + 1,
+                })
+                .then((res) => {
+                    if (res.status === 200) {
+                        // ローカルのデータプロパティ
+                        this.hotsnack.like_count++
+                    }
                 })
                 .catch((error) => console.log(error))
         },
@@ -147,7 +154,12 @@ export default {
             const id = this.$route.params.item_uuid
             this.$axios
                 .put(`/hotsnack/${id}`, {
-                    dislike_count: (this.hotsnack.dislike_count += 1),
+                    dislike_count: this.hotsnack.dislike_count + 1,
+                })
+                .then((res) => {
+                    if (res.status === 200) {
+                        this.hotsnack.dislike_count++
+                    }
                 })
                 .catch((error) => console.log(error))
         },
@@ -164,11 +176,9 @@ export default {
     padding: 6%;
     box-shadow: inset 0px 0.3em 0.1em rgba(0, 0, 0, 0.2);
 }
-
 .baseline {
     display: block;
 }
-
 .inline {
     background-color: #f8f8f8;
     z-index: -1;
@@ -180,7 +190,6 @@ export default {
     background-image: -ms-radial-gradient(50% 50%, circle farthest-corner, #ffffff, #f8f8f8 100%);
     background-image: radial-gradient(50% 50%, circle farthest-corner, #ffffff, #f8f8f8 100%);
 }
-
 .outline {
     width: 100%;
     height: 100%;
@@ -190,13 +199,6 @@ export default {
         0px 3em 2em -1em rgba(0, 0, 0, 0.2), 0px 4em 1.5em -1em rgba(0, 0, 0, 0.15),
         0px 2em 4em 0.5em rgba(0, 0, 0, 0.1), inset 0 0.2em 0.1em #fff;
 }
-
-#bunny {
-    width: 150px;
-    border: 1px solid #b76e22;
-    border-radius: 4px;
-}
-
 .hr1 {
     border: none;
     height: 20px;
@@ -207,7 +209,6 @@ export default {
     box-shadow: 0 20px 20px -20px #333;
     margin: -50px auto 10px;
 }
-
 .hr2 {
     border: none;
     width: 90%;
@@ -215,21 +216,18 @@ export default {
     border-bottom: 1px solid #1f1209;
     margin: -50px auto 0px;
 }
-
 .s-font {
     font-size: 0.75em;
     font-weight: bold;
     line-height: 1;
     color: #2c281e;
 }
-
 .xs-font {
     font-size: 0.55em;
     font-weight: lighter;
     line-height: 1.5;
     color: #2c281e;
 }
-
 .center {
     text-align: center;
 }
