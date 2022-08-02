@@ -4,9 +4,11 @@
             <v-toolbar dense>
                 <v-toolbar-title>HOTSNACK GALLERY</v-toolbar-title>
                 <v-spacer />
+                <!--
                 <v-btn icon>
                     <v-icon>mdi-help-circle</v-icon>
                 </v-btn>
+                -->
             </v-toolbar>
         </v-card>
     </header>
