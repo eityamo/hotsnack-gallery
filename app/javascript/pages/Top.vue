@@ -1,16 +1,36 @@
 <template>
     <base-container>
-        <v-row justify="center" class="text-center s-font mt-8 pb-4">
+        <v-col align="center" class="s-font my-4">
+            <v-card-title class="pa-1 pb-3">
+                <v-icon>mdi-cards-club</v-icon>
+                <span class="s-font ml-1">ホットスナック美術館のコンセプト</span>
+            </v-card-title>
             コンビニのホットスナック
             <br />
             じっくり選びたいけど選べない
             <br />
             そんな事態を解決するサービス
-        </v-row>
-        <hr />
-        <v-col align="center">
-            <v-img max-width="340" height="200" class="" src="/img/TOP_TITLE.jpg" />
         </v-col>
+        <hr />
+        <v-card elevation="8" class="mx-4 my-10">
+            <v-container class="outline">
+                <v-container class="inline">
+                    <v-container class="baseline">
+                        <v-container class="border">
+                            <v-img
+                                src="/img/TOP_TITLE.jpg"
+                            >
+                                <template v-slot:placeholder>
+                                    <v-row class="fill-height ma-0" align="center" justify="center">
+                                        <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                                    </v-row>
+                                </template>
+                            </v-img>
+                        </v-container>
+                    </v-container>
+                </v-container>
+            </v-container>
+        </v-card>
         <hr />
         <v-col align="center">
             <p class="s-font mb-2">
@@ -27,7 +47,7 @@
         <hr />
         <v-col align="center" class="mb-4">
             <v-card-title class="pa-1 pb-3">
-                <v-icon>mdi-help-circle</v-icon>
+                <v-icon>mdi-cards-diamond</v-icon>
                 <span class="s-font ml-1">ホットスナック美術館の使い方</span>
             </v-card-title>
             <v-card>
@@ -39,9 +59,12 @@
             </v-card>
         </v-col>
         <hr />
-        <v-row justify="center" class="my-6">
+        <v-col align="center" class="my-4">
+            <v-card-title class="pa-1 pb-3">
+                <v-icon>mdi-cards-spade</v-icon>
+                <span class="s-font ml-1">ホットスナック美術館に来館してほしい人</span>
+            </v-card-title>
             <v-card color="transparent" outlined>
-                <v-col align="center" class="m-font">ホットスナック美術館に来館してほしい人</v-col>
                 <v-col class="s-font" align="left">コンビニでホットスナックを選んでいる時に、、、</v-col>
                 <v-col class="p-font" align="center">
                     店員の視線が気になる人。
@@ -51,10 +74,10 @@
                 <v-col class="s-font" align="left">ホットスナックを選ぼうとレジ横に向かったら、、、</v-col>
                 <v-col class="p-font" align="center">レジに向かったと間違われ、気まずい思いをした人。</v-col>
             </v-card>
-        </v-row>
+        </v-col>
         <hr />
         <v-card color="transparent" outlined>
-            <v-card-actions class="justify-center my-2">
+            <v-card-actions class="justify-center mt-2 mb-4">
                 <v-btn dense text @click="openModal('terms')">利用規約</v-btn>
                 <v-btn dense text @click="openModal('privacypolicy')">プライバシーポリシー</v-btn>
                 <v-btn dense text href="https://twitter.com/eityamo">問い合わせ</v-btn>
@@ -139,5 +162,29 @@ hr {
     font-weight: lighter;
     line-height: 1.5;
     color: #2c281e;
+}
+.border {
+    background: #fff;
+    display: block;
+    width: 88%;
+    height: auto;
+    padding: 6%;
+    box-shadow: inset 0px 0.3em 0.1em rgba(0, 0, 0, 0.2);
+}
+.baseline {
+    display: block;
+}
+.inline {
+    background-color: #f8f8f8;
+    z-index: -1;
+    box-shadow: inset 0px 10px 0.5em rgba(0, 0, 0, 0.25), inset 0.1em 0px 0.1em rgba(0, 0, 0, 0.1),
+        inset -0.1em 0px 0.1em rgba(0, 0, 0, 0.05), 0 0.3em 0.2em #fff;
+}
+.outline {
+    width: 100%;
+    height: 100%;
+    background: #f8f8f8;
+    z-index: -2;
+    box-shadow: 0px 2em 4em 0.5em rgba(0, 0, 0, 0.1), inset 0 0.2em 0.1em #fff;
 }
 </style>
