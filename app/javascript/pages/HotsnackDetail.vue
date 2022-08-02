@@ -31,7 +31,7 @@
             <v-row justify="center" align="center" class="mb-4 mx-4">
                 <v-col cols="6" class="pa-0">
                     <v-card outlined color="#f6f5ee">
-                        <div class="text-center">¥{{ hotsnack.like_count * hotsnack.price }}</div>
+                        <div class="text-center">{{ multiplyLikeCountAndPrice }}</div>
                     </v-card>
                 </v-col>
                 <v-col class="pa-0">
@@ -53,18 +53,7 @@
                     <v-container class="inline">
                         <v-container class="baseline">
                             <v-container class="border">
-                                <v-img
-                                    src="https://img.7api-01.dp1.sej.co.jp/item-image/150047/1FE6103DFB372C5F1762505627AC60DE.jpg"
-                                >
-                                    <template v-slot:placeholder>
-                                        <v-row class="fill-height ma-0" align="center" justify="center">
-                                            <v-progress-circular
-                                                indeterminate
-                                                color="grey lighten-5"
-                                            ></v-progress-circular>
-                                        </v-row>
-                                    </template>
-                                </v-img>
+                                <v-img :src="hotsnack.image" />
                             </v-container>
                         </v-container>
                     </v-container>
@@ -121,8 +110,21 @@ export default {
             hotsnack: {},
         }
     },
-    created() {
+    computed: {
+        multiplyLikeCountAndPrice() {
+            return '¥' + this.hotsnack.price * this.hotsnack.like_count
+        },
+        currentPath() {
+            return this.$route.path
+        },
+    },
+    mounted() {
         this.getHotsnackDetail()
+    },
+    watch: {
+        currentPath: function () {
+            this.getHotsnackDetail()
+        },
     },
     methods: {
         getHotsnackDetail() {
