@@ -36,7 +36,14 @@
                 <br />
                 ＼展示作品を鑑賞しよう／
             </p>
-            <v-btn color="black" class="white--text" rounded large style="text-transform: none">
+            <v-btn
+                color="black"
+                class="white--text"
+                rounded
+                large
+                style="text-transform: none"
+                href="/hotsnack/1390563_1996"
+            >
                 <v-icon>mdi-bank</v-icon>
                 <span class="m-font white--text ml-2">美術館に入る</span>
             </v-btn>
