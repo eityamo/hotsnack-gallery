@@ -11,7 +11,7 @@ module ApplicationHelper
         description: 'HOTSNACK GALLERYは、コンビニのレジ横で他人の視線を気にしながらホットスナックを選ぶ現在の社会課題を解決するために開館されました。気になるホットスナックをじっくり鑑賞しよう♪',
         type: 'website',
         url: request.original_url,
-        image: image_url('ogp.png'),
+        image: '/img/ogp.jpg',
         locale: 'ja_JP'
       },
       twitter: {
