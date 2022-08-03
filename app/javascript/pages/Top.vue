@@ -17,9 +17,7 @@
                 <v-container class="inline">
                     <v-container class="baseline">
                         <v-container class="border">
-                            <v-img
-                                src="/img/TOP_TITLE.jpg"
-                            >
+                            <v-img src="/img/TOP_TITLE.jpg">
                                 <template v-slot:placeholder>
                                     <v-row class="fill-height ma-0" align="center" justify="center">
                                         <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
