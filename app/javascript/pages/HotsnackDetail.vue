@@ -64,9 +64,15 @@
                     <v-col align="center" class="xs-font pt-1 pb-2">{{ hotsnack.price }}円（税込）</v-col>
                     <hr class="hr2" />
                     <v-col align="center" class="s-font pt-2 pb-0">{{ hotsnack.store }}</v-col>
-                    <v-col align="center" class="xs-font pt-1 pb-0" v-if="hotsnack.store === 'セブン-イレブン'">1974年 - 現在</v-col>
-                    <v-col align="center" class="xs-font pt-1 pb-0" v-else-if="hotsnack.store === 'LAWSON'">1975年 - 現在</v-col>
-                    <v-col align="center" class="xs-font pt-1 pb-0" v-else-if="hotsnack.store === 'FamilyMart'">1973年 - 現在</v-col>
+                    <v-col align="center" class="xs-font pt-1 pb-0" v-if="hotsnack.store === 'セブン-イレブン'"
+                        >1974年 - 現在</v-col
+                    >
+                    <v-col align="center" class="xs-font pt-1 pb-0" v-else-if="hotsnack.store === 'LAWSON'"
+                        >1975年 - 現在</v-col
+                    >
+                    <v-col align="center" class="xs-font pt-1 pb-0" v-else-if="hotsnack.store === 'FamilyMart'"
+                        >1973年 - 現在</v-col
+                    >
                     <v-col align="center" class="xs-font pt-0 pb-2"
                         >{{ hotsnack.genre }} / {{ hotsnack.ingredient }}</v-col
                     >
@@ -94,7 +100,7 @@
                 </v-expand-transition>
             </v-card>
         </v-card>
-        <div v-else>該当のデータは存在しません</div>
+        <div v-else></div>
     </base-container>
 </template>
 
@@ -114,7 +120,7 @@ export default {
     },
     computed: {
         multiplyLikeCountAndPrice() {
-            return '¥' + this.hotsnack.price * this.hotsnack.like_count
+            return '¥' + (this.hotsnack.price * this.hotsnack.like_count).toLocaleString()
         },
         currentPath() {
             return this.$route.path
