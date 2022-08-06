@@ -11,11 +11,13 @@
             <br />
             そんな事態を解決するサービス
         </v-col>
-        <hr />
-        <v-card elevation="8" class="mx-4 my-10">
+
+        <hr class="hr1" />
+
+        <v-card height="242" elevation="8" class="mx-4 my-10">
             <v-container class="outline">
                 <v-container class="inline">
-                    <v-container class="baseline">
+                    <v-container class="block">
                         <v-container class="border">
                             <v-img src="/img/TOP_TITLE.jpg">
                                 <template v-slot:placeholder>
@@ -29,35 +31,56 @@
                 </v-container>
             </v-container>
         </v-card>
-        <hr />
+
+        <hr class="hr1" />
+
         <v-col align="center">
             <p class="s-font mb-2">
                 美術館に来館して
                 <br />
                 ＼展示作品を鑑賞しよう／
             </p>
-            <v-btn color="black" class="white--text" rounded large style="text-transform: none">
+            <v-btn
+                color="black"
+                class="white--text"
+                rounded
+                large
+                style="text-transform: none"
+                href="/hotsnack/1390563_1996"
+            >
                 <v-icon>mdi-bank</v-icon>
                 <span class="m-font white--text ml-2">美術館に入る</span>
             </v-btn>
             <p class="xs-font mt-2">※下の利用規約・プライバシーポリシーをご確認ください。</p>
         </v-col>
-        <hr />
+
+        <hr class="hr1" />
+
         <v-col align="center" class="mb-4">
-            <v-card-title class="pa-1 pb-3">
+            <v-card-title class="pa-1">
                 <v-icon>mdi-cards-diamond</v-icon>
-                <span class="s-font ml-1">ホットスナック美術館の使い方</span>
+                <span class="s-font ml-1">ホットスナック美術館の使い方({{ stepCount }}/3)</span>
             </v-card-title>
-            <v-card>
-                <v-carousel cycle :continuous="true" height="100%" light>
-                    <v-carousel-item v-for="(rule_image, i) in rule_images" :key="i">
-                        <img :src="rule_image" width="100%" height="100%" eager />
-                    </v-carousel-item>
-                </v-carousel>
-            </v-card>
+            <v-col align="center" class="pt-2">
+                <v-card height="300" color="transparent" outlined>
+                    <transition name="fade" mode="out-in">
+                        <v-img v-if="stepCount === 1" key="1" eager src="/img/rules/rule_0.jpg" />
+                        <v-img v-else-if="stepCount === 2" key="2" eager src="/img/rules/rule_1.jpg" />
+                        <v-img v-else-if="stepCount === 3" key="3" eager src="/img/rules/rule_2.jpg" />
+                    </transition>
+                </v-card>
+            </v-col>
+            <v-col v-if="stepCount === 3" align="center" class="pb-0">
+                <v-btn color="white" @click="handleCloseModal">初めへ</v-btn>
+            </v-col>
+            <v-col v-else align="center" class="pb-0">
+                <v-btn color="white" name="card-next-button" @click="nextStepCount">次へ</v-btn>
+            </v-col>
         </v-col>
-        <hr />
-        <v-col align="center" class="my-4">
+
+        <hr class="hr1" />
+
+        <v-col align="center">
             <v-card-title class="pa-1 pb-3">
                 <v-icon>mdi-cards-spade</v-icon>
                 <span class="s-font ml-1">ホットスナック美術館に来館してほしい人</span>
@@ -73,7 +96,9 @@
                 <v-col class="p-font" align="center">レジに向かったと間違われ、気まずい思いをした人。</v-col>
             </v-card>
         </v-col>
-        <hr />
+
+        <hr class="hr1" />
+
         <v-card color="transparent" outlined>
             <v-card-actions class="justify-center mt-2 mb-4">
                 <v-btn dense text @click="openModal('terms')">利用規約</v-btn>
@@ -103,7 +128,7 @@ export default {
                 type: null,
                 status: 'hidden',
             },
-            rule_images: ['/img/rules/rule_0.jpg', '/img/rules/rule_1.jpg', '/img/rules/rule_2.jpg'],
+            stepCount: 1,
         }
     },
     methods: {
@@ -119,6 +144,12 @@ export default {
                 status: 'visible',
             }
         },
+        nextStepCount() {
+            this.stepCount++
+        },
+        handleCloseModal() {
+            this.stepCount = 1
+        },
     },
     computed: {
         getModalVisible() {
@@ -129,7 +160,7 @@ export default {
 </script>
 
 <style scoped>
-hr {
+.hr1 {
     border: none;
     height: 20px;
     width: 90%;
@@ -169,7 +200,7 @@ hr {
     padding: 6%;
     box-shadow: inset 0px 0.3em 0.1em rgba(0, 0, 0, 0.2);
 }
-.baseline {
+.block {
     display: block;
 }
 .inline {
@@ -184,5 +215,19 @@ hr {
     background: #f8f8f8;
     z-index: -2;
     box-shadow: 0px 2em 4em 0.5em rgba(0, 0, 0, 0.1), inset 0 0.2em 0.1em #fff;
+}
+.fade-enter-active {
+    transition: all 0.5s ease;
+}
+.fade-leave-active {
+    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.fade-enter {
+    transform: translateX(15px);
+    opacity: 0;
+}
+.fade-leave-to {
+    transform: translateX(-10px);
+    opacity: 0;
 }
 </style>
