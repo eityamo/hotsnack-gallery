@@ -54,7 +54,7 @@ export default {
 
             await this.$router.push({ name: 'HotsnackDetail', params: { item_uuid: this.randomUuid } })
             // ランダムボタンのデバウンス対応
-            setTimeout(() => (this.canClickRandomButton = false), 500)
+            setTimeout(() => (this.canClickRandomButton = false), 1000)
         },
         async fetchRandomHotsnack() {
             try {
