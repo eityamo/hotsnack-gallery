@@ -47,7 +47,7 @@
                     </v-col>
                 </v-row>
 
-                <hr class="hr1" />
+                <base-divider />
 
                 <v-card class="ma-10" color="#f6f5ee" outlined>
                     <v-container class="outline">
@@ -95,7 +95,7 @@
 
                     <v-expand-transition>
                         <div v-show="show">
-                            <hr class="hr1" />
+                            <base-divider />
                             <v-card-text>{{ hotsnack.description }}</v-card-text>
                         </div>
                     </v-expand-transition>
@@ -107,6 +107,7 @@
 </template>
 
 <script>
+import { BaseDivider } from '../components/atom/dividers/index'
 import BaseTransition from '../components/atom/transitions/BaseTransition.vue'
 import { BaseContainer } from '../components/layout'
 
@@ -115,6 +116,7 @@ export default {
     components: {
         BaseContainer,
         BaseTransition,
+        BaseDivider,
     },
     data() {
         return {
@@ -211,16 +213,6 @@ export default {
         0px 3em 2em -1em rgba(0, 0, 0, 0.2), 0px 4em 1.5em -1em rgba(0, 0, 0, 0.15),
         0px 2em 4em 0.5em rgba(0, 0, 0, 0.1), inset 0 0.2em 0.1em #fff;
 }
-.hr1 {
-    border: none;
-    height: 20px;
-    width: 90%;
-    height: 50px;
-    margin-top: 0;
-    border-bottom: 1px solid #1f1209;
-    box-shadow: 0 20px 20px -20px #333;
-    margin: -50px auto 10px;
-}
 .hr2 {
     border: none;
     width: 90%;
@@ -239,8 +231,5 @@ export default {
     font-weight: lighter;
     line-height: 1.5;
     color: #2c281e;
-}
-.center {
-    text-align: center;
 }
 </style>

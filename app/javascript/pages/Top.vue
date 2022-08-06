@@ -12,7 +12,7 @@
             そんな事態を解決するサービス
         </v-col>
 
-        <hr class="hr1" />
+        <base-divider />
 
         <v-card height="242" elevation="8" class="mx-4 my-10">
             <v-container class="outline">
@@ -32,7 +32,7 @@
             </v-container>
         </v-card>
 
-        <hr class="hr1" />
+        <base-divider />
 
         <v-col align="center">
             <p class="s-font mb-2">
@@ -54,7 +54,7 @@
             <p class="xs-font mt-2">※下の利用規約・プライバシーポリシーをご確認ください。</p>
         </v-col>
 
-        <hr class="hr1" />
+        <base-divider />
 
         <v-col align="center" class="mb-4">
             <v-card-title class="pa-1">
@@ -78,7 +78,7 @@
             </v-col>
         </v-col>
 
-        <hr class="hr1" />
+        <base-divider />
 
         <v-col align="center">
             <v-card-title class="pa-1 pb-3">
@@ -97,7 +97,7 @@
             </v-card>
         </v-col>
 
-        <hr class="hr1" />
+        <base-divider />
 
         <v-card color="transparent" outlined>
             <v-card-actions class="justify-center mt-2 mb-4">
@@ -114,6 +114,7 @@
 <script>
 import { TheTerms, ThePrivacyPolicy } from '../components/static'
 import { BaseContainer } from '../components/layout'
+import { BaseDivider } from '../components/atom/dividers/index'
 
 export default {
     name: 'Top',
@@ -121,6 +122,7 @@ export default {
         BaseContainer,
         TheTerms,
         ThePrivacyPolicy,
+        BaseDivider,
     },
     data() {
         return {
@@ -160,16 +162,6 @@ export default {
 </script>
 
 <style scoped>
-.hr1 {
-    border: none;
-    height: 20px;
-    width: 90%;
-    height: 50px;
-    margin-top: 0;
-    border-bottom: 1px solid #1f1209;
-    box-shadow: 0 20px 20px -20px #333;
-    margin: -50px auto 10px;
-}
 .p-font {
     font-size: 0.7em;
     color: #2c281e;
