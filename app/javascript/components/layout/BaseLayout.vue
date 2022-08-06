@@ -1,17 +1,21 @@
 <template>
     <v-app>
-        <the-header />
-        <v-main>
-            <transition name="fade" mode="out-in">
-                <router-view />
-            </transition>
-            <v-row class="ma-6" />
-        </v-main>
-        <the-footer />
+        <base-transition>
+            <div v-if="isContainerElementVisible">
+                <the-header />
+                <v-main>
+                    <base-transition>
+                        <router-view />
+                    </base-transition>
+                </v-main>
+                <the-footer />
+            </div>
+        </base-transition>
     </v-app>
 </template>
 
 <script>
+import { BaseTransition } from '../atom/transitions/index'
 import { TheHeader, TheBottomNavigation, TheFooter } from '../shared'
 
 export default {
@@ -20,23 +24,16 @@ export default {
         TheHeader,
         TheBottomNavigation,
         TheFooter,
+        BaseTransition,
+    },
+    data() {
+        return {
+            isContainerElementVisible: false,
+        }
+    },
+    created() {
+        // 最初のページ表示時のトランジション実行時間
+        setTimeout(() => (this.isContainerElementVisible = true), 500)
     },
 }
 </script>
-
-<style scoped>
-.fade-enter-active {
-    transition: all 0.5s ease;
-}
-.fade-leave-active {
-    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.fade-enter {
-    transform: translateX(15px);
-    opacity: 0;
-}
-.fade-leave-to {
-    transform: translateX(-10px);
-    opacity: 0;
-}
-</style>
