@@ -2,8 +2,8 @@
     <base-container>
         <v-col align="center" class="s-font my-4">
             <v-card-title class="pa-1 pb-3">
-                <v-icon>mdi-cards-club</v-icon>
-                <span class="s-font ml-1">ホットスナック美術館のコンセプト</span>
+                <v-icon>mdi-bookmark</v-icon>
+                <span class="s-font ml-1">ホットスナック美術館について</span>
             </v-card-title>
             コンビニのホットスナック
             <br />
@@ -58,23 +58,23 @@
 
         <v-col align="center" class="mb-4">
             <v-card-title class="pa-1">
-                <v-icon>mdi-cards-diamond</v-icon>
+                <v-icon>mdi-bookmark</v-icon>
                 <span class="s-font ml-1">ホットスナック美術館の使い方({{ stepCount }}/3)</span>
             </v-card-title>
             <v-col align="center" class="pt-2">
                 <v-card height="300" color="transparent" outlined>
                     <transition name="fade" mode="out-in">
-                        <v-img v-if="stepCount === 1" key="1" eager src="/img/rules/rule_0.jpg" />
+                        <v-img v-if="stepCount === 1" key="1" eager src="/img/rules/rule_1.jpg" />
                         <v-img v-else-if="stepCount === 2" key="2" eager src="/img/rules/rule_1.jpg" />
-                        <v-img v-else-if="stepCount === 3" key="3" eager src="/img/rules/rule_2.jpg" />
+                        <v-img v-else-if="stepCount === 3" key="3" eager src="/img/rules/rule_1.jpg" />
                     </transition>
                 </v-card>
             </v-col>
             <v-col v-if="stepCount === 3" align="center" class="pb-0">
-                <v-btn color="white" @click="handleCloseModal">初めへ</v-btn>
+                <v-btn rounded color="white" @click="handleCloseModal">初めへ</v-btn>
             </v-col>
             <v-col v-else align="center" class="pb-0">
-                <v-btn color="white" name="card-next-button" @click="nextStepCount">次へ</v-btn>
+                <v-btn rounded color="white" name="card-next-button" @click="nextStepCount">次へ</v-btn>
             </v-col>
         </v-col>
 
@@ -82,7 +82,7 @@
 
         <v-col align="center">
             <v-card-title class="pa-1 pb-3">
-                <v-icon>mdi-cards-spade</v-icon>
+                <v-icon>mdi-bookmark</v-icon>
                 <span class="s-font ml-1">ホットスナック美術館に来館してほしい人</span>
             </v-card-title>
             <v-card color="transparent" outlined>
@@ -100,10 +100,10 @@
         <base-divider />
 
         <v-card color="transparent" outlined>
-            <v-card-actions class="justify-center mt-2 mb-4">
-                <v-btn dense text @click="openModal('terms')">利用規約</v-btn>
-                <v-btn dense text @click="openModal('privacypolicy')">プライバシーポリシー</v-btn>
-                <v-btn dense text href="https://twitter.com/eityamo">問い合わせ</v-btn>
+            <v-card-actions class="justify-center">
+                <v-btn text class="ml-0" @click="openModal('terms')">利用規約</v-btn>
+                <v-btn text class="ml-0" @click="openModal('privacypolicy')">プライバシーポリシー</v-btn>
+                <v-btn text class="ml-0" href="https://twitter.com/eityamo">問い合わせ</v-btn>
             </v-card-actions>
         </v-card>
         <the-terms :is-visible="getModalVisible('terms')" @close-terms-modal="closeModal" />

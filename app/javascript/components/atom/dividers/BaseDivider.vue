@@ -16,7 +16,7 @@ export default {
     height: 50px;
     margin-top: 0;
     border-bottom: 1px solid #1f1209;
-    box-shadow: 0 20px 20px -20px #333;
+    box-shadow: 0 10px 10px -10px #333;
     margin: -50px auto 10px;
 }
 </style>
