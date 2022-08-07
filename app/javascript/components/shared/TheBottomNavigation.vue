@@ -6,7 +6,7 @@
             <v-icon>mdi-bank</v-icon>
         </v-btn>
 
-        <v-btn value="random" @click="hundleRandomButton" :disabled="canClickRandomButton">
+        <v-btn value="random" @click="hundleRandomButton" :disabled="disabledRandomButton">
             <span>Random</span>
 
             <v-icon>mdi-palette-swatch</v-icon>
@@ -32,7 +32,7 @@ export default {
     data() {
         return {
             randomUuid: '',
-            canClickRandomButton: false,
+            disabledRandomButton: false,
         }
     },
     computed: {
@@ -50,15 +50,15 @@ export default {
     },
     methods: {
         async hundleRandomButton() {
-            this.canClickRandomButton = false
+            this.disabledRandomButton = true
 
             await this.$router.push({ name: 'HotsnackDetail', params: { item_uuid: this.randomUuid } })
             // ランダムボタンのデバウンス対応
-            setTimeout(() => (this.canClickRandomButton = true), 1000)
+            setTimeout(() => (this.disabledRandomButton = false), 1000)
         },
         async fetchRandomHotsnack() {
             try {
-                canClickRandomButton = false
+                this.disabledRandomButton = true
                 const { data: uuid } = await this.$axios.get('/random')
 
                 // API取得したUUIDと現在のURLのUUIDが一致した時には、再帰的に処理を行う
@@ -71,7 +71,7 @@ export default {
             } catch (error) {
                 console.error(error)
             } finally {
-                this.canClickRandomButton = true
+                this.disabledRandomButton = false
             }
         },
     },
