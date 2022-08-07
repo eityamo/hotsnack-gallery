@@ -58,8 +58,7 @@ export default {
         },
         async fetchRandomHotsnack() {
             try {
-                this.disabledRandomButton = true
-                const { data: uuid } = await this.$axios.get('/random')
+                const { data: uuid, status } = await this.$axios.get('/random')
 
                 // API取得したUUIDと現在のURLのUUIDが一致した時には、再帰的に処理を行う
                 if (this.$route.path === `/hotsnack/${uuid}`) {
@@ -67,11 +66,14 @@ export default {
                     return
                 }
 
+                // status === 304の時にcatchに処理を移す
+                if (status !== 200) {
+                    throw new Error()
+                }
+
                 this.randomUuid = uuid
             } catch (error) {
                 console.error(error)
-            } finally {
-                this.disabledRandomButton = false
             }
         },
     },

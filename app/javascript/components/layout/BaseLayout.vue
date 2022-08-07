@@ -1,9 +1,11 @@
 <template>
     <v-app>
+        <!-- 画面初期描画時のトランジション -->
         <base-transition>
             <div v-if="isContainerElementVisible">
                 <the-header />
                 <v-main>
+                    <!-- Navigation遷移時のトランジション -->
                     <base-transition>
                         <router-view />
                     </base-transition>
