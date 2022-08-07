@@ -50,14 +50,15 @@ export default {
     },
     methods: {
         async hundleRandomButton() {
-            this.canClickRandomButton = true
+            this.canClickRandomButton = false
 
             await this.$router.push({ name: 'HotsnackDetail', params: { item_uuid: this.randomUuid } })
             // ランダムボタンのデバウンス対応
-            setTimeout(() => (this.canClickRandomButton = false), 1000)
+            setTimeout(() => (this.canClickRandomButton = true), 1000)
         },
         async fetchRandomHotsnack() {
             try {
+                canClickRandomButton = false
                 const { data: uuid } = await this.$axios.get('/random')
 
                 // API取得したUUIDと現在のURLのUUIDが一致した時には、再帰的に処理を行う
@@ -69,6 +70,8 @@ export default {
                 this.randomUuid = uuid
             } catch (error) {
                 console.error(error)
+            } finally {
+                this.canClickRandomButton = true
             }
         },
     },
