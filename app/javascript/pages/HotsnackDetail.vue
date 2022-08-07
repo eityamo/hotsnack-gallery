@@ -1,7 +1,7 @@
 <template>
     <base-container>
         <base-transition>
-            <v-card class="mx-auto" max-width="375" color="#f6f5ee" outlined v-if="!isLoading && hotsnack.id">
+            <v-card class="mx-auto" max-width="375" color="#f6f5ee" outlined v-if="!isLoading && hotsnack">
                 <v-row justify="center" align="center" class="mt-8 mx-4">
                     <v-col cols="6" class="pa-0">
                         <v-card outlined color="#f6f5ee">
@@ -74,9 +74,7 @@
                         <v-col align="center" class="xs-font pt-1 pb-0" v-else-if="hotsnack.store === 'FamilyMart'"
                             >1973年 - 現在</v-col
                         >
-                        <v-col align="center" class="xs-font pt-0 pb-2"
-                            >{{ hotsnack.genre }} / {{ hotsnack.ingredient }}</v-col
-                        >
+                        <v-col align="center" class="xs-font pt-0 pb-2">{{ hotsnackCategoryDetail }}</v-col>
                     </v-card>
 
                     <v-card-actions>
@@ -108,7 +106,7 @@
 
 <script>
 import { BaseDivider } from '../components/atom/dividers/index'
-import BaseTransition from '../components/atom/transitions/BaseTransition.vue'
+import { BaseTransition } from '../components/atom/transitions/index'
 import { BaseContainer } from '../components/layout'
 
 export default {
@@ -129,6 +127,9 @@ export default {
         multiplyLikeCountAndPrice() {
             return '¥' + (this.hotsnack.price * this.hotsnack.like_count).toLocaleString()
         },
+        hotsnackCategoryDetail() {
+            return this.hotsnack.genre + ' / ' + this.hotsnack.ingredient
+        },
         currentPath() {
             return this.$route.path
         },
@@ -136,6 +137,7 @@ export default {
     mounted() {
         this.getHotsnackDetail()
     },
+    // データの変更を監視
     watch: {
         currentPath: function () {
             this.getHotsnackDetail()
