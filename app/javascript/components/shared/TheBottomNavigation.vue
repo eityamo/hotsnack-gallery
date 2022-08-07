@@ -60,15 +60,15 @@ export default {
             try {
                 const { data: uuid, status } = await this.$axios.get('/random')
 
+                // status === 304の時にcatchに処理を移す
+                if (status !== 200) {
+                    throw new Error()
+                }
+
                 // API取得したUUIDと現在のURLのUUIDが一致した時には、再帰的に処理を行う
                 if (this.$route.path === `/hotsnack/${uuid}`) {
                     await this.fetchRandomHotsnack()
                     return
-                }
-
-                // status === 304の時にcatchに処理を移す
-                if (status !== 200) {
-                    throw new Error()
                 }
 
                 this.randomUuid = uuid
