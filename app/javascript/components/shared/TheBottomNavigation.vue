@@ -6,7 +6,7 @@
             <v-icon>mdi-bank</v-icon>
         </v-btn>
 
-        <v-btn value="random" @click="hundleRandomButton" :disabled="canClickRandomButton">
+        <v-btn value="random" @click="hundleRandomButton" :disabled="disabledRandomButton">
             <span>Random</span>
 
             <v-icon>mdi-palette-swatch</v-icon>
@@ -32,7 +32,7 @@ export default {
     data() {
         return {
             randomUuid: '',
-            canClickRandomButton: false,
+            disabledRandomButton: false,
         }
     },
     computed: {
@@ -50,15 +50,20 @@ export default {
     },
     methods: {
         async hundleRandomButton() {
-            this.canClickRandomButton = true
+            this.disabledRandomButton = true
 
             await this.$router.push({ name: 'HotsnackDetail', params: { item_uuid: this.randomUuid } })
             // ランダムボタンのデバウンス対応
-            setTimeout(() => (this.canClickRandomButton = false), 500)
+            setTimeout(() => (this.disabledRandomButton = false), 1000)
         },
         async fetchRandomHotsnack() {
             try {
-                const { data: uuid } = await this.$axios.get('/random')
+                const { data: uuid, status } = await this.$axios.get('/random')
+
+                // status === 304の時にcatchに処理を移す
+                if (status !== 200) {
+                    throw new Error()
+                }
 
                 // API取得したUUIDと現在のURLのUUIDが一致した時には、再帰的に処理を行う
                 if (this.$route.path === `/hotsnack/${uuid}`) {

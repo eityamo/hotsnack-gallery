@@ -1,5 +1,6 @@
 <template>
     <base-container>
+        <!-- ランダムボタンを複数回クリックした時のトランジション -->
         <base-transition>
             <v-card class="mx-auto" max-width="375" color="#f6f5ee" outlined v-if="!isLoading && hotsnack">
                 <v-row justify="center" align="center" class="mt-8 mx-4">
@@ -99,8 +100,8 @@
                     </v-expand-transition>
                 </v-card>
             </v-card>
-            <p v-if="!hotsnack.id">美術品は見つかりませんでした</p>
         </base-transition>
+        <p v-if="!hotsnack.id">美術品は見つかりませんでした</p>
     </base-container>
 </template>
 
