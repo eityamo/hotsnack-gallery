@@ -61,12 +61,12 @@
                 <v-icon>mdi-bookmark</v-icon>
                 <span class="s-font ml-1">ホットスナック美術館の使い方({{ stepCount }}/3)</span>
             </v-card-title>
-            <v-col align="center" class="pt-2">
-                <v-card height="300" color="transparent" outlined>
+            <v-col align="center" class="pt-2 mb-4">
+                <v-card height="350" color="transparent" outlined>
                     <transition name="fade" mode="out-in">
-                        <v-img v-if="stepCount === 1" key="1" eager src="/img/rules/rule_1.jpg" />
-                        <v-img v-else-if="stepCount === 2" key="2" eager src="/img/rules/rule_1.jpg" />
-                        <v-img v-else-if="stepCount === 3" key="3" eager src="/img/rules/rule_1.jpg" />
+                        <v-img v-if="stepCount === 1" key="1" eager src="/img/rules/Rule_1.png" />
+                        <v-img v-else-if="stepCount === 2" key="2" eager src="/img/rules/Rule_2.png" />
+                        <v-img v-else-if="stepCount === 3" key="3" eager src="/img/rules/Rule_3.png" />
                     </transition>
                 </v-card>
             </v-col>
