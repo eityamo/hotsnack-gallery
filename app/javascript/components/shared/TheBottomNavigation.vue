@@ -18,7 +18,7 @@
             <v-icon>mdi-palette</v-icon>
         </v-btn>
 
-        <v-btn value="share">
+        <v-btn value="share" @click="twitterShare">
             <span>Share</span>
 
             <v-icon>mdi-twitter</v-icon>
@@ -75,6 +75,18 @@ export default {
             } catch (error) {
                 console.error(error)
             }
+        },
+        twitterShare() {
+            var shareURL =
+                'https://twitter.com/intent/tweet?text=' +
+                'コンビニのレジ横で急いでホットスナックを選ばないといけない...' +
+                '%0a' +
+                'ホットスナック美術館はそんな課題を解決いたします' +
+                '%0a' +
+                '%23ホットスナック私立美術館' +
+                '%0a' +
+                'https://www.hotsnack-gallery.com/'
+            window.open(shareURL, '_blank')
         },
     },
 }
