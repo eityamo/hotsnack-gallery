@@ -82,7 +82,7 @@
                         <v-col class="pa-0">
                             作品解説
                             <v-btn icon>
-                                <v-icon icon>mdi-volume-high</v-icon>
+                                <v-icon icon @click="onSpeakHotsnackDescription">mdi-volume-high</v-icon>
                             </v-btn>
                         </v-col>
                         <v-spacer></v-spacer>
@@ -122,6 +122,7 @@ export default {
             show: true,
             hotsnack: {},
             isLoading: false,
+            voices: [],
         }
     },
     computed: {
@@ -179,6 +180,11 @@ export default {
                     }
                 })
                 .catch((error) => console.log(error))
+        },
+        onSpeakHotsnackDescription() {
+            const utterance = new SpeechSynthesisUtterance(this.$data.hotsnack.description)
+            utterance.voice = this.$data.voices[0]
+            speechSynthesis.speak(utterance)
         },
     },
 }
