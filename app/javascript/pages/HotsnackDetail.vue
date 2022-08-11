@@ -81,10 +81,8 @@
                     <v-card-actions>
                         <v-col class="pa-0">
                             作品解説
-                            <v-btn icon>
-                                <v-icon icon @click="onSpeakHotsnackDescription" :disabled="disabledDescriptionButton"
-                                    >mdi-volume-high</v-icon
-                                >
+                            <v-btn icon :disabled="disabledDescriptionButton">
+                                <v-icon icon @click="onSpeakHotsnackDescription">mdi-volume-high</v-icon>
                             </v-btn>
                         </v-col>
                         <v-spacer></v-spacer>
@@ -190,6 +188,8 @@ export default {
             utterance.voice = this.$data.voices[0]
             speechSynthesis.speak(utterance)
             // 音声ボタンのデバウンス対応
+            // this.disabledDescriptionButton = false
+            // console.log(speak)
             setTimeout(() => (this.disabledDescriptionButton = false), 3000)
         },
     },
