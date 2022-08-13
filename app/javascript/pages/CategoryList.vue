@@ -1,19 +1,18 @@
 <template>
-    <base-container>
-        <p>すみません、、、実装してません</p>
-    </base-container>
+    <div>
+        <input v-model.number="num" type="number" />
+        <animated-number :value="num" />
+    </div>
 </template>
 
 <script>
-import { BaseContainer } from '../components/layout'
-
+import AnimatedNumber from '../components/atom/numbers/AnimatedNumber.vue'
 export default {
-    name: 'CategoryList',
-    components: {
-        BaseContainer,
-    },
+    components: { AnimatedNumber },
     data() {
-        return {}
+        return {
+            num: 0,
+        }
     },
 }
 </script>
