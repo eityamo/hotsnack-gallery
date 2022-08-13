@@ -14,8 +14,8 @@
                     <v-col class="pa-0">
                         <v-card outlined color="#f6f5ee">
                             <div class="text-center">
-                                <v-btn icon>
-                                    <v-icon icon @click="addLikeCount">mdi-thumb-up</v-icon>
+                                <v-btn icon @click="addLikeCount">
+                                    <v-icon icon>mdi-thumb-up</v-icon>
                                 </v-btn>
                             </div>
                         </v-card>
@@ -23,8 +23,8 @@
                     <v-col class="pa-0">
                         <v-card outlined color="#f6f5ee">
                             <div class="text-center">
-                                <v-btn icon>
-                                    <v-icon icon @click="addDislikeCount">mdi-thumb-down</v-icon>
+                                <v-btn icon @click="addDislikeCount">
+                                    <v-icon icon>mdi-thumb-down</v-icon>
                                 </v-btn>
                             </div>
                         </v-card>
@@ -33,7 +33,7 @@
                 <v-row justify="center" align="center" class="mb-4 mx-4">
                     <v-col cols="6" class="pa-0">
                         <v-card outlined color="#f6f5ee">
-                            <div class="text-center">{{ multiplyLikeCountAndPrice }}</div>
+                            <div class="text-center"><animated-number :value="multiplyLikeCountAndPrice" /> 円</div>
                         </v-card>
                     </v-col>
                     <v-col class="pa-0">
@@ -81,8 +81,8 @@
                     <v-card-actions>
                         <v-col class="pa-0">
                             作品解説
-                            <v-btn icon :disabled="disabledDescriptionButton">
-                                <v-icon icon @click="onSpeakHotsnackDescription">mdi-volume-high</v-icon>
+                            <v-btn icon @click="onSpeakHotsnackDescription" :disabled="disabledDescriptionButton">
+                                <v-icon icon>mdi-volume-high</v-icon>
                             </v-btn>
                         </v-col>
                         <v-spacer></v-spacer>
@@ -109,6 +109,7 @@
 import { BaseDivider } from '../components/atom/dividers/index'
 import { BaseTransition } from '../components/atom/transitions/index'
 import { BaseContainer } from '../components/layout'
+import { AnimatedNumber } from '../components/atom/numbers/index'
 
 export default {
     name: 'HotsnackDetail',
@@ -116,6 +117,7 @@ export default {
         BaseContainer,
         BaseTransition,
         BaseDivider,
+        AnimatedNumber,
     },
     data() {
         return {
@@ -128,7 +130,7 @@ export default {
     },
     computed: {
         multiplyLikeCountAndPrice() {
-            return '¥' + (this.hotsnack.price * this.hotsnack.like_count).toLocaleString()
+            return (this.hotsnack.price * this.hotsnack.like_count)
         },
         hotsnackCategoryDetail() {
             return this.hotsnack.genre + ' / ' + this.hotsnack.ingredient
