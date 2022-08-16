@@ -22,13 +22,7 @@
                 <v-container class="inline">
                     <v-container class="block">
                         <v-container class="border">
-                            <v-img src="/img/TOP_TITLE.jpg">
-                                <template v-slot:placeholder>
-                                    <v-row class="fill-height ma-0" align="center" justify="center">
-                                        <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-                                    </v-row>
-                                </template>
-                            </v-img>
+                            <v-img src="/img/TOP_TITLE.jpg" />
                         </v-container>
                     </v-container>
                 </v-container>
@@ -139,7 +133,7 @@ export default {
             stepCount: 1,
             concept:
                 'あなたはコンビニエンスストアのホットスナックを買う時に、じっくり選んで注文をしてますか？コンビニ横では周りの人の目が気になって！なかなか選べたもんじゃありません！そんな繊細で優しいかたのために！ホットスナック美術館！は開館されました！美術品のように額縁に入ったホットスナックをじっくり鑑賞し！コンビニ横の息苦しさから解放されましょう！',
-            target: 'ホットスナック美術館の対象者は、コンビニエンスストアでホットスナックを選んでいる時に、店員の視線が気になる人。ほかの客の邪魔になっていると感じる人。ホットスナックを選ぼうとレジ横に向かったら、レジに向かったと店員に間違われて気まずい思いをした経験がある人。',
+            target: 'ホットスナック美術館の対象者は、コンビニエンスストアでホットスナックを選んでいる時に、店員の視線が気になる人。ほかの客の邪魔になっていると感じる人。ホットスナックを選ぼうとレジ横に向かったら、レジに向かったと店員に間違われて気まずい思いをした経験がある人です。',
             disabledConceptButton: false,
         }
     },

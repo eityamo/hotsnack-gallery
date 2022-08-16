@@ -65,7 +65,7 @@
                         <v-col align="center" class="s-font pt-2 pb-0 msg-wrapper">{{ hotsnack.name }}</v-col>
                         <v-col align="center" class="xs-font pt-1 pb-2">{{ hotsnack.price }}円（税込）</v-col>
                         <hr class="hr2" />
-                        <v-col align="center" class="s-font pt-2 pb-0">{{ hotsnack.store }}</v-col>
+                        <v-col align="center" class="s-font pt-2 pb-0 Lusitana">{{ hotsnack.store }}</v-col>
                         <v-col align="center" class="xs-font pt-1 pb-0" v-if="hotsnack.store === 'セブン-イレブン'"
                             >1974年 - 現在</v-col
                         >
@@ -242,6 +242,9 @@ export default {
     font-weight: bold;
     line-height: 1;
     color: #2c281e;
+}
+.Lusitana {
+    font-family: 'Lusitana', cursive;
 }
 .xs-font {
     font-size: 0.55em;
