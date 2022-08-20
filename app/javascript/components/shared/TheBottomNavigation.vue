@@ -79,11 +79,11 @@ export default {
         twitterShare() {
             var shareURL =
                 'https://twitter.com/intent/tweet?text=' +
-                'コンビニのレジ横で急いでホットスナックを選ばないといけない...' +
+                'ユーザー参加型のバーチャル美術館' +
                 '%0a' +
-                'ホットスナック美術館はそんな課題を解決いたします' +
+                'あなたの査定がホットスナックの印象を変える' +
                 '%0a' +
-                '%23ホットスナック私立美術館' +
+                '%23ホットスナック美術館' +
                 '%0a' +
                 'https://www.hotsnack-gallery.com/'
             window.open(shareURL, '_blank')
