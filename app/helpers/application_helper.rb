@@ -11,7 +11,7 @@ module ApplicationHelper
         description: 'ホットスナック美術館は、コンビニのレジ横でホットスナックがじっくり選べないという社会課題を解決するために開館されました。美術品のように額縁に入ったホットスナックをじっくり鑑賞し、コンビニ横の息苦しさから解放されよう♪',
         type: 'website',
         url: request.original_url,
-        image: image_url('/img/ogp.jpeg'),
+        image: image_url('/img/ogp2.jpeg'),
         locale: 'ja_JP'
       },
       twitter: {
