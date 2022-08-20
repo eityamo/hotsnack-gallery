@@ -86,7 +86,7 @@
                 </v-btn>
             </v-card-title>
             <v-card color="transparent" outlined>
-                <v-col class="s-font" align="left">コンビニでホットスナックを選んでいる時に、、、</v-col>
+                <v-col class="s-font pt-0" align="left">コンビニでホットスナックを選んでいる時に、、、</v-col>
                 <v-col class="p-font" align="center">
                     店員の視線が気になる人。
                     <br />
