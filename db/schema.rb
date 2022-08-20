@@ -13,12 +13,11 @@
 ActiveRecord::Schema.define(version: 2022_07_28_061247) do
 
   create_table "areas", force: :cascade do |t|
+    t.boolean "all", default: true, null: false
     t.boolean "hokkaido", default: false, null: false
     t.boolean "tohoku", default: false, null: false
     t.boolean "kanto", default: false, null: false
-    t.boolean "koshinetsu", default: false, null: false
-    t.boolean "hokuriku", default: false, null: false
-    t.boolean "tokai", default: false, null: false
+    t.boolean "chubu", default: false, null: false
     t.boolean "kinki", default: false, null: false
     t.boolean "chugoku", default: false, null: false
     t.boolean "shikoku", default: false, null: false
