@@ -47,12 +47,12 @@
 
 ## ■ スケジュール  
 README~ER図作成：7/10〆切  
-メイン機能実装：7/20〆切  
-β版をRUNTEQ内リリース（MVP）：7/31〆切  
-本番リリース：8月15日  
+メイン機能実装：7/31〆切  
+β版をRUNTEQ内リリース（MVP）：8/8〆切  
+本番リリース：9月7日  
 
 ## ■画面遷移図  
 [画面遷移図](https://www.figma.com/file/0GYR4hAqbkxiboaOHawOCs/View-only?node-id=0%3A1)
 
 ## ■ ER図
-  [![image.png](https://i.gyazo.com/0876d22cf748872d464d193845c9dd95.png)](https://gyazo.com/0876d22cf748872d464d193845c9dd95)
+  [![image.png](https://i.gyazo.com/ecd7e7ed631730a07f896b044ba78ca1.png)](https://app.diagrams.net/#G1sYz-w-oDBOQSzUoUysFSrK26nGhCwPP6)

@@ -1,16 +1,7 @@
 class CreateAreas < ActiveRecord::Migration[6.1]
   def change
     create_table :areas do |t|
-      t.boolean :all, null: false, default: true
-      t.boolean :hokkaido, null: false, default: false
-      t.boolean :tohoku, null: false, default: false
-      t.boolean :kanto, null: false, default: false
-      t.boolean :chubu, null: false, default: false
-      t.boolean :kinki, null: false, default: false
-      t.boolean :chugoku, null: false, default: false
-      t.boolean :shikoku, null: false, default: false
-      t.boolean :kyushu, null: false, default: false
-      t.boolean :okinawa, null: false, default: false
+      t.string :name, null: false
 
       t.timestamps
     end
