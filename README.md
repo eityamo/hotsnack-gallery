@@ -55,4 +55,4 @@ README~ER図作成：7/10〆切
 [画面遷移図](https://www.figma.com/file/0GYR4hAqbkxiboaOHawOCs/View-only?node-id=0%3A1)
 
 ## ■ ER図
-  [![image.png](https://gyazo.com/ad7a022c058f3c1ecec4887378665c36.png)](https://gyazo.com/ad7a022c058f3c1ecec4887378665c36)
+  [![image.png](https://i.gyazo.com/ecd7e7ed631730a07f896b044ba78ca1.png)](https://app.diagrams.net/#G1sYz-w-oDBOQSzUoUysFSrK26nGhCwPP6)
