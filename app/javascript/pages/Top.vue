@@ -4,6 +4,9 @@
             <v-card-title class="pa-1 pb-3">
                 <v-icon>mdi-bookmark</v-icon>
                 <span class="s-font ml-1">ホットスナック美術館について</span>
+                <v-btn icon @click="onSpeakGalleryConcept" :disabled="disabledConceptButton">
+                    <v-icon icon>mdi-volume-high</v-icon>
+                </v-btn>
             </v-card-title>
             コンビニのホットスナック
             <br />
@@ -19,13 +22,7 @@
                 <v-container class="inline">
                     <v-container class="block">
                         <v-container class="border">
-                            <v-img src="/img/TOP_TITLE.jpg">
-                                <template v-slot:placeholder>
-                                    <v-row class="fill-height ma-0" align="center" justify="center">
-                                        <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-                                    </v-row>
-                                </template>
-                            </v-img>
+                            <v-img src="/img/TOP_TITLE.jpg" />
                         </v-container>
                     </v-container>
                 </v-container>
@@ -46,7 +43,7 @@
                 rounded
                 large
                 style="text-transform: none"
-                href="/hotsnack/1390563_1996"
+                @click="hundleKaragekunButton"
             >
                 <v-icon>mdi-bank</v-icon>
                 <span class="m-font white--text ml-2">美術館に入る</span>
@@ -83,10 +80,13 @@
         <v-col align="center">
             <v-card-title class="pa-1 pb-3">
                 <v-icon>mdi-bookmark</v-icon>
-                <span class="s-font ml-1">ホットスナック美術館に来館してほしい人</span>
+                <span class="s-font ml-1">ホットスナック美術館の来館対象者</span>
+                <v-btn icon @click="onSpeakGalleryTarget" :disabled="disabledConceptButton">
+                    <v-icon icon>mdi-volume-high</v-icon>
+                </v-btn>
             </v-card-title>
             <v-card color="transparent" outlined>
-                <v-col class="s-font" align="left">コンビニでホットスナックを選んでいる時に、、、</v-col>
+                <v-col class="s-font pt-0" align="left">コンビニでホットスナックを選んでいる時に、、、</v-col>
                 <v-col class="p-font" align="center">
                     店員の視線が気になる人。
                     <br />
@@ -131,6 +131,10 @@ export default {
                 status: 'hidden',
             },
             stepCount: 1,
+            concept:
+                'あなたはコンビニエンスストアのホットスナックを買う時に、じっくり選んで注文をしてますか？コンビニ横では周りの人の目が気になって！なかなか選べたもんじゃありません！そんな繊細で優しいかたのために！ホットスナック美術館！は開館されました！美術品のように額縁に入ったホットスナックをじっくり鑑賞し！コンビニ横の息苦しさから解放されましょう！',
+            target: 'ホットスナック美術館の対象者は、コンビニエンスストアでホットスナックを選んでいる時に、店員の視線が気になる人。ほかの客の邪魔になっていると感じる人。ホットスナックを選ぼうとレジ横に向かったら、レジに向かったと店員に間違われて気まずい思いをした経験がある人です。',
+            disabledConceptButton: false,
         }
     },
     methods: {
@@ -151,6 +155,23 @@ export default {
         },
         handleCloseModal() {
             this.stepCount = 1
+        },
+        onSpeakGalleryConcept() {
+            this.disabledConceptButton = true
+            const utterance = new SpeechSynthesisUtterance(this.$data.concept)
+            speechSynthesis.speak(utterance)
+            // 音声ボタンのデバウンス対応
+            setTimeout(() => (this.disabledConceptButton = false), 26000)
+        },
+        onSpeakGalleryTarget() {
+            this.disabledConceptButton = true
+            const utterance = new SpeechSynthesisUtterance(this.$data.target)
+            speechSynthesis.speak(utterance)
+            // 音声ボタンのデバウンス対応
+            setTimeout(() => (this.disabledConceptButton = false), 20000)
+        },
+        async hundleKaragekunButton() {
+            await this.$router.push({ name: 'HotsnackDetail', params: { item_uuid: '1390563_1996' } })
         },
     },
     computed: {

@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Lola&family=Lusitana&display=swap');
 #app {
     --background-color: #f6f5ee;
     background-color: var(--background-color);

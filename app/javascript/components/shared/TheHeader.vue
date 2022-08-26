@@ -2,7 +2,7 @@
     <header>
         <v-card color="grey lighten-4" flat tile light>
             <v-toolbar dense>
-                <v-toolbar-title>HOTSNACK GALLERY</v-toolbar-title>
+                <v-toolbar-title class="Lusitana">HOTSNACK GALLERY</v-toolbar-title>
                 <v-spacer />
                 <!--
                 <v-btn icon>
@@ -19,3 +19,9 @@ export default {
     name: 'TheHeader',
 }
 </script>
+
+<style scoped>
+.Lusitana {
+    font-family: 'Lusitana', cursive;
+}
+</style>

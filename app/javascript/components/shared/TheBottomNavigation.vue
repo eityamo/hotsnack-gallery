@@ -1,25 +1,25 @@
 <template>
     <v-row align="center" justify="center">
         <v-btn value="home" to="/">
-            <span>Gallely</span>
+            <span class="Lusitana">Gallely</span>
 
             <v-icon>mdi-bank</v-icon>
         </v-btn>
 
         <v-btn value="random" @click="hundleRandomButton" :disabled="disabledRandomButton">
-            <span>Random</span>
+            <span class="Lusitana">Random</span>
 
             <v-icon>mdi-palette-swatch</v-icon>
         </v-btn>
 
         <v-btn value="category" :to="{ name: 'CategoryList' }">
-            <span>Category</span>
+            <span class="Lusitana">Category</span>
 
             <v-icon>mdi-palette</v-icon>
         </v-btn>
 
         <v-btn value="share" @click="twitterShare">
-            <span>Share</span>
+            <span class="Lusitana">Share</span>
 
             <v-icon>mdi-twitter</v-icon>
         </v-btn>
@@ -79,11 +79,11 @@ export default {
         twitterShare() {
             var shareURL =
                 'https://twitter.com/intent/tweet?text=' +
-                'コンビニのレジ横で急いでホットスナックを選ばないといけない...' +
+                'ユーザー参加型のバーチャル美術館' +
                 '%0a' +
-                'ホットスナック美術館はそんな課題を解決いたします' +
+                'あなたの査定がホットスナックの印象を変える' +
                 '%0a' +
-                '%23ホットスナック私立美術館' +
+                '%23ホットスナック美術館' +
                 '%0a' +
                 'https://www.hotsnack-gallery.com/'
             window.open(shareURL, '_blank')
@@ -91,3 +91,9 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.Lusitana {
+    font-family: 'Lusitana', cursive;
+}
+</style>
