@@ -171,7 +171,7 @@ export default {
             setTimeout(() => (this.disabledConceptButton = false), 20000)
         },
         async hundleKaragekunButton() {
-            await this.$router.push({ name: 'HotsnackDetail', params: { item_uuid: '1390563_1996' } })
+            await this.$router.push({ name: 'HotsnackDetail', params: { item_uuid: 'l456071_5' } })
         },
     },
     computed: {

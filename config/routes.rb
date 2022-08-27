@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'random', to: 'hotsnacks#random'
       get 'hotsnack/:item_uuid', to: 'hotsnacks#show'
-      put 'hotsnack/:item_uuid/like', to: 'hotsnacks#like'
-      put 'hotsnack/:item_uuid/dislike', to: 'hotsnacks#dislike'
+      put 'hotsnack/:item_uuid/like', to: 'likes#create'
+      put 'hotsnack/:item_uuid/dislike', to: 'dislikes#create'
     end
   end
 
