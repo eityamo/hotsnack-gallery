@@ -5,7 +5,7 @@ id,item_uuid,name,price,description,image,ingredient,genre,store,country
 4,150093,明太チーズいももち,108,明太子とチーズをもちもち生地で包んだいももちです。さっくり軽い衣で小腹がすいた時にスナック感覚で楽しめる商品に仕上げました。,https://img.7api-01.dp1.sej.co.jp/item-image/150093/8595034D599371061AC4036173EC5D6B.jpg,明太子,変わり種,セブン-イレブン,日本
 5,150188,炭火焼き鳥串もも塩,150,まろやかな味が特長の国産の藻塩を使用し、炭火でふっくら香ばしく焼き上げた焼き鳥です。,https://img.7api-01.dp1.sej.co.jp/item-image/150188/A78A01BA30C0466B85D53FF7B046F2F3.jpg,鶏肉,焼き鳥,セブン-イレブン,日本
 6,150062,サックサク衣の牛肉コロッケ,100,サクッとした軽い食感とくちどけの良さにこだわった衣を使用しており、北海道産じゃがいもと牛肉の美味しさがしっかり感じられるコロッケです。,https://img.7api-01.dp1.sej.co.jp/item-image/150062/910CA61345C575A2CDEDA68A518369BC.jpg,牛肉,コロッケ,セブン-イレブン,日本
-7,150317,ななから（もも）,70,薄衣に仕立て、柔らかジューシーなから揚げです。醤油・生姜・にんにくの味付けでご飯のおかずにもピッタリな味付けに仕上げました。,https://img.7api-01.dp1.sej.co.jp/item-image/150317/97C750B996C11A199090775259DB672B.jpg,鶏肉,フライドチキン,セブン-イレブン,日本
+7,150317,ななから（もも）,70,薄衣に仕立て、柔らかジューシーなから揚げです。醤油・生姜・にんにくの味付けでご飯のおかずにもピッタリな味付けに仕上げました。,https://img.7api-01.dp1.sej.co.jp/item-image/150317/97C750B996C11A199090775259DB672B.jpg,鶏肉,からあげ,セブン-イレブン,日本
 8,150073,揚げ鶏,220,パリっとした薄衣で肉の旨みを閉じ込めました。おかず、軽食どちらにもおすすめです！,https://img.7api-01.dp1.sej.co.jp/item-image/150073/5A34147F3C5AB30DDF8A10649D102EDD.jpg,鶏肉,フライドチキン,セブン-イレブン,日本
 9,150042,からあげ棒,180,ブレンドした醤油で味付けする事で、香ばしい風味のからあげに仕上げました。スナックのような衣のサクサク感が楽しめる片手で食べやすい商品です。,https://img.7api-01.dp1.sej.co.jp/item-image/150042/CD868B71CCF635B622FA0978DBDE952E.jpg,鶏肉,からあげ,セブン-イレブン,日本
 10,150213,ビッグアメリカンドッグ,131,原材料の高騰により、価格を１００円（税抜）から１２１円（税抜）に変更いたします。外はカリっと香ばしく、ほんのり甘いバニラの風味が感じられるアメリカンドッグです。,https://img.7api-01.dp1.sej.co.jp/item-image/150213/FFF0E045BFBA39F5220115A8A3D5E7BA.jpg,豚肉,フランク,セブン-イレブン,日本
@@ -13,18 +13,18 @@ id,item_uuid,name,price,description,image,ingredient,genre,store,country
 12,150152,ななチキレッド,230,ザクザク食感の衣と、唐辛子とガーリックでやみつきになる辛さの美味しいフライドチキンです。,https://img.7api-01.dp1.sej.co.jp/item-image/150152/B82A176B57E7A98B026142CC4161E484.jpg,鶏肉,フライドチキン,セブン-イレブン,日本
 13,150227,柿安監修\r\n秘伝タレで仕上げた\r\n和風牛肉ころっけ,95,荒砕きいもを使用し、じゃがいもの美味しさを感じられるコロッケです。秘伝のタレで和風の味付けに仕上げました。,https://img.7api-01.dp1.sej.co.jp/item-image/150227/C745CD4E5286F85DDFD81F20C62D4AA0.jpg,牛肉,コロッケ,セブン-イレブン,日本
 14,150181,ガリチキビット,73,衣がガリッ！と楽しいガーリックのパンチある鶏ももフライドチキンです。,https://img.7api-01.dp1.sej.co.jp/item-image/150181/E5C99E68C6D9687A9DFA596C6420972D.jpg,鶏肉,フライドチキン,セブン-イレブン,日本
-15,150055,じゃがバターリング\r\n（北海道産じゃがいも使用）,108,北海道産じゃがいものみを使用しています。小腹がすいたときやおやつ代わりに、片手で気軽に召し上がっていただける新しいスナックです。,https://img.7api-01.dp1.sej.co.jp/item-image/150055/E7CD65ACBD50001AADE7A0B21469136E.jpg,じゃがいも,揚げ物,セブン-イレブン,日本
-16,150142,サックサク衣のメンチカツ,171,牛肉の旨味を感じられる、油切れの良いあっさりとしたメンチカツです。,https://img.7api-01.dp1.sej.co.jp/item-image/150142/7F5DB4A4B1EBA4F12C9033DADBCF87E5.jpg,豚肉,コロッケ,セブン-イレブン,日本
-17,150075,サックサク衣の牛メンチカツ\r\n（大豆ｐｌｕｓ＋）,171,牛肉の旨味を感じられる、油切れの良いあっさりとしたメンチカツです。,https://img.7api-01.dp1.sej.co.jp/item-image/150075/F9BEB98B904B24C43E3FCAF89F9208AC.jpg,豚肉,コロッケ,セブン-イレブン,日本
-18,150061,のり塩ポテトリング\r\n（北海道産じゃがいも使用）,108,北海道産じゃがいものホクホク感と、適度な塩味と、のりの風味をマッチさせました。見た目の色も形も新しい、売場で目を引く商品です。,https://img.7api-01.dp1.sej.co.jp/item-image/150061/8E0832688FE4B28783D41D64ACD48C5C.jpg,じゃがいも,揚げ物,セブン-イレブン,日本
-19,150048,牛肉メンチ,201,牛肉の旨味と玉ねぎの甘みを感じられる、肉肉しい食感のメンチカツに仕上げました。,https://img.7api-01.dp1.sej.co.jp/item-image/150048/6DF13F4B586E658E5428E48F08C181F1.jpg,牛肉,コロッケ,セブン-イレブン,日本
+15,150055,じゃがバターリング\r\n（北海道産じゃがいも使用）,108,北海道産じゃがいものみを使用しています。小腹がすいたときやおやつ代わりに、片手で気軽に召し上がっていただける新しいスナックです。,https://img.7api-01.dp1.sej.co.jp/item-image/150055/E7CD65ACBD50001AADE7A0B21469136E.jpg,じゃがいも,ポテト,セブン-イレブン,日本
+16,150142,サックサク衣のメンチカツ,171,牛肉の旨味を感じられる、油切れの良いあっさりとしたメンチカツです。,https://img.7api-01.dp1.sej.co.jp/item-image/150142/7F5DB4A4B1EBA4F12C9033DADBCF87E5.jpg,豚肉,カツ,セブン-イレブン,日本
+17,150075,サックサク衣の牛メンチカツ\r\n（大豆ｐｌｕｓ＋）,171,牛肉の旨味を感じられる、油切れの良いあっさりとしたメンチカツです。,https://img.7api-01.dp1.sej.co.jp/item-image/150075/F9BEB98B904B24C43E3FCAF89F9208AC.jpg,豚肉,カツ,セブン-イレブン,日本
+18,150061,のり塩ポテトリング\r\n（北海道産じゃがいも使用）,108,北海道産じゃがいものホクホク感と、適度な塩味と、のりの風味をマッチさせました。見た目の色も形も新しい、売場で目を引く商品です。,https://img.7api-01.dp1.sej.co.jp/item-image/150061/8E0832688FE4B28783D41D64ACD48C5C.jpg,じゃがいも,ポテト,セブン-イレブン,日本
+19,150048,牛肉メンチ,201,牛肉の旨味と玉ねぎの甘みを感じられる、肉肉しい食感のメンチカツに仕上げました。,https://img.7api-01.dp1.sej.co.jp/item-image/150048/6DF13F4B586E658E5428E48F08C181F1.jpg,牛肉,カツ,セブン-イレブン,日本
 20,150396,カリッと揚げ餃子,32,カリッとした軽い食感の皮が特長の揚げ餃子です。たっぷり入った野菜の食感をお楽しみください。,https://img.7api-01.dp1.sej.co.jp/item-image/150396/48646ED9472EE17775116D3A13012051.jpg,豚肉,揚げ物,セブン-イレブン,日本
 21,150205,豚肉と筍の春巻,100,豚肉、筍、しいたけ等の具材を直火の釜でしっかりと炒め合わせ、素材の良さを活かした中具と、パリパリの食感の皮が美味しい春巻です。,https://img.7api-01.dp1.sej.co.jp/item-image/150205/68531F9A7C55782B7BA725685783D590.jpg,豚肉,揚げ物,セブン-イレブン,日本
 22,150222,フライドポテト,201,アメリカ北西部で育てたじゃがいもを太目にカットしたフライドポテトです。ホクホクした食感とバランスの良い塩味がくせになる美味しさです。,https://img.7api-01.dp1.sej.co.jp/item-image/150222/4387D653305734C97A869C3CA851827D.jpg,じゃがいも,フライドポテト,セブン-イレブン,日本
 23,150011,倍盛りポテト,402,アメリカ北西部で育てたじゃがいもを太めにカットしたフライドポテトです。ホクホクした食感とバランスの良い塩味がくせになる美味しさです。,https://img.7api-01.dp1.sej.co.jp/item-image/150011/0A3B6D7740F69BF651BD609F87BC10E0.jpg,じゃがいも,フライドポテト,セブン-イレブン,日本
 24,150209,サクなげ（うま塩）,43,国産チキン使用・国内製造のチキンナゲットです。軽くサクサクな衣と弾力のあるお肉の食感にこだわりました。,https://img.7api-01.dp1.sej.co.jp/item-image/150209/A100C82B68072B2AFD1F82ACA624D706.jpg,鶏肉,揚げ物,セブン-イレブン,日本
 25,150173,黒糖風味の\r\nアメリカンドッグ,160,黒糖を使用したアメリカンドッグです。黒い見た目でクセになるザクザクとした食感が特長です。,https://img.7api-01.dp1.sej.co.jp/item-image/150173/7999C33DE9A587A77BE4E378A7E550D8.jpg,豚肉,フランク,セブン-イレブン,日本
-26,150006,ハッシュポテト,121,サクサク食感のハッシュポテトです。朝食やおやつなどにピッタリの商品です。,https://img.7api-01.dp1.sej.co.jp/item-image/150006/B96B1895E16B52D66D6A2B598351AE2E.jpg,じゃがいも,揚げ物,セブン-イレブン,日本
+26,150006,ハッシュポテト,121,サクサク食感のハッシュポテトです。朝食やおやつなどにピッタリの商品です。,https://img.7api-01.dp1.sej.co.jp/item-image/150006/B96B1895E16B52D66D6A2B598351AE2E.jpg,じゃがいも,ポテト,セブン-イレブン,日本
 27,150019,チーズロール,95,皮はパリッと、食感の違うチーズを楽しめる、片手で食べられるロールタイプのチーズスナックです。,https://img.7api-01.dp1.sej.co.jp/item-image/150019/14A75B9F49202DAB9CE977B029493207.jpg,チーズ,揚げ物,セブン-イレブン,日本
 28,150307,チキンナゲット５個入り,205,肉感があり、しっとり・ジューシーな食感のチキンナゲットです。クセになる味付け、軽い衣にする事で食べすすみがよく、間食にピッタリな商品です。,https://img.7api-01.dp1.sej.co.jp/item-image/150307/B27890FB775E4CE7B73E71B9D4F3948C.jpg,鶏肉,揚げ物,セブン-イレブン,日本
 29,150170,ＢＩＧポークフランク,180,原材料の高騰により、価格を１５８円（税抜）から１６７円（税抜）に変更いたします。ジューシーで食べ応えがあり、食べ飽きない味のポークフランクです。,https://img.7api-01.dp1.sej.co.jp/item-image/150170/541C9A3D8EB56041250184C9483E3ED3.jpg,豚肉,フランク,セブン-イレブン,日本
@@ -36,13 +36,13 @@ id,item_uuid,name,price,description,image,ingredient,genre,store,country
 35,150163,カスタードたい焼き,151,サックリとした美味しい皮と風味豊かな味わいのカスタードクリームが特長のたい焼きです。,https://img.7api-01.dp1.sej.co.jp/item-image/150163/CC5BAFAAA59BA035DCC54B3ACD5F2AB2.jpg,カスタード,変わり種,セブン-イレブン,日本
 36,150161,お店で揚げたカレーパン,161,スパイスから丁寧に炒めた、上品な風味・味わいのビーフカレーを包みました。専用のこだわりのパン粉を使用した、サクサク食感が楽しめるカレーパンです。,https://img.7api-01.dp1.sej.co.jp/item-image/150161/F03EFC303C421057889DFC99471BE0C1.jpg,牛肉,揚げ物,セブン-イレブン,日本
 37,150070,サーターアンダギー,86,沖縄限定商品。中はふんわり、外はカリカリで優しい甘さが特長のサーターアンダギーです。,https://img.7api-01.dp1.sej.co.jp/item-image/150070/C040995CADC0265CBB9B99C60E723651.jpg,大豆,変わり種,セブン-イレブン,日本
-38,150155,揚げいも,95,ホクホクに蒸しあげたじゃがいもを素材引き立つ塩で味付け、ほんのり甘いサクサクのドーナツ生地で包みました。おやつに軽食にぴったりのフライドスナックです。,https://img.7api-01.dp1.sej.co.jp/item-image/150155/DAA2F0D0644568F857E9A60400651901.jpg,じゃがいも,揚げ物,セブン-イレブン,日本
+38,150155,揚げいも,95,ホクホクに蒸しあげたじゃがいもを素材引き立つ塩で味付け、ほんのり甘いサクサクのドーナツ生地で包みました。おやつに軽食にぴったりのフライドスナックです。,https://img.7api-01.dp1.sej.co.jp/item-image/150155/DAA2F0D0644568F857E9A60400651901.jpg,じゃがいも,ポテト,セブン-イレブン,日本
 39,150359,ささみ揚げ（梅しそ）,161,鶏のささみをしっとりやわらかく仕上げ、梅と大葉をのせ、衣で包んで揚げた商品です。,https://img.7api-01.dp1.sej.co.jp/item-image/150359/D422CADC1753F45182DFD166CAD48BCE.jpg,鶏肉,揚げ物,セブン-イレブン,日本
 40,150233,ふわもち×とろ～り\r\nピザまん,150,原材料の高騰により、価格を１３０円（税抜）から１３９円（税抜）に変更いたします。トマトの酸味が効いたトマトソースとチーズを、ふんわりもちっとした生地で包みました,https://img.7api-01.dp1.sej.co.jp/item-image/150233/0101BF3D2519B38A7A8CFBE0AB720B40.jpg,トマト,中華まん,セブン-イレブン,日本
 41,150244,お店で蒸した\r\nほかふわたまご蒸しケーキ,131,たまごを多く使用したふわふわ食感の蒸しパンです。ふわふわとしながら軽いくちどけに仕上げました。,https://img.7api-01.dp1.sej.co.jp/item-image/150244/3AAEDC615B87ACB3880C91D07A12EF9C.jpg,卵,デザート,セブン-イレブン,日本
 42,150071,エビチリまん,192,豆板醤から作り上げ、辛味もありながら旨味を引き立てた本格的なエビチリで作った中華まんです。生地も口どけのよい食感に仕上げました。,https://img.7api-01.dp1.sej.co.jp/item-image/150071/B88E03D84B98E2F04819050EDE332AFE.jpg,エビ,中華まん,セブン-イレブン,日本
 101,l663099,からあげクン　旨辛ラー油味,238,直火ラー油使用。辛味と旨味が味わえるからあげクンです。,https://www.lawson.co.jp/recommend/original/detail/img/l663099.png,鶏肉,からあげクン,LAWSON,日本
-102,l663098,Lチキ　ヤンニョムだれ味,225,流行中のヤンニョムチキンをLチキに！コチュジャンを使用した食欲そそる旨辛味。,https://www.lawson.co.jp/recommend/original/detail/img/l663098.png,鶏肉,からあげクン,LAWSON,日本
+102,l663098,Lチキ　ヤンニョムだれ味,225,流行中のヤンニョムチキンをLチキに！コチュジャンを使用した食欲そそる旨辛味。,https://www.lawson.co.jp/recommend/original/detail/img/l663098.png,鶏肉,フライドチキン,LAWSON,日本
 103,l456071_5,からあげクン　レギュラー,238,からあげクン誕生から愛される定番の味。味の決め手に2種類の国産塩を使用しています。,https://www.lawson.co.jp/recommend/original/detail/img/l456071_5.png,鶏肉,からあげクン,LAWSON,日本
 104,l456069_5,からあげクン　レッド,238,ピリッと辛い定番の味。国産唐辛子を限定使用しております。,https://www.lawson.co.jp/recommend/original/detail/img/l456069_5.png,鶏肉,からあげクン,LAWSON,日本
 105,l456070_5,からあげクン　北海道チーズ,238,定番のチーズ味。北海道産のチーズを限定使用しております。,https://www.lawson.co.jp/recommend/original/detail/img/l456070_5.png,鶏肉,からあげクン,LAWSON,日本
@@ -54,7 +54,7 @@ id,item_uuid,name,price,description,image,ingredient,genre,store,country
 111,l534443_2,Lチキ　レッド,214,米粉を使用する事で中はジューシー、外はサクサクのLチキ旨辛味です。,https://www.lawson.co.jp/recommend/original/detail/img/l534443_2.png,鶏肉,フライドチキン,LAWSON,日本
 112,l619820,Lチキ　竜田,214,鶏もも肉を生姜・にんにく・醤油に漬け込み、二度揚げする事でさっくり衣の和風竜田揚げに仕上げました。,https://www.lawson.co.jp/recommend/original/detail/img/l619820.png,鶏肉,フライドチキン,LAWSON,日本
 113,l663084,Lチキ　ハッピーターン味,214,亀田製菓「ハッピーターン」をLチキとして再現しました。※ハッピーパウダーは使用していません。,https://www.lawson.co.jp/recommend/original/detail/img/l663084.png,鶏肉,フライドチキン,LAWSON,日本
-114,l681760,Lチキバンズ,72,カスタマイズして愉しんでほしい、Lチキを引き立てる甘さを抑えた、ふっくらバンズです。,https://www.lawson.co.jp/recommend/original/detail/img/l681760.png,鶏肉,フライドチキン,LAWSON,日本
+114,l681760,Lチキバンズ,72,カスタマイズして愉しんでほしい、Lチキを引き立てる甘さを抑えた、ふっくらバンズです。,https://www.lawson.co.jp/recommend/original/detail/img/l681760.png,鶏肉,変わり種,LAWSON,日本
 115,l663055,パリチキ,214,外はパリパリ、中はジューシー！鶏肉の味を引き立てるシンプルな味付けです。,https://www.lawson.co.jp/recommend/original/detail/img/l663055.png,鶏肉,フライドチキン,LAWSON,日本
 116,l652017,ワイルドLチキ骨つき\r\nブラックペッパー,180,手羽元つきむね肉をやわらかく、3種のペッパーを味付けに使用し、スパイシーに仕立てました。,https://www.lawson.co.jp/recommend/original/detail/img/l652017.png,鶏肉,フライドチキン,LAWSON,日本
 117,l663063,ワイルドLチキ骨つき\r\nガーリックペッパー,180,ワイルドLチキシリーズ第二弾。黒胡椒とニンニクをきかせた骨つき肉のフライドチキンです。,https://www.lawson.co.jp/recommend/original/detail/img/l663063.png,鶏肉,フライドチキン,LAWSON,日本
@@ -67,19 +67,19 @@ id,item_uuid,name,price,description,image,ingredient,genre,store,country
 124,l639438,鶏からもも　旨塩　4個,228,鶏もも肉を塩麹に漬け込みうまみを引き出したまろやかな塩味の唐揚げです。,https://www.lawson.co.jp/recommend/original/detail/img/l639438.png,鶏肉,からあげ,LAWSON,日本
 125,l639436,鶏からむね　竜田　4個,228,鶏むね肉を醤油だれに漬け込んだ生姜風味のシンプルな竜田揚げです。,https://www.lawson.co.jp/recommend/original/detail/img/l639436.png,鶏肉,からあげ,LAWSON,日本
 126,l619846,ささみフライ\r\n(塩レモン風味),227,ささみを使った一口サイズの食べやすいフライです。さわやかな塩レモン風味。,https://www.lawson.co.jp/recommend/original/detail/img/l619846.png,鶏肉,揚げ物,LAWSON,日本
-127,l547249,ハッシュドポテト,124,程よい塩味とじゃがいもの甘味がマッチ。ほくほくじゃがいもの食感が楽しめます。,https://www.lawson.co.jp/recommend/original/detail/img/l547249.png,じゃがいも,揚げ物,LAWSON,日本
+127,l547249,ハッシュドポテト,124,程よい塩味とじゃがいもの甘味がマッチ。ほくほくじゃがいもの食感が楽しめます。,https://www.lawson.co.jp/recommend/original/detail/img/l547249.png,じゃがいも,ポテト,LAWSON,日本
 128,l585768,フライドポテト,184,ホクホクとした食感が楽しめるロングポテトフライ。食べやすいカップタイプです。,https://www.lawson.co.jp/recommend/original/detail/img/l585768.png,じゃがいも,フライドポテト,LAWSON,日本
 129,n476174,ジャンボアメリカンドッグ,108,サクサクした食感が特徴の仕立てです。,https://www.lawson.co.jp/recommend/original/detail/img/n476174.png,豚肉,フランク,LAWSON,日本
 130,l577862,ジャイアント\r\nポークフランク,181,肉比率向上で歯ごたえアップ。香辛料が風味のアクセントです。,https://www.lawson.co.jp/recommend/original/detail/img/l577862.png,豚肉,フランク,LAWSON,日本
 131,l577863,なんこつ入りつくね棒,184,ふんわり鶏肉にコリコリとしたなんこつの食感と、スパイシーな黒胡椒がアクセントです。,https://www.lawson.co.jp/recommend/original/detail/img/l577863.png,鶏肉,焼き鳥,LAWSON,日本
 132,l639435,竜田揚げ棒,149,外カリッ、中ジューシーなから揚げを、ワンハンドで食べやすくしました。,https://www.lawson.co.jp/recommend/original/detail/img/l639435.png,鶏肉,からあげ,LAWSON,日本
 133,l566299,とけコロ,160,とろけるような滑らかな中具の新食感コロッケ。きたあかりの甘みと豚肉のうまみ、隠し味のホワイトソースでコクを加え、ナツメグと黒胡椒で味を調えました。,https://www.lawson.co.jp/recommend/original/detail/img/l566299.png,豚肉,コロッケ,LAWSON,日本
-134,l566300,あふれメンチ,180,ジュワっとスープがあふれだすメンチカツ。中具は2層に仕立て、外皮は牛・豚の合挽き肉で肉肉しく、内皮はコンソメベースのスープを固め、小籠包のようなあふれ出る肉汁を演出しました。専用BOXでお箸を使って食べる今までにないメンチカツです。,https://www.lawson.co.jp/recommend/original/detail/img/l566300.png,豚肉,コロッケ,LAWSON,日本
+134,l566300,あふれメンチ,180,ジュワっとスープがあふれだすメンチカツ。中具は2層に仕立て、外皮は牛・豚の合挽き肉で肉肉しく、内皮はコンソメベースのスープを固め、小籠包のようなあふれ出る肉汁を演出しました。専用BOXでお箸を使って食べる今までにないメンチカツです。,https://www.lawson.co.jp/recommend/original/detail/img/l566300.png,豚肉,カツ,LAWSON,日本
 135,l639851_1,北海道産きたあかりの\r\n牛肉コロッケ,90,甘い熟成きたあかりを、サクサク衣で包んだコロッケです。,https://www.lawson.co.jp/recommend/original/detail/img/l639851_1.png,牛肉,コロッケ,LAWSON,日本
-136,l639853_1,旨みあふれる牛肉メンチ,110,噛むほどに肉の風味とうまみが広がる、さっくり衣のメンチカツです。,https://www.lawson.co.jp/recommend/original/detail/img/l639853_1.png,牛肉,コロッケ,LAWSON,日本
+136,l639853_1,旨みあふれる牛肉メンチ,110,噛むほどに肉の風味とうまみが広がる、さっくり衣のメンチカツです。,https://www.lawson.co.jp/recommend/original/detail/img/l639853_1.png,牛肉,カツ,LAWSON,日本
 137,l639446,たけのこと豚肉の五目春巻,100,たけのこの食感と素材のうまみが楽しめる、パリパリ皮の春巻です。,https://www.lawson.co.jp/recommend/original/detail/img/l639446.png,豚肉,揚げ物,LAWSON,日本
 138,l518112,大きなイカフライ,149,60g→80gと1.3倍の大きさへボリュームアップ！食べごたえあるイカフライにしました。,https://www.lawson.co.jp/recommend/original/detail/img/l518112.png,いか,揚げ物,LAWSON,日本
-139,l552087_1,贅沢厚切りハムカツ,173,贅沢に厚切りしたハムのしっかりとした食感とうまみが楽しめます。微粉パン粉で薄衣に仕上げました。,https://www.lawson.co.jp/recommend/original/detail/img/l552087_1.png,ハム,揚げ物,LAWSON,日本
+139,l552087_1,贅沢厚切りハムカツ,173,贅沢に厚切りしたハムのしっかりとした食感とうまみが楽しめます。微粉パン粉で薄衣に仕上げました。,https://www.lawson.co.jp/recommend/original/detail/img/l552087_1.png,ハム,カツ,LAWSON,日本
 140,n503714,ふっくらあじフライ,162,船内凍結したあじを薄衣で仕立て、素材の美味しさを活かした、あじフライです。,https://www.lawson.co.jp/recommend/original/detail/img/n503714.png,アジ,揚げ物,LAWSON,日本
 141,l663090,フライドフィッシュ,160,手軽におさかなを食べられるスティックタイプ。何もつけずにおいしいスパイス仕立てです。,https://www.lawson.co.jp/recommend/original/detail/img/l663090.png,魚,揚げ物,LAWSON,日本
 142,l552009_1,イカから揚げ,232,漁獲後に船内で急速凍結した、鮮度にこだわった「イカから」です。ゲソとリングをミックスし、食感の違いを味わえます。,https://www.lawson.co.jp/recommend/original/detail/img/l552009_1.png,イカ,揚げ物,LAWSON,日本
@@ -92,9 +92,9 @@ id,item_uuid,name,price,description,image,ingredient,genre,store,country
 202,0253925,アメリカンドッグ,118,程よい甘さで、ふんわりした衣が特徴のアメリカンドッグです。,https://www.family.co.jp/content/dam/family/goods/0253925.jpg,豚肉,フランク,FamilyMart,日本
 203,0254489,ジャンボフランク,168,ドイツ産岩塩で肉の旨みを引き出した食べごたえある大きなサイズのフランクフルトです。,https://www.family.co.jp/content/dam/family/goods/0254489.jpg,豚肉,フランク,FamilyMart,日本
 204,0250009,鶏つくね串,140,鶏肉に玉ねぎと鶏皮を入れたジューシーでふんわりしたつくね串です。,https://www.family.co.jp/content/dam/family/goods/0250009.jpg,鶏肉,焼き鳥,FamilyMart,日本
-205,0252867,ハッシュドポテト,108,ホクホクしたザク切りポテトを使用し、具材感ある仕立てにしました。,https://www.family.co.jp/content/dam/family/goods/0252867.jpg,じゃがいも,揚げ物,FamilyMart,日本
-206,0254755,厚切りハムカツ,138,軽い食感の衣に旨みのある厚切りハムを組み合わせ、ボリューム感のあるハムカツに仕上げました。おかずにもおやつにもなるハムカツです。,https://www.family.co.jp/content/dam/family/goods/0254755.jpg,ハム,揚げ物,FamilyMart,日本
-207,0251730,ジューシーメンチカツ,138,ザクザク衣と肉汁がジュワっとあふれるジューシーなメンチカツです。,https://www.family.co.jp/content/dam/family/goods/0251730.jpg,豚肉,コロッケ,FamilyMart,日本
+205,0252867,ハッシュドポテト,108,ホクホクしたザク切りポテトを使用し、具材感ある仕立てにしました。,https://www.family.co.jp/content/dam/family/goods/0252867.jpg,じゃがいも,ポテト,FamilyMart,日本
+206,0254755,厚切りハムカツ,138,軽い食感の衣に旨みのある厚切りハムを組み合わせ、ボリューム感のあるハムカツに仕上げました。おかずにもおやつにもなるハムカツです。,https://www.family.co.jp/content/dam/family/goods/0254755.jpg,ハム,カツ,FamilyMart,日本
+207,0251730,ジューシーメンチカツ,138,ザクザク衣と肉汁がジュワっとあふれるジューシーなメンチカツです。,https://www.family.co.jp/content/dam/family/goods/0251730.jpg,豚肉,カツ,FamilyMart,日本
 208,0253352,炭火焼きとり　もも塩,108,炭火で焼いた鶏のもも肉を、五島灘産の海水塩に北海道産昆布の粉末を加えた特製の塩で仕上げました。おかずにもおつまみにもぴったりな焼きとりです。,https://www.family.co.jp/content/dam/family/goods/0253352.jpg,鶏肉,焼き鳥,FamilyMart,日本
 209,0251013,ファミから（塩）1個,98,2種類の塩と3種類のだしを使用し、ごはんのおかずにもおつまみにも合う大粒サイズのからあげです。　,https://www.family.co.jp/content/dam/family/goods/0251013.jpg,鶏肉,からあげ,FamilyMart,日本
 210,0250160,ファミから（醤油）1個,98,3種類の醤油を使用し、ごはんのおかずにもおつまみにも合う大粒サイズのからあげです。　,https://www.family.co.jp/content/dam/family/goods/0250160.jpg,鶏肉,からあげ,FamilyMart,日本
@@ -105,7 +105,7 @@ id,item_uuid,name,price,description,image,ingredient,genre,store,country
 215,0254793,ファミチキ\r\n（ハバネロホット）,198,「ハバネロ」を使用した刺激的な辛さがやみつきになる、辛い物好きの方にオススメの辛旨ファミチキです。［数量限定］,https://www.family.co.jp/content/dam/family/goods/0254793.jpg,鶏肉,フライドチキン,FamilyMart,日本
 216,0254540,炭火焼きとりかわタレ,108,炭火で焼いた鶏のかわを、4種の醤油を使用したタレで仕上げました。おかずにもおつまみにもぴったりな焼きとりです。,https://www.family.co.jp/content/dam/family/goods/0254540.jpg,鶏肉,焼き鳥,FamilyMart,日本
 217,0253154,炭火焼きとりぼんじりタレ,128,プリッとした食感と脂の旨みが特徴のぼんじりを、4種の醤油を使用したこだわりのタレで仕上げました。［数量限定］,https://www.family.co.jp/content/dam/family/goods/0253154.jpg,鶏肉,焼き鳥,FamilyMart,日本
-218,0252355,照焼チキンステーキ,220,ジューシーな鶏もも肉を醤油とみりんのきいた照焼タレで焼き上げたチキンステーキです。,https://www.family.co.jp/content/dam/family/goods/0252355.jpg,鶏肉,焼き鳥,FamilyMart,日本
+218,0252355,照焼チキンステーキ,220,ジューシーな鶏もも肉を醤油とみりんのきいた照焼タレで焼き上げたチキンステーキです。,https://www.family.co.jp/content/dam/family/goods/0252355.jpg,鶏肉,変わり種,FamilyMart,日本
 219,0255332,カニクリームコロッケ,128,北海道産牛乳を使用しました。カニの風味とミルクのクリーミーさを感じられる、なめらかな食感のカニクリームコロッケです。［数量限定］,https://www.family.co.jp/content/dam/family/goods/0255332.jpg,かに,コロッケ,FamilyMart,日本
 220,0250948,炭火焼きとり　ももタレ,108,炭火で焼いた鶏のもも肉を、4種の醤油を使用したこだわりのタレで仕上げました。おかずにもおつまみにもぴったりな焼きとりです。,https://www.family.co.jp/content/dam/family/goods/0250948.jpg,鶏肉,焼き鳥,FamilyMart,日本
 221,0254458,クリスピーチキン\r\n（プレーン）,160,さっぱりとした鶏むね肉にクリスピーな衣の食感が特徴です。醤油とにんにくを使ったシンプルな味つけながらも、次の一口が欲しくなるクセになる逸品です。,https://www.family.co.jp/content/dam/family/goods/0254458.jpg,鶏肉,揚げ物,FamilyMart,日本
