@@ -175,6 +175,7 @@ export default {
         },
     },
     computed: {
+        // モーダルが表示されつときの条件
         getModalVisible() {
             return (type) => this.modal.type === type && this.modal.status === 'visible'
         },

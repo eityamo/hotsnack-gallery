@@ -108,7 +108,7 @@
 <script>
 import { BaseDivider } from '../components/atom/dividers/index'
 import { BaseTransition } from '../components/atom/transitions/index'
-import { BaseContainer } from '../components/layout'
+import { BaseContainer } from '../components/layout/index'
 import { AnimatedNumber } from '../components/atom/numbers/index'
 
 export default {
