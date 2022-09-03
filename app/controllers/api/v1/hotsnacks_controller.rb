@@ -1,5 +1,5 @@
 class Api::V1::HotsnacksController < ApplicationController
-  before_action :set_hotsnack, only: %w[show like dislike]
+  before_action :set_hotsnack, only: %w[show]
 
   def random
     fetch_hotsnack = Hotsnack.offset(rand(Hotsnack.count)).limit(1).first.item_uuid
@@ -11,17 +11,12 @@ class Api::V1::HotsnacksController < ApplicationController
     render json: fetch_hotsnack
   end
 
+  def index
+    hotsnacks = Hotsnack.all
+    render json: hotsnacks
+  end
+
   def show
-    render json: @hotsnack
-  end
-
-  def like
-    @hotsnack.update(like_count: @hotsnack.like_count + 1)
-    render json: @hotsnack
-  end
-
-  def dislike
-    @hotsnack.update(dislike_count: @hotsnack.dislike_count + 1)
     render json: @hotsnack
   end
 

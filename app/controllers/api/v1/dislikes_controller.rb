@@ -1,4 +1,4 @@
-class Api::V1::DisdislikesController < ApplicationController
+class Api::V1::DislikesController < ApplicationController
   before_action :set_hotsnack, only: %w[create]
 
   def create
