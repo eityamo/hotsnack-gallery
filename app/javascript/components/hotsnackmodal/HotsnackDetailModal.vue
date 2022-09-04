@@ -1,7 +1,7 @@
 <template>
     <v-dialog v-model="isVisible" max-width="375" scrollable @click:outside="hundleCloseHotsnackDetailModal">
         <v-card class="mx-auto overflow-auto" max-width="375" color="#f6f5ee" outlined v-if="hotsnack">
-            <v-row justify="center" align="center" class="my-4 mx-12">
+            <v-row justify="center" align="center" class="mt-4 mb-2 mx-12">
                 <v-col cols="6" class="pa-0">
                     <v-card outlined color="#f6f5ee">
                         <div class="text-center">
@@ -46,7 +46,7 @@
 
             <v-row class="mx-4"><base-divider /></v-row>
 
-            <v-card class="ma-10" color="#f6f5ee" outlined>
+            <v-card class="mx-10 my-8" color="#f6f5ee" outlined>
                 <v-container class="outline">
                     <v-container class="inline">
                         <v-container class="block">
@@ -84,7 +84,6 @@
                         </v-btn>
                     </v-col>
                     <v-spacer></v-spacer>
-
                     <v-btn icon @click="show = !show">
                         <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
                     </v-btn>
@@ -93,7 +92,7 @@
                 <v-expand-transition>
                     <div v-show="show">
                         <base-divider />
-                        <v-card-text>{{ hotsnack.description }}</v-card-text>
+                        <v-card-text class="mt-2 mb-4">{{ hotsnack.description }}</v-card-text>
                     </div>
                 </v-expand-transition>
             </v-card>
@@ -126,7 +125,7 @@ export default {
     },
     data() {
         return {
-            show: false,
+            show: true,
             voices: [],
             disabledDescriptionButton: false,
         }

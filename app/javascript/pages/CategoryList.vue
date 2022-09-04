@@ -9,7 +9,7 @@
                     :key="hotsnack.item_uuid"
                 >
                     <v-sheet class="pt-2" color="#f6f5ee">
-                        <v-card class="mx-10 mt-10" color="#f6f5ee" outlined>
+                        <v-card class="mx-8 mt-10" color="#f6f5ee" outlined>
                             <v-container class="outline">
                                 <v-container class="inline">
                                     <v-container class="block">
