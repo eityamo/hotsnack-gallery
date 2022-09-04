@@ -108,7 +108,7 @@
 <script>
 import { BaseDivider } from '../components/atom/dividers/index'
 import { BaseTransition } from '../components/atom/transitions/index'
-import { BaseContainer } from '../components/layout'
+import { BaseContainer } from '../components/layout/index'
 import { AnimatedNumber } from '../components/atom/numbers/index'
 
 export default {
@@ -190,8 +190,6 @@ export default {
             utterance.voice = this.$data.voices[0]
             speechSynthesis.speak(utterance)
             // 音声ボタンのデバウンス対応
-            // this.disabledDescriptionButton = false
-            // console.log(speak)
             setTimeout(() => (this.disabledDescriptionButton = false), 3000)
         },
     },
