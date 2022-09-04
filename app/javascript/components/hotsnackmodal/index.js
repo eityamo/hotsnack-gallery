@@ -1,0 +1,1 @@
+export { default as HotsnackDetailModal } from './HotsnackDetailModal.vue'

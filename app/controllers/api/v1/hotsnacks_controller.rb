@@ -12,7 +12,7 @@ class Api::V1::HotsnacksController < ApplicationController
   end
 
   def index
-    hotsnacks = Hotsnack.all
+    hotsnacks = Hotsnack.all.order(like_count: "DESC")
     render json: hotsnacks
   end
 

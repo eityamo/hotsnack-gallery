@@ -190,8 +190,6 @@ export default {
             utterance.voice = this.$data.voices[0]
             speechSynthesis.speak(utterance)
             // 音声ボタンのデバウンス対応
-            // this.disabledDescriptionButton = false
-            // console.log(speak)
             setTimeout(() => (this.disabledDescriptionButton = false), 3000)
         },
     },

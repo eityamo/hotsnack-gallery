@@ -1,15 +1,15 @@
 <template>
     <base-container>
-        <div v-for="genreName in genreNameList" :key="genreName">
+        <v-col v-for="genreName in genreNameList" :key="genreName">
             <v-col class="ml-2"> {{ genreName }}展 </v-col>
-            <v-carousel show-arrows-on-hover hide-delimiters>
+            <v-carousel show-arrows-on-hover hide-delimiters height="430">
                 <v-carousel-item
-                    @click="openModal('hotsnack')"
+                    @click="openModal('hotsnack', hotsnack)"
                     v-for="hotsnack in hotsnackCategory(genreName)"
                     :key="hotsnack.item_uuid"
                 >
-                    <v-sheet height="100%" tile class="pt-2" color="#f6f5ee">
-                        <v-card class="ma-10" color="#f6f5ee" outlined>
+                    <v-sheet class="pt-2" color="#f6f5ee">
+                        <v-card class="mx-10 mt-10" color="#f6f5ee" outlined>
                             <v-container class="outline">
                                 <v-container class="inline">
                                     <v-container class="block">
@@ -19,7 +19,7 @@
                                     </v-container>
                                 </v-container>
                             </v-container>
-                            <v-card raised elevation="8" tile class="mx-10 my-10">
+                            <v-card raised elevation="8" tile class="mx-10 mt-10">
                                 <v-col align="center" class="s-font msg-wrapper">{{ hotsnack.name }}</v-col>
                                 <hr class="hr2" />
                                 <v-col align="center" class="s-font Lusitana">{{ hotsnack.store }}</v-col>
@@ -28,8 +28,12 @@
                     </v-sheet>
                 </v-carousel-item>
             </v-carousel>
-        </div>
-        <!-- <hotsnack-detail-modal :is-visible="getModalVisible('hotsnack')" @close-hotsnack-detail-modal="closeModal" :hotsnack="hotsnack" /> -->
+        </v-col>
+        <hotsnack-detail-modal
+            :is-visible="getModalVisible('hotsnack')"
+            @close-hotsnack-detail-modal="closeModal"
+            :hotsnack="modal.hotsnack"
+        />
     </base-container>
 </template>
 
@@ -50,6 +54,7 @@ export default {
             modal: {
                 type: null,
                 status: 'hidden',
+                hotsnack: {},
             },
         }
     },
@@ -76,12 +81,14 @@ export default {
             this.modal = {
                 type: null,
                 status: 'hidden',
+                hotsnack: {},
             }
         },
-        openModal(type) {
+        openModal(type, hotsnack) {
             this.modal = {
                 type,
                 status: 'visible',
+                hotsnack,
             }
         },
     },
@@ -133,5 +140,18 @@ export default {
     font-weight: bold;
     line-height: 1;
     color: #2c281e;
+}
+.hr2 {
+    border: none;
+    width: 90%;
+    height: 50px;
+    border-bottom: 1px solid #1f1209;
+    margin: -50px auto 0px;
+}
+.Lusitana {
+    font-family: 'Lusitana', cursive;
+}
+.msg-wrapper {
+    white-space: pre-line;
 }
 </style>
