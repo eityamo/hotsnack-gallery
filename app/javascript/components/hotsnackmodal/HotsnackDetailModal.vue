@@ -29,7 +29,7 @@
                 </v-col>
                 <v-col cols="6" class="pa-0">
                     <v-card outlined color="#f6f5ee">
-                        <div class="text-center"><animated-number :value="multiplyLikeCountAndPrice" /> 円</div>
+                        <div class="text-center"><animated-number :value="multiplyLikeCountAndPrice" />円</div>
                     </v-card>
                 </v-col>
                 <v-col class="pa-0">
@@ -132,6 +132,10 @@ export default {
     },
     computed: {
         multiplyLikeCountAndPrice() {
+            if (!this.hotsnack || !this.hotsnack.price || !this.hotsnack.like_count) {
+                return 0
+            }
+
             return this.hotsnack.price * this.hotsnack.like_count
         },
         hotsnackCategoryDetail() {
