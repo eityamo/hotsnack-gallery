@@ -29,7 +29,7 @@
                 </v-col>
                 <v-col cols="6" class="pa-0">
                     <v-card outlined color="#f6f5ee">
-                        <div class="text-center"><animated-number :value="multiplyLikeCountAndPrice" /> 円</div>
+                        <div class="text-center"><animated-number :value="multiplyLikeCountAndPrice" />円</div>
                     </v-card>
                 </v-col>
                 <v-col class="pa-0">
@@ -92,13 +92,13 @@
                 <v-expand-transition>
                     <div v-show="show">
                         <base-divider />
-                        <v-card-text class="mt-2 mb-4">{{ hotsnack.description }}</v-card-text>
+                        <v-card-text>{{ hotsnack.description }}</v-card-text>
                     </div>
                 </v-expand-transition>
             </v-card>
-            <!-- <v-card-actions justify="center">
+            <v-col align="center" class="mb-4">
                 <v-btn @click="hundleCloseHotsnackDetailModal">閉じる</v-btn>
-            </v-card-actions> -->
+            </v-col>
         </v-card>
     </v-dialog>
 </template>
@@ -132,6 +132,10 @@ export default {
     },
     computed: {
         multiplyLikeCountAndPrice() {
+            if (!this.hotsnack || !this.hotsnack.price || !this.hotsnack.like_count) {
+                return 0
+            }
+
             return this.hotsnack.price * this.hotsnack.like_count
         },
         hotsnackCategoryDetail() {

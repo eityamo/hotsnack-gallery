@@ -13,7 +13,7 @@
         </v-btn>
 
         <v-btn value="category" :to="{ name: 'CategoryList' }">
-            <span class="Lusitana">Category</span>
+            <span class="Lusitana">Ranking</span>
 
             <v-icon>mdi-palette</v-icon>
         </v-btn>
@@ -84,7 +84,7 @@ export default {
                 'あなたの査定がホットスナックの印象を変える' +
                 '%0a' +
                 '%23ホットスナック美術館' +
-                '%0a' +
+                '%0a' +v
                 'https://www.hotsnack-gallery.com/'
             window.open(shareURL, '_blank')
         },
