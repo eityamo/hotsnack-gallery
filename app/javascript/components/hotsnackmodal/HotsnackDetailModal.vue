@@ -92,13 +92,13 @@
                 <v-expand-transition>
                     <div v-show="show">
                         <base-divider />
-                        <v-card-text class="mt-2 mb-4">{{ hotsnack.description }}</v-card-text>
+                        <v-card-text>{{ hotsnack.description }}</v-card-text>
                     </div>
                 </v-expand-transition>
             </v-card>
-            <!-- <v-card-actions justify="center">
+            <v-col align="center" class="mb-4">
                 <v-btn @click="hundleCloseHotsnackDetailModal">閉じる</v-btn>
-            </v-card-actions> -->
+            </v-col>
         </v-card>
     </v-dialog>
 </template>
