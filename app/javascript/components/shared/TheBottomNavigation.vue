@@ -84,7 +84,7 @@ export default {
                 'あなたの査定がホットスナックの印象を変える' +
                 '%0a' +
                 '%23ホットスナック美術館' +
-                '%0a' +v
+                '%0a' +
                 'https://www.hotsnack-gallery.com/'
             window.open(shareURL, '_blank')
         },
