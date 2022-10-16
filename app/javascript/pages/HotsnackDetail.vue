@@ -6,9 +6,11 @@
                 <v-row justify="center" align="center" class="mt-8 mx-4">
                     <v-col cols="6" class="pa-0">
                         <v-card outlined color="#f6f5ee">
-                            <div class="text-center">
-                                <v-btn text class="text-h6">査定額</v-btn>
-                            </div>
+                            <v-badge class="ml-7" icon="mdi-help" color="black" avatar overlap>
+                                <div class="text-center">
+                                    <v-btn text class="text-h6" @click="openModal('moneydescription')">評価額</v-btn>
+                                </div>
+                            </v-badge>
                         </v-card>
                     </v-col>
                     <v-col class="pa-0">
@@ -102,6 +104,10 @@
             </v-card>
         </base-transition>
         <p v-if="!hotsnack.id">美術品は見つかりませんでした</p>
+        <the-money-description
+            :is-visible="getModalVisible('moneydescription')"
+            @close-money-description-modal="closeModal"
+        />
     </base-container>
 </template>
 
@@ -110,6 +116,7 @@ import { BaseDivider } from '../components/atom/dividers/index'
 import { BaseTransition } from '../components/atom/transitions/index'
 import { BaseContainer } from '../components/layout/index'
 import { AnimatedNumber } from '../components/atom/numbers/index'
+import { TheMoneyDescription } from '../components/static'
 
 export default {
     name: 'HotsnackDetail',
@@ -118,6 +125,7 @@ export default {
         BaseTransition,
         BaseDivider,
         AnimatedNumber,
+        TheMoneyDescription,
     },
     data() {
         return {
@@ -126,17 +134,24 @@ export default {
             isLoading: false,
             voices: [],
             disabledDescriptionButton: false,
+            modal: {
+                type: null,
+                status: 'hidden',
+            },
         }
     },
     computed: {
         multiplyLikeCountAndPrice() {
-            return (this.hotsnack.price * this.hotsnack.like_count)
+            return this.hotsnack.price * this.hotsnack.like_count
         },
         hotsnackCategoryDetail() {
             return this.hotsnack.genre + ' / ' + this.hotsnack.ingredient
         },
         currentPath() {
             return this.$route.path
+        },
+        getModalVisible() {
+            return (type) => this.modal.type === type && this.modal.status === 'visible'
         },
     },
     mounted() {
@@ -191,6 +206,18 @@ export default {
             speechSynthesis.speak(utterance)
             // 音声ボタンのデバウンス対応
             setTimeout(() => (this.disabledDescriptionButton = false), 3000)
+        },
+        closeModal() {
+            this.modal = {
+                type: null,
+                status: 'hidden',
+            }
+        },
+        openModal(type) {
+            this.modal = {
+                type,
+                status: 'visible',
+            }
         },
     },
 }
