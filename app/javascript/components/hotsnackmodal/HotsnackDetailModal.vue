@@ -5,7 +5,7 @@
                 <v-col cols="6" class="pa-0">
                     <v-card outlined color="#f6f5ee">
                         <div class="text-center">
-                            <v-btn text class="text-h6">査定額</v-btn>
+                            <v-btn text class="text-h6">評価額</v-btn>
                         </div>
                     </v-card>
                 </v-col>
