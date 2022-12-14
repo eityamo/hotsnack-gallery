@@ -1,7 +1,7 @@
 require 'csv'
 require 'mechanize'
 agent = Mechanize.new
-pages = ["https://www.sej.co.jp/products/a/cat/090030010000000/1/l15/", "https://www.sej.co.jp/products/a/cat/090030010000000/2/l15/", "https://www.sej.co.jp/products/a/cat/090030010000000/3/l15/", "https://www.sej.co.jp/products/a/cat/090030010000000/4/l15/", "https://www.sej.co.jp/products/a/chukaman/"]
+pages = ["https://www.sej.co.jp/products/a/cat/090030010000000/1/l15/", "https://www.sej.co.jp/products/a/cat/090030010000000/2/l15/", "https://www.sej.co.jp/products/a/cat/090030010000000/3/l15/", "https://www.sej.co.jp/products/a/chukaman/"]
 
 # スクレイピングで取得したデータ
 data = []
