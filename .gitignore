@@ -41,6 +41,3 @@ yarn-debug.log*
 
 vendor/bundler
 config/database.yml
-
-gibo 2.2.7 by Simon Whitaker
-https://github.com/simonwhitaker/gibo
