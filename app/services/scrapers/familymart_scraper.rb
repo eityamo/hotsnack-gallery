@@ -1,3 +1,5 @@
+require "uri"
+
 module Scrapers
   class FamilymartScraper < BaseScraper
     private
@@ -16,20 +18,33 @@ module Scrapers
     def scrape
       pages.each do |pg|
         page = @agent.get(pg)
-        elements = page.search('.ly-mod-infoset4 a')
+        urls = page.links.map(&:href).compact.filter_map do |href|
+          next unless href.match?(%r{\A(?:https?://www\.family\.co\.jp)?/goods/(?:friedfoods|chukaman)/\d+\.html(?:\?.*)?\z})
+          URI.join(pg, href).to_s
+        end.uniq
 
-        urls = elements.map { |ele| ele.get_attribute(:href) }
+        puts "FamilyMart list page: #{pg} (#{urls.size} urls)"
 
-        urls.each_with_index do |url, i|
+        urls.each do |url|
           page = fetch_page(url)
-          puts "name: #{page.at('.ly-mod-ttl-main').inner_text}"
+          name = page.at('.ly-mod-ttl-main')&.inner_text&.strip || page.at('h1')&.inner_text&.strip
+          next if name.nil? || name.empty?
+
+          page_text = page.at('body')&.inner_text.to_s
+          price_match = page_text.match(/(\d[\d,]*)円(?:\s*（税込\s*\d[\d,]*円?\）)?/)
+          price = price_match ? price_match[1].delete(',').to_i : 0
+          description = page.at('.ly-goods-lead')&.inner_text&.strip || page.at('meta[property="og:description"]')&.get_attribute('content').to_s.strip
+          image = page.at('meta[property="og:image"]')&.get_attribute('content').to_s
+          item_uuid = URI.parse(url).path.split('/').last.to_s.sub('.html', '')
+
+          puts "name: #{name}"
           @data << [
-            i + 200,
-            page.at('.js-mainimage-size img').get_attribute('src').split('/')[5].match(/[^.jpg]+/).to_s,
-            page.at('.ly-mod-ttl-main').inner_text,
-            page.at('.ly-kakaku-usual span').inner_text.match(/[^円]+/).to_s.to_f.round,
-            page.at('.ly-goods-lead').inner_text,
-            "https://www.family.co.jp" + page.at('.js-mainimage-size img').get_attribute('src'),
+            200 + @data.size + 1,
+            item_uuid,
+            name,
+            price,
+            description,
+            image,
           ]
         end
       end
