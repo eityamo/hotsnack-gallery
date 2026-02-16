@@ -54,3 +54,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
+
+# Ruby 3.3でbundled gemに分離されたため明示的に追加
+gem 'logger'
