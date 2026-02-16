@@ -4,8 +4,6 @@
 // that code so it'll be compiled.
 
 import Rails from '@rails/ujs'
-import * as ActiveStorage from '@rails/activestorage'
-import 'channels'
 import Vue from 'vue'
 import App from '../app.vue'
 import router from '../plugins/router'
@@ -16,7 +14,6 @@ import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
 
 Rails.start()
-ActiveStorage.start()
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = createAxios
