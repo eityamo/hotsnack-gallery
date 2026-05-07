@@ -1,6 +1,5 @@
 {
-  "name": "hotsnack_gallery",
-  "version": "0.1.0",
+  "name": "hotsnack-gallery",
   "private": true,
   "scripts": {
     "dev": "next dev",
