@@ -3,10 +3,9 @@ import { getD1Db } from "@/lib/db";
 import { hotsnacks } from "@/db/schema";
 import { sql } from "drizzle-orm";
 
-export const runtime = "edge";
 
 export async function GET() {
-  const db = getD1Db();
+  const db = await getD1Db();
   const result = await db
     .select({ item_uuid: hotsnacks.item_uuid })
     .from(hotsnacks)
