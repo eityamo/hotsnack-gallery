@@ -1,24 +1,35 @@
 {
-  "name": "hotsnack-gallery",
-  "private": true,
-  "dependencies": {
-    "@mdi/font": "^6.9.96",
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "5.4.3",
-    "axios": "^0.27.2",
-    "vue": "^2.6.14",
-    "vue-loader": "^15.9.8",
-    "vue-router": "^3.5.2",
-    "vue-template-compiler": "^2.6.14",
-    "vuetify": "^2.6.7",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
-  },
+  "name": "hotsnack_gallery",
   "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:deploy": "npx wrangler pages deploy .vercel/output/static",
+    "db:create": "npx wrangler d1 create hotsnack-gallery-db",
+    "db:migrate:local": "npx wrangler d1 execute hotsnack-gallery-db --local --file=seed/schema.sql",
+    "db:seed:local": "npx wrangler d1 execute hotsnack-gallery-db --local --file=seed/seed.sql",
+    "db:setup:local": "npm run db:migrate:local && npm run db:seed:local",
+    "generate-seed": "node seed/generate-seed.mjs"
+  },
+  "dependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
+    "drizzle-orm": "^0.45.2",
+    "next": "^15.5.16",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "devDependencies": {
-    "eslint": "^8.23.1",
-    "webpack-dev-server": "^3"
+    "@cloudflare/workers-types": "^4.20260507.1",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "drizzle-kit": "^0.31.10",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wrangler": "^4.88.0"
   }
 }
