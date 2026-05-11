@@ -11,7 +11,12 @@
     "db:migrate:local": "npx wrangler d1 execute hotsnack-gallery-db --local --file=seed/schema.sql",
     "db:seed:local": "npx wrangler d1 execute hotsnack-gallery-db --local --file=seed/seed.sql",
     "db:setup:local": "npm run db:migrate:local && npm run db:seed:local",
-    "generate-seed": "node seed/generate-seed.mjs"
+    "generate-seed": "node seed/generate-seed.mjs",
+    "lint": "eslint src/",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",
@@ -21,14 +26,21 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260507.1",
+    "@eslint/js": "^10.0.1",
     "@opennextjs/cloudflare": "^1.19.7",
+    "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^18.3.28",
     "@types/react-dom": "^18.3.7",
     "drizzle-kit": "^0.31.10",
+    "eslint": "^10.3.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.8.3",
     "tailwindcss": "^4",
     "typescript": "^5",
+    "typescript-eslint": "^8.59.2",
+    "vitest": "^4.1.5",
     "wrangler": "^4.88.0"
   }
 }
