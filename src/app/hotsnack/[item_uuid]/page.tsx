@@ -131,7 +131,7 @@ export default function HotsnackDetailPage() {
       {/* Picture Frame */}
       <div className="mx-10 my-6">
         <PictureFrame>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+
           <img
             src={hotsnack.image}
             alt={hotsnack.name}
