@@ -105,7 +105,7 @@ export default function HotsnackDetailModal({
         {/* Picture */}
         <div className="mx-10 my-8">
           <PictureFrame>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+
             <img
               src={hotsnack.image}
               alt={hotsnack.name}
