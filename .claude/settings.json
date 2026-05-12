@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bin/rails test *)",
+      "Bash(npm run lint *)",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__read_page",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_navigate"
+    ]
+  }
+}
