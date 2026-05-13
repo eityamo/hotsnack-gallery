@@ -10,4 +10,4 @@ binding = "ASSETS"
 [[d1_databases]]
 binding = "DB"
 database_name = "hotsnack-gallery-db"
-database_id = "placeholder-id"
+database_id = "b57a4495-b438-45fa-9d9a-d8068f42dd4a"
