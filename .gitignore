@@ -18,6 +18,9 @@ package-lock.json
 /.next/
 /out/
 
+# opennextjs-cloudflare build output
+/.open-next/
+
 # production
 /build
 
