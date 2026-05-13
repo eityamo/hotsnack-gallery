@@ -3,7 +3,6 @@ import { getD1Db } from "@/lib/db";
 import { hotsnacks } from "@/db/schema";
 import { sql } from "drizzle-orm";
 
-
 export async function GET() {
   const db = await getD1Db();
   const result = await db
