@@ -1,8 +1,13 @@
 name = "hotsnack-gallery"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
+main = ".open-next/worker.js"
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "hotsnack-gallery-db"
-database_id = "placeholder-id"
+database_id = "b57a4495-b438-45fa-9d9a-d8068f42dd4a"
