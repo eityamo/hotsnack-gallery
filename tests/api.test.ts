@@ -94,7 +94,7 @@ describe("GET /api/v1/random", () => {
 
 describe("PUT /api/v1/hotsnack/[item_uuid]/like", () => {
   it("increments like_count", async () => {
-    const mockItem = { id: 1, item_uuid: "test-uuid", like_count: 11 };
+    const mockItem = { id: 1, item_uuid: "test-uuid", like_count: 10 };
     mockLimit.mockResolvedValue([mockItem]);
 
     const { PUT } = await import(
