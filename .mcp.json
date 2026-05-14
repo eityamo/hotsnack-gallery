@@ -2,7 +2,7 @@
   "mcpServers": {
     "cloudflare": {
       "command": "npx",
-      "args": ["-y", "@anthropic-ai/mcp-server-cloudflare"]
+      "args": ["-y", "@cloudflare/mcp-server-cloudflare"]
     }
   }
 }
