@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import PictureFrame from "@/components/PictureFrame";
@@ -13,6 +13,14 @@ export default function TopPage() {
   const [stepCount, setStepCount] = useState(1);
   const [speechDisabled, setSpeechDisabled] = useState(false);
   const [modal, setModal] = useState<"terms" | "privacy" | null>(null);
+  const [enterUuid, setEnterUuid] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/v1/random")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((uuid) => setEnterUuid(uuid as string | null))
+      .catch(() => {});
+  }, []);
 
   const concept =
     "あなたはコンビニエンスストアのホットスナックを買う時に、じっくり選んで注文をしてますか？コンビニ横では周りの人の目が気になって！なかなか選べたもんじゃありません！そんな繊細で優しいかたのために！ホットスナック美術館！は開館されました！美術品のように額縁に入ったホットスナックをじっくり鑑賞し！コンビニ横の息苦しさから解放されましょう！";
@@ -76,8 +84,9 @@ export default function TopPage() {
           ＼展示作品を鑑賞しよう／
         </p>
         <button
-          onClick={() => router.push("/hotsnack/l456071_5")}
-          className="bg-black text-white rounded-full px-6 py-3 text-sm font-bold inline-flex items-center gap-2"
+          onClick={() => enterUuid && router.push(`/hotsnack/${enterUuid}`)}
+          disabled={!enterUuid}
+          className="bg-black text-white rounded-full px-6 py-3 text-sm font-bold inline-flex items-center gap-2 disabled:opacity-50"
         >
           🏛 美術館に入る
         </button>

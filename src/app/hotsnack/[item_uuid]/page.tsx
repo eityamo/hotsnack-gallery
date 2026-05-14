@@ -22,6 +22,8 @@ export default function HotsnackDetailPage() {
   const [show, setShow] = useState(true);
   const [speechDisabled, setSpeechDisabled] = useState(false);
   const [moneyModal, setMoneyModal] = useState(false);
+  const [likeDisabled, setLikeDisabled] = useState(false);
+  const [dislikeDisabled, setDislikeDisabled] = useState(false);
 
   useEffect(() => {
     const fetchDetail = async () => {
@@ -43,7 +45,9 @@ export default function HotsnackDetailPage() {
   }, [params.item_uuid]);
 
   const addLike = async () => {
-    if (!hotsnack) return;
+    if (!hotsnack || likeDisabled) return;
+    setLikeDisabled(true);
+    setTimeout(() => setLikeDisabled(false), 2000);
     const res = await fetch(`/api/v1/hotsnack/${params.item_uuid}/like`, {
       method: "PUT",
     });
@@ -55,7 +59,9 @@ export default function HotsnackDetailPage() {
   };
 
   const addDislike = async () => {
-    if (!hotsnack) return;
+    if (!hotsnack || dislikeDisabled) return;
+    setDislikeDisabled(true);
+    setTimeout(() => setDislikeDisabled(false), 2000);
     const res = await fetch(`/api/v1/hotsnack/${params.item_uuid}/dislike`, {
       method: "PUT",
     });
@@ -108,12 +114,12 @@ export default function HotsnackDetailPage() {
           </button>
         </div>
         <div className="text-center">
-          <button onClick={addLike} className="p-1 text-lg">
+          <button onClick={addLike} disabled={likeDisabled} className="p-1 text-lg disabled:opacity-50">
             👍
           </button>
         </div>
         <div className="text-center">
-          <button onClick={addDislike} className="p-1 text-lg">
+          <button onClick={addDislike} disabled={dislikeDisabled} className="p-1 text-lg disabled:opacity-50">
             👎
           </button>
         </div>
