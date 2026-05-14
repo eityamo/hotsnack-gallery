@@ -18,7 +18,7 @@ export default function TopPage() {
   useEffect(() => {
     fetch("/api/v1/random")
       .then((r) => (r.ok ? r.json() : null))
-      .then((uuid: string | null) => setEnterUuid(uuid))
+      .then((uuid) => setEnterUuid(uuid as string | null))
       .catch(() => {});
   }, []);
 
