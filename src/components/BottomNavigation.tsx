@@ -42,6 +42,8 @@ export default function BottomNavigation() {
   };
 
   const handleShare = () => {
+    const siteUrl =
+      process.env.NEXT_PUBLIC_SITE_URL ?? window.location.origin;
     const shareURL =
       "https://twitter.com/intent/tweet?text=" +
       "ユーザー参加型のバーチャル美術館" +
@@ -50,7 +52,7 @@ export default function BottomNavigation() {
       "%0a" +
       "%23ホットスナック美術館" +
       "%0a" +
-      "https://www.hotsnack-gallery.com/";
+      encodeURIComponent(siteUrl + "/");
     window.open(shareURL, "_blank");
   };
 
