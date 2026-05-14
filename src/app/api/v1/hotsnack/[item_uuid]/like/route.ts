@@ -11,20 +11,20 @@ export async function PUT(
   const { item_uuid } = await params;
   const db = await getD1Db();
 
-  await db
-    .update(hotsnacks)
-    .set({ like_count: sql`${hotsnacks.like_count} + 1` })
-    .where(eq(hotsnacks.item_uuid, item_uuid));
-
-  const result = await db
+  const existing = await db
     .select()
     .from(hotsnacks)
     .where(eq(hotsnacks.item_uuid, item_uuid))
     .limit(1);
 
-  if (result.length === 0) {
+  if (existing.length === 0) {
     return NextResponse.json(null, { status: 404 });
   }
 
-  return NextResponse.json(result[0]);
+  await db
+    .update(hotsnacks)
+    .set({ like_count: sql`${hotsnacks.like_count} + 1` })
+    .where(eq(hotsnacks.item_uuid, item_uuid));
+
+  return NextResponse.json({ ...existing[0], like_count: existing[0].like_count + 1 });
 }
