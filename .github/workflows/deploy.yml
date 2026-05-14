@@ -22,8 +22,15 @@ jobs:
           NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
 
+      - name: Prepare Pages output
+        run: |
+          cp .open-next/worker.js .open-next/assets/_worker.js
+          for dir in cloudflare middleware .build server-functions; do
+            [ -d ".open-next/$dir" ] && cp -r ".open-next/$dir" ".open-next/assets/$dir"
+          done
+
       - name: Deploy to Cloudflare Pages
-        run: npx opennextjs-cloudflare deploy
+        run: npx wrangler pages deploy .open-next/assets --project-name hotsnack-gallery
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
