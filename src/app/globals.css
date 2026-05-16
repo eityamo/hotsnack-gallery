@@ -1,9 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6f5ee;
+  --background: #0d0a05;
   --foreground: #2e1f1f;
   --color-brown: #2c281e;
+  --panel-bg: #1a1208;
+  --panel-text: #e8d5a0;
+  --panel-text-muted: #a08060;
+  --gold: #d4a017;
+  --gold-dim: rgba(180, 140, 50, 0.25);
 }
 
 body {
@@ -165,4 +170,919 @@ body {
 
 .fade-active {
   transition: all 0.5s ease;
+}
+
+/* ================================================================
+   GALLERY ROOM BACKGROUND — fixed behind all content
+================================================================ */
+
+/* Fixed room: dark space with 3D checkerboard floor */
+.grb {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: #0d0a05;
+  overflow: hidden;
+}
+
+/* Ceiling gradient */
+.grb__ceiling {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(to bottom, #050301 0%, #0d0a05 100%);
+}
+
+/* Gallery track lighting rail at ceiling base */
+.grb__ceiling::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(180, 140, 50, 0.4) 25%,
+    rgba(220, 175, 65, 0.6) 50%,
+    rgba(180, 140, 50, 0.4) 75%,
+    transparent
+  );
+}
+
+/* Floor perspective container — sits above bottom nav */
+.grb__floor-wrap {
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  right: 0;
+  height: 44%;
+  overflow: hidden;
+  perspective: 300px;
+}
+
+/* 3D checkerboard floor */
+.grb__floor {
+  position: absolute;
+  bottom: 0;
+  left: -65%;
+  width: 230%;
+  height: 270%;
+  background-image:
+    linear-gradient(45deg, #080503 25%, transparent 25%),
+    linear-gradient(-45deg, #080503 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #080503 75%),
+    linear-gradient(-45deg, transparent 75%, #080503 75%);
+  background-size: 56px 56px;
+  background-position: 0 0, 0 28px, 28px -28px, -28px 0px;
+  background-color: #a07030;
+  transform: rotateX(70deg);
+  transform-origin: center bottom;
+}
+
+/* Warm gallery spotlight on floor */
+.grb__spotlight {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 40%;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(255, 215, 100, 0.12) 0%,
+    rgba(255, 190, 60, 0.05) 45%,
+    transparent 70%
+  );
+  animation: grb-spot 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes grb-spot {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+/* Side vignettes (visible on wider viewports) */
+.grb__vignette-l {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.45), transparent);
+}
+
+.grb__vignette-r {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 36px;
+  height: 100%;
+  background: linear-gradient(to left, rgba(0,0,0,0.45), transparent);
+}
+
+/* ================================================================
+   GALLERY LAYOUT — spatial content panels
+================================================================ */
+
+/* Page wrapper: transparent so gallery room shows through */
+.gallery-page {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 96px;
+}
+
+/* Content panel: dark exhibit card floating on gallery wall */
+.gallery-panel {
+  background: var(--panel-bg);
+  color: var(--panel-text);
+  position: relative;
+  z-index: 2;
+  padding: 16px;
+  border-top: 1px solid rgba(180, 140, 50, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.28);
+}
+
+/* Dark gap between panels — gallery room floor/wall shows through */
+.gallery-gap {
+  height: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header: dark gallery theme */
+.gallery-header {
+  background: #0d0a05;
+  border-bottom: 1px solid var(--gold-dim);
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Bottom nav: dark gallery theme */
+.gallery-bottom-nav {
+  background: #0d0a05 !important;
+  border-top: 1px solid var(--gold-dim) !important;
+  color: #c8a870;
+}
+
+.gallery-bottom-nav button,
+.gallery-bottom-nav a {
+  color: #c8a870;
+  transition: color 0.2s ease;
+}
+
+.gallery-bottom-nav button:hover,
+.gallery-bottom-nav button:active,
+.gallery-bottom-nav a:hover {
+  color: #ffce08;
+}
+
+/* prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .grb__spotlight {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
+/* ================================================================
+   GALLERY ENTRANCE — leaning paintings at room entrance
+================================================================ */
+
+/* Transparent strip — dark room visible through the center */
+.gallery-entrance {
+  height: 140px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 10px 18px;
+  pointer-events: none;
+}
+
+/* Left/right painting group */
+.glp-group {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.glp-group--left {
+  margin-left: -6px;
+  gap: -8px; /* overlap */
+}
+
+.glp-group--left > .glp:last-child {
+  margin-left: -10px;
+}
+
+.glp-group--right {
+  margin-right: -6px;
+}
+
+.glp-group--right > .glp:last-child {
+  margin-left: -8px;
+}
+
+/* Single painting */
+.glp {
+  position: relative;
+}
+
+/* Bottom shadow — painting rests on gallery floor */
+.glp::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 10%;
+  width: 80%;
+  height: 6px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 0, 0, 0.55) 0%, transparent 75%);
+  pointer-events: none;
+}
+
+/* Outer wooden frame */
+.glp__outer {
+  background: linear-gradient(
+    150deg,
+    #3d2510 0%,
+    #1e0f04 35%,
+    #2d1b0a 65%,
+    #1e0f04 100%
+  );
+  padding: 4px;
+  box-shadow:
+    0 0 0 1px rgba(212, 160, 23, 0.55),
+    0 0 0 2px rgba(10, 5, 1, 0.9),
+    0 0 0 3px rgba(180, 130, 40, 0.3),
+    5px 10px 18px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 200, 80, 0.1);
+}
+
+/* Mat/mount */
+.glp__mat {
+  background: #e8e0d2;
+  padding: 3px;
+}
+
+/* Canvas base */
+.glp__canvas {
+  width: 100%;
+  display: block;
+}
+
+/* Burnt sienna landscape */
+.glp__canvas--burnt {
+  background:
+    radial-gradient(ellipse at 25% 60%, rgba(255, 160, 40, 0.6) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 30%, rgba(200, 80, 20, 0.4) 0%, transparent 40%),
+    linear-gradient(180deg,
+      #2a0e04 0%,
+      #8b3a10 25%,
+      #c55a1e 45%,
+      #e07830 55%,
+      #7a3010 75%,
+      #3a1408 100%
+    );
+}
+
+/* Golden ochre abstract */
+.glp__canvas--ochre {
+  background:
+    radial-gradient(ellipse at 40% 35%, rgba(255, 220, 80, 0.55) 0%, transparent 45%),
+    radial-gradient(ellipse at 70% 70%, rgba(180, 100, 10, 0.5) 0%, transparent 50%),
+    linear-gradient(170deg,
+      #1a0c02 0%,
+      #6b4010 20%,
+      #b8780a 40%,
+      #d4a020 55%,
+      #8a5008 75%,
+      #2a1404 100%
+    );
+}
+
+/* Cool slate seascape */
+.glp__canvas--slate {
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(120, 180, 240, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 70%, rgba(60, 120, 160, 0.5) 0%, transparent 40%),
+    linear-gradient(170deg,
+      #060e18 0%,
+      #0f2a3e 20%,
+      #1e4a68 40%,
+      #2a6080 55%,
+      #143040 75%,
+      #060e18 100%
+    );
+}
+
+/* Raw umber dark study */
+.glp__canvas--umber {
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(160, 100, 40, 0.5) 0%, transparent 55%),
+    linear-gradient(160deg,
+      #0e0804 0%,
+      #3a2010 25%,
+      #5a3418 45%,
+      #7a4820 60%,
+      #3a2010 80%,
+      #0e0804 100%
+    );
+}
+
+/* ================================================================
+   MUSEUM ENTRANCE — full-screen overlay on first visit
+================================================================ */
+.museum-entrance {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #0d0a05;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 0 80px;
+  cursor: pointer;
+  animation: museum-entrance-appear 0.45s ease both, museum-entrance-zoom 3.5s ease both;
+}
+
+@keyframes museum-entrance-appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes museum-entrance-zoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1); }
+}
+
+/* Warm golden glow revealed as doors open */
+.museum-entrance__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 75% 55% at 50% 55%,
+    rgba(212, 160, 23, 0.3) 0%,
+    rgba(160, 90, 10, 0.12) 50%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease 0.15s;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.museum-entrance--opening .museum-entrance__glow {
+  opacity: 1;
+}
+
+/* Rush through the doorway as it opens */
+.museum-entrance--opening {
+  animation: museum-enter-rush 1.05s cubic-bezier(0.35, 0, 0.85, 1) forwards !important;
+}
+
+@keyframes museum-enter-rush {
+  0%   { transform: scale(1);    opacity: 1; }
+  50%  { transform: scale(1.12); opacity: 1; }
+  100% { transform: scale(1.65); opacity: 0; }
+}
+
+/* Light seeping through the center door crack */
+.museum-entrance__crack {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(212, 160, 23, 0.15) 12%,
+    rgba(255, 220, 80, 0.45) 40%,
+    rgba(255, 230, 100, 0.55) 50%,
+    rgba(255, 220, 80, 0.45) 60%,
+    rgba(212, 160, 23, 0.15) 88%,
+    transparent 100%
+  );
+  animation: crack-pulse 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 6;
+}
+
+@keyframes crack-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* --- Nameplate sign --- */
+.museum-entrance__sign {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-14px);
+  animation: sign-fadein 0.7s ease-out 0.25s forwards;
+}
+
+@keyframes sign-fadein {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.museum-sign {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 18px 30px 14px;
+  background: linear-gradient(160deg, #1e1005 0%, #2e1c0b 50%, #1e1005 100%);
+  border: 1px solid rgba(212, 160, 23, 0.55);
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.6),
+    0 0 0 4px rgba(212, 160, 23, 0.18),
+    0 10px 36px rgba(0, 0, 0, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 0 18px rgba(0, 0, 0, 0.35);
+}
+
+.museum-sign__main {
+  color: #e8d5a0;
+  font-family: 'Hiragino Mincho Pro', 'Yu Mincho', 'Noto Serif JP', 'Georgia', serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.32em;
+  line-height: 1.5;
+  text-shadow:
+    0 0 16px rgba(212, 160, 23, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.museum-sign__main--lg {
+  font-size: 1.8rem;
+  letter-spacing: 0.28em;
+}
+
+.museum-sign__rule {
+  width: 72%;
+  height: 1px;
+  margin: 6px 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(212, 160, 23, 0.7),
+    transparent
+  );
+}
+
+.museum-sign__en {
+  color: rgba(212, 160, 23, 0.65);
+  font-size: 0.58rem;
+  letter-spacing: 0.38em;
+  font-family: var(--font-lusitana), 'Georgia', serif;
+  text-transform: uppercase;
+}
+
+/* --- Doors --- */
+.museum-door {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 34%;
+  z-index: 7;
+  background:
+    /* Vertical wood grain lines */
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 15px,
+      rgba(255, 255, 255, 0.014) 15px,
+      rgba(255, 255, 255, 0.014) 16px,
+      transparent 16px,
+      transparent 31px,
+      rgba(0, 0, 0, 0.038) 31px,
+      rgba(0, 0, 0, 0.038) 32px
+    ),
+    /* Horizontal grain rhythm */
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 88px,
+      rgba(0, 0, 0, 0.022) 88px,
+      rgba(0, 0, 0, 0.022) 89px
+    ),
+    /* Base wood tone */
+    linear-gradient(
+      175deg,
+      #2e1c0a 0%,
+      #1a0d05 18%,
+      #241508 36%,
+      #1a0d05 54%,
+      #241508 72%,
+      #1a0d05 88%,
+      #2e1c0a 100%
+    );
+  transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: transform;
+}
+
+.museum-door--left {
+  left: 16%;
+  border-right: 1px solid rgba(212, 160, 23, 0.42);
+  box-shadow:
+    inset 0 0 0 10px rgba(10, 5, 1, 0.92),
+    inset 0 0 0 12px rgba(212, 160, 23, 0.3),
+    inset 0 0 0 20px rgba(10, 5, 1, 0.75),
+    inset 0 0 0 22px rgba(212, 160, 23, 0.16),
+    8px 0 28px rgba(0, 0, 0, 0.65);
+}
+
+.museum-door--right {
+  right: 16%;
+  border-left: 1px solid rgba(212, 160, 23, 0.42);
+  box-shadow:
+    inset 0 0 0 10px rgba(10, 5, 1, 0.92),
+    inset 0 0 0 12px rgba(212, 160, 23, 0.3),
+    inset 0 0 0 20px rgba(10, 5, 1, 0.75),
+    inset 0 0 0 22px rgba(212, 160, 23, 0.16),
+    -8px 0 28px rgba(0, 0, 0, 0.65);
+}
+
+.museum-door--left.museum-door--open {
+  transform: translateX(-100%);
+}
+
+.museum-door--right.museum-door--open {
+  transform: translateX(100%);
+}
+
+/* Door inner decorative panels */
+.museum-door__frame {
+  position: absolute;
+  inset: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.museum-door__panel {
+  border: 1px solid rgba(212, 160, 23, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow:
+    inset 0 3px 8px rgba(0, 0, 0, 0.55),
+    0 1px 0 rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.museum-door__panel--top {
+  flex: 1.5;
+}
+
+.museum-door__panel--bottom {
+  flex: 0.65;
+}
+
+/* Diamond ornament centered in upper panel */
+.museum-door__diamond {
+  width: 22px;
+  height: 22px;
+  background: rgba(212, 160, 23, 0.08);
+  border: 1px solid rgba(212, 160, 23, 0.32);
+  transform: rotate(45deg);
+  box-shadow:
+    0 0 10px rgba(212, 160, 23, 0.12),
+    inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Door handles */
+.museum-door__handle {
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: 38px;
+  border-radius: 3.5px;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    to right,
+    #5a3205,
+    #bf890e 28%,
+    #ffce08 50%,
+    #bf890e 72%,
+    #5a3205
+  );
+  box-shadow:
+    0 0 10px rgba(212, 160, 23, 0.32),
+    0 2px 6px rgba(0, 0, 0, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.museum-door__handle--right {
+  right: 22px;
+}
+
+.museum-door__handle--left {
+  left: 22px;
+}
+
+/* --- Enter button --- */
+.museum-enter-btn {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 15px 52px 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(
+    135deg,
+    #6a3c06 0%,
+    #b7860d 30%,
+    #ffce08 50%,
+    #b7860d 70%,
+    #6a3c06 100%
+  );
+  opacity: 0;
+  transform: translateY(14px);
+  animation:
+    btn-fadein 0.7s ease-out 0.55s forwards,
+    btn-glow 2.8s ease-in-out 1.4s infinite;
+  transition: box-shadow 0.2s ease;
+  box-shadow:
+    0 0 22px rgba(212, 160, 23, 0.3),
+    0 4px 14px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+@keyframes btn-fadein {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes btn-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 22px rgba(212, 160, 23, 0.3),
+      0 4px 14px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  }
+  50% {
+    box-shadow:
+      0 0 42px rgba(212, 160, 23, 0.6),
+      0 4px 14px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+.museum-enter-btn:not([disabled]):hover {
+  box-shadow:
+    0 0 38px rgba(212, 160, 23, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.museum-enter-btn:not([disabled]):active {
+  transform: scale(0.97);
+}
+
+.museum-enter-btn__ja {
+  color: #1a0d05;
+  font-family: 'Hiragino Mincho Pro', 'Yu Mincho', 'Noto Serif JP', serif;
+  font-size: 1.05rem;
+  font-weight: bold;
+  letter-spacing: 0.4em;
+  display: block;
+}
+
+.museum-enter-btn__en {
+  color: rgba(26, 13, 5, 0.52);
+  font-family: var(--font-lusitana), serif;
+  font-size: 0.54rem;
+  letter-spacing: 0.22em;
+  display: block;
+}
+
+/* Prefers-reduced-motion: skip all animations */
+@media (prefers-reduced-motion: reduce) {
+  .museum-entrance,
+  .museum-entrance--opening {
+    animation: none !important;
+  }
+  .museum-door {
+    transition: transform 0.01ms;
+  }
+  .museum-entrance__glow {
+    transition: none;
+  }
+  .museum-entrance__crack {
+    animation: none;
+    opacity: 0.6;
+  }
+  .museum-entrance__sign {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .museum-entrance__timer {
+    display: none;
+  }
+  .museum-entrance__skip {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Timer bar — fills left-to-right over 2.2s */
+.museum-entrance__timer {
+  position: absolute;
+  bottom: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: rgba(180, 140, 50, 0.2);
+  border-radius: 1px;
+  overflow: hidden;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.museum-entrance__timer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #d4a017, #ffce08);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: museum-timer-fill 2.2s linear forwards;
+}
+
+@keyframes museum-timer-fill {
+  to { transform: scaleX(1); }
+}
+
+/* Skip hint */
+.museum-entrance__skip {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.62rem;
+  color: rgba(212, 160, 23, 0.45);
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  animation: btn-fadein 0.8s ease 0.6s both;
+}
+
+/* ================================================================
+   MUSEUM ENTRANCE — corridor side walls with artwork
+================================================================ */
+
+/* Side wall strips (16% each; doors shrunk to 34% each) */
+.museum-entrance__wall {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 16%;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.museum-entrance__wall--left {
+  left: 0;
+  background: linear-gradient(to right, #080503 0%, #1a1008 65%, #120c06 100%);
+  border-right: 1px solid rgba(180, 130, 40, 0.2);
+}
+
+.museum-entrance__wall--right {
+  right: 0;
+  background: linear-gradient(to left, #080503 0%, #1a1008 65%, #120c06 100%);
+  border-left: 1px solid rgba(180, 130, 40, 0.2);
+}
+
+/* Ceiling rail hint on each wall */
+.museum-entrance__wall::before {
+  content: '';
+  position: absolute;
+  top: 55px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(180, 130, 40, 0.22), transparent);
+}
+
+/* Baseboard hint */
+.museum-entrance__wall::after {
+  content: '';
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(120, 90, 30, 0.18), transparent);
+}
+
+/* Wall artwork unit */
+.museum-wall-art {
+  position: relative;
+  width: 72%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -8%;
+}
+
+/* Ceiling spotlight glow above painting */
+.museum-wall-art__spotlight {
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130%;
+  height: 28px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(255, 200, 80, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Wooden frame */
+.museum-wall-art__frame {
+  width: 100%;
+  background: linear-gradient(150deg, #3d2510 0%, #1e0f04 35%, #2d1b0a 65%, #1e0f04 100%);
+  padding: 3px;
+  box-shadow:
+    0 0 0 1px rgba(212, 160, 23, 0.52),
+    0 0 0 2px rgba(0, 0, 0, 0.85),
+    0 0 0 3px rgba(180, 130, 40, 0.2),
+    2px 6px 14px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(255, 200, 80, 0.06);
+}
+
+.museum-wall-art__mat {
+  background: #d4cbb8;
+  padding: 2px;
+}
+
+.museum-wall-art__canvas {
+  width: 100%;
+  display: block;
+  height: 54px;
+}
+
+/* Warm landscape (left wall) */
+.museum-wall-art__canvas--warm {
+  background:
+    radial-gradient(ellipse at 28% 58%, rgba(255, 145, 35, 0.65) 0%, transparent 52%),
+    radial-gradient(ellipse at 72% 28%, rgba(195, 65, 15, 0.38) 0%, transparent 42%),
+    linear-gradient(180deg,
+      #280c04 0%,
+      #742a08 25%,
+      #b24816 45%,
+      #cc6018 55%,
+      #622608 75%,
+      #2a0e04 100%
+    );
+}
+
+/* Cool seascape (right wall) */
+.museum-wall-art__canvas--cool {
+  background:
+    radial-gradient(ellipse at 62% 38%, rgba(95, 165, 225, 0.42) 0%, transparent 52%),
+    radial-gradient(ellipse at 22% 68%, rgba(45, 105, 145, 0.48) 0%, transparent 42%),
+    linear-gradient(170deg,
+      #060f1a 0%,
+      #0d2638 20%,
+      #1a3c5c 40%,
+      #224a6c 55%,
+      #102436 75%,
+      #060c16 100%
+    );
+}
+
+/* Wall label plate below painting */
+.museum-wall-art__label {
+  width: 90%;
+  margin-top: 4px;
+  background: linear-gradient(135deg, #2a1808 0%, #3a2010 50%, #2a1808 100%);
+  border: 1px solid rgba(180, 130, 40, 0.35);
+  text-align: center;
+  padding: 2px 0;
+  font-size: 0.38rem;
+  color: rgba(212, 160, 23, 0.7);
+  letter-spacing: 0.08em;
+  font-family: var(--font-lusitana), serif;
 }
