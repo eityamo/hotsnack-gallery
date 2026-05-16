@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Lusitana } from "next/font/google";
 import "./globals.css";
 import BottomNavigation from "@/components/BottomNavigation";
+import GalleryRoomBg from "@/components/GalleryRoomBg";
+import GalleryEntrance from "@/components/GalleryEntrance";
 
 const lusitana = Lusitana({
   weight: ["400", "700"],
@@ -53,16 +55,22 @@ export default function RootLayout({
           </>
         )}
       </head>
-      <body className="min-h-screen flex flex-col bg-[#f6f5ee]">
-        <header className="bg-gray-100 shadow-sm">
+      <body className="min-h-screen flex flex-col">
+        <GalleryRoomBg />
+
+        <header className="gallery-header">
           <div className="max-w-[375px] mx-auto px-4 py-3">
-            <h1 className="font-[family-name:var(--font-lusitana)] text-lg font-bold tracking-wide">
+            <h1
+              className="font-[family-name:var(--font-lusitana)] text-lg font-bold tracking-wide text-[#e8d5a0]"
+              style={{ textShadow: "0 0 18px rgba(212,160,23,0.35)" }}
+            >
               HOTSNACK GALLERY
             </h1>
           </div>
         </header>
 
         <main className="flex-1 max-w-[375px] w-full mx-auto">
+          <GalleryEntrance />
           {children}
         </main>
 
