@@ -37,16 +37,19 @@ export default function CategoriesPage() {
   };
 
   return (
-    <div className="pb-24 px-2">
-      {genreList.map((genre) => (
-        <div key={genre} className="my-4">
-          <h2
-            className="text-center text-xl my-2"
-            style={{ fontFamily: '"Hiragino Mincho Pro", serif' }}
-          >
-            〜{genre}展〜
-          </h2>
-          <Carousel items={getByGenre(genre)} onItemClick={openModal} />
+    <div className="gallery-page">
+      {genreList.map((genre, i) => (
+        <div key={genre}>
+          {i > 0 && <div className="gallery-gap" />}
+          <div className="gallery-panel py-3 px-0">
+            <h2
+              className="text-center text-xl my-2"
+              style={{ fontFamily: '"Hiragino Mincho Pro", serif' }}
+            >
+              〜{genre}展〜
+            </h2>
+            <Carousel items={getByGenre(genre)} onItemClick={openModal} />
+          </div>
         </div>
       ))}
 
@@ -115,7 +118,7 @@ function Carousel({
       <div className="flex justify-between absolute top-1/2 -translate-y-1/2 w-full z-10 px-1">
         <button
           onClick={goPrev}
-          className={`p-2 bg-white/80 rounded-full shadow ${currentIndex === 0 ? "invisible" : ""}`}
+          className={`p-2 bg-[#1a1208]/90 border border-[rgba(212,160,23,0.35)] text-[#d4a017] rounded-full shadow ${currentIndex === 0 ? "invisible" : ""}`}
         >
           ◀
         </button>
@@ -128,7 +131,7 @@ function Carousel({
       </div>
 
       <div
-        className="pt-2 bg-[#f6f5ee] cursor-pointer"
+        className="pt-2 cursor-pointer"
         onClick={() => onItemClick(hotsnack)}
       >
         {/* Medal label */}
@@ -161,7 +164,7 @@ function Carousel({
       </div>
 
       {/* Pagination indicator */}
-      <div className="text-center text-xs text-gray-500 mt-2">
+      <div className="text-center text-xs text-[#a08060] mt-2">
         {currentIndex + 1} / {items.length}
       </div>
     </div>

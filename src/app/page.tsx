@@ -7,6 +7,7 @@ import PictureFrame from "@/components/PictureFrame";
 import Divider from "@/components/Divider";
 import TermsModal from "@/components/TermsModal";
 import PrivacyPolicyModal from "@/components/PrivacyPolicyModal";
+import MuseumEntrance from "@/components/MuseumEntrance";
 
 export default function TopPage() {
   const router = useRouter();
@@ -14,6 +15,7 @@ export default function TopPage() {
   const [speechDisabled, setSpeechDisabled] = useState(false);
   const [modal, setModal] = useState<"terms" | "privacy" | null>(null);
   const [enterUuid, setEnterUuid] = useState<string | null>(null);
+  const [showEntrance, setShowEntrance] = useState(true);
 
   useEffect(() => {
     fetch("/api/v1/random")
@@ -36,123 +38,127 @@ export default function TopPage() {
   };
 
   return (
-    <div className="pb-24 px-4">
-      {/* Concept */}
-      <div className="text-center my-4">
-        <div className="flex items-center justify-center gap-1 pb-3">
-          <span className="text-xs font-bold">🔖 ホットスナック美術館について</span>
-          <button
-            onClick={() => speakText(concept, 26000)}
-            disabled={speechDisabled}
-            className="p-1 disabled:opacity-50"
-          >
-            🔊
-          </button>
-        </div>
-        <p className="text-xs font-bold leading-5 text-[#2c281e]">
-          コンビニのホットスナック
-          <br />
-          じっくり選びたいけど選べない
-          <br />
-          そんな事態を解決するサービス
-        </p>
-      </div>
+    <>
+      {showEntrance && (
+        <MuseumEntrance onComplete={() => setShowEntrance(false)} />
+      )}
+      <div className="gallery-page">
 
-      <Divider />
-
-      {/* Title Image */}
-      <div className="mx-4 my-10 shadow-lg">
-        <PictureFrame>
-          <Image
-            src="/img/TOP_TITLE.jpg"
-            alt="ホットスナック美術館"
-            width={300}
-            height={200}
-            className="w-full h-auto"
-            priority
-          />
-        </PictureFrame>
-      </div>
-
-      <Divider />
-
-      {/* CTA */}
-      <div className="text-center my-4">
-        <p className="text-xs font-bold mb-2">
-          美術館に来館して
-          <br />
-          ＼展示作品を鑑賞しよう／
-        </p>
-        <button
-          onClick={() => enterUuid && router.push(`/hotsnack/${enterUuid}`)}
-          disabled={!enterUuid}
-          className="bg-black text-white rounded-full px-6 py-3 text-sm font-bold inline-flex items-center gap-2 disabled:opacity-50"
-        >
-          🏛 美術館に入る
-        </button>
-        <p className="text-[0.55em] font-light mt-2 text-[#2c281e]">
-          ※下の利用規約・プライバシーポリシーをご確認ください。
-        </p>
-      </div>
-
-      <Divider />
-
-      {/* Usage Steps */}
-      <div className="text-center mb-4">
-        <div className="flex items-center justify-center gap-1 py-1">
-          <span className="text-xs font-bold">
-            🔖 ホットスナック美術館の使い方({stepCount}/3)
-          </span>
-        </div>
-        <div className="pt-2 mb-4">
-          <div className="h-[350px] flex items-center justify-center border border-transparent rounded">
-            <Image
-              src={`/img/rules/Rule_${stepCount}.png`}
-              alt={`使い方 ステップ${stepCount}`}
-              width={300}
-              height={350}
-              className="w-full h-auto max-h-[350px] object-contain"
-            />
+        {/* Concept */}
+        <div className="gallery-panel text-center py-5 px-4">
+          <div className="flex items-center justify-center gap-1 pb-3">
+            <span className="text-xs font-bold">🔖 ホットスナック美術館について</span>
+            <button
+              onClick={() => speakText(concept, 26000)}
+              disabled={speechDisabled}
+              className="p-1 disabled:opacity-50 cursor-pointer"
+            >
+              🔊
+            </button>
           </div>
+          <p className="text-xs font-bold leading-5 text-[#c8a870]">
+            コンビニのホットスナック
+            <br />
+            じっくり選びたいけど選べない
+            <br />
+            そんな事態を解決するサービス
+          </p>
         </div>
-        {stepCount === 3 ? (
-          <button
-            onClick={() => setStepCount(1)}
-            className="px-6 py-2 bg-white rounded-full shadow"
-          >
-            初めへ
-          </button>
-        ) : (
-          <button
-            onClick={() => setStepCount((c) => c + 1)}
-            className="px-6 py-2 bg-white rounded-full shadow"
-          >
-            次へ
-          </button>
-        )}
-      </div>
 
-      <Divider />
+        <div className="gallery-gap" />
 
-      {/* Target Audience */}
-      <div className="text-center my-4">
-        <div className="flex items-center justify-center gap-1 pb-3">
-          <span className="text-xs font-bold">
-            🔖 ホットスナック美術館の来館対象者
-          </span>
-          <button
-            onClick={() => speakText(target, 20000)}
-            disabled={speechDisabled}
-            className="p-1 disabled:opacity-50"
-          >
-            🔊
-          </button>
+        {/* Title Image */}
+        <div className="gallery-panel py-8 px-8">
+          <PictureFrame>
+            <Image
+              src="/img/TOP_TITLE.jpg"
+              alt="ホットスナック美術館"
+              width={300}
+              height={200}
+              className="w-full h-auto"
+              priority
+            />
+          </PictureFrame>
         </div>
-        <div className="border border-transparent rounded p-2">
-          <p className="text-xs font-bold text-left pt-0">
+
+        <div className="gallery-gap" />
+
+        {/* CTA */}
+        <div className="gallery-panel text-center py-6 px-4">
+          <p className="text-xs font-bold mb-4">
+            美術館に来館して
+            <br />
+            ＼展示作品を鑑賞しよう／
+          </p>
+          <button
+            onClick={() => enterUuid && router.push(`/hotsnack/${enterUuid}`)}
+            disabled={!enterUuid}
+            className="border border-[#d4a017] text-[#e8d5a0] rounded-full px-6 py-3 text-sm font-bold inline-flex items-center gap-2 disabled:opacity-50 cursor-pointer"
+          >
+            🏛 美術館に入る
+          </button>
+          <p className="text-[0.55em] font-light mt-3 text-[#a08060]">
+            ※下の利用規約・プライバシーポリシーをご確認ください。
+          </p>
+        </div>
+
+        <div className="gallery-gap" />
+
+        {/* Usage Steps */}
+        <div className="gallery-panel text-center py-4 px-4">
+          <div className="flex items-center justify-center gap-1 py-1">
+            <span className="text-xs font-bold">
+              🔖 ホットスナック美術館の使い方({stepCount}/3)
+            </span>
+          </div>
+          <div className="pt-2 mb-4">
+            <div className="h-[350px] flex items-center justify-center">
+              <Image
+                src={`/img/rules/Rule_${stepCount}.png`}
+                alt={`使い方 ステップ${stepCount}`}
+                width={300}
+                height={350}
+                className="w-full h-auto max-h-[350px] object-contain"
+              />
+            </div>
+          </div>
+          {stepCount === 3 ? (
+            <button
+              onClick={() => setStepCount(1)}
+              className="px-6 py-2 rounded-full border border-[rgba(212,160,23,0.4)] text-[#e8d5a0] cursor-pointer"
+            >
+              初めへ
+            </button>
+          ) : (
+            <button
+              onClick={() => setStepCount((c) => c + 1)}
+              className="px-6 py-2 rounded-full border border-[rgba(212,160,23,0.4)] text-[#e8d5a0] cursor-pointer"
+            >
+              次へ
+            </button>
+          )}
+        </div>
+
+        <div className="gallery-gap" />
+
+        {/* Target Audience */}
+        <div className="gallery-panel text-center py-4 px-4">
+          <div className="flex items-center justify-center gap-1 pb-3">
+            <span className="text-xs font-bold">
+              🔖 ホットスナック美術館の来館対象者
+            </span>
+            <button
+              onClick={() => speakText(target, 20000)}
+              disabled={speechDisabled}
+              className="p-1 disabled:opacity-50 cursor-pointer"
+            >
+              🔊
+            </button>
+          </div>
+          <p className="text-xs font-bold text-left">
             コンビニでホットスナックを選んでいる時に、、、
           </p>
-          <p className="text-[0.7em] text-center py-2 text-[#2c281e]">
+          <p className="text-[0.7em] text-center py-2 text-[#c8a870]">
             店員の視線が気になる人。
             <br />
             他の客の邪魔になっていると感じる人。
@@ -160,46 +166,46 @@ export default function TopPage() {
           <p className="text-xs font-bold text-left">
             ホットスナックを選ぼうとレジ横に向かったら、、、
           </p>
-          <p className="text-[0.7em] text-center py-2 text-[#2c281e]">
+          <p className="text-[0.7em] text-center py-2 text-[#c8a870]">
             レジに向かったと間違われ、気まずい思いをした人。
           </p>
         </div>
+
+        <div className="gallery-gap" />
+
+        {/* Footer Links */}
+        <div className="gallery-panel flex justify-center gap-4 py-4 text-xs">
+          <button
+            onClick={() => setModal("terms")}
+            className="text-[#a08060] hover:text-[#ffce08] cursor-pointer"
+          >
+            利用規約
+          </button>
+          <button
+            onClick={() => setModal("privacy")}
+            className="text-[#a08060] hover:text-[#ffce08] cursor-pointer"
+          >
+            プライバシーポリシー
+          </button>
+          <a
+            href="https://twitter.com/eityamo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#a08060] hover:text-[#ffce08] cursor-pointer"
+          >
+            問い合わせ
+          </a>
+        </div>
+
+        <TermsModal
+          isVisible={modal === "terms"}
+          onClose={() => setModal(null)}
+        />
+        <PrivacyPolicyModal
+          isVisible={modal === "privacy"}
+          onClose={() => setModal(null)}
+        />
       </div>
-
-      <Divider />
-
-      {/* Footer Links */}
-      <div className="flex justify-center gap-2 py-4 text-xs">
-        <button
-          onClick={() => setModal("terms")}
-          className="text-gray-600 hover:text-black"
-        >
-          利用規約
-        </button>
-        <button
-          onClick={() => setModal("privacy")}
-          className="text-gray-600 hover:text-black"
-        >
-          プライバシーポリシー
-        </button>
-        <a
-          href="https://twitter.com/eityamo"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-600 hover:text-black"
-        >
-          問い合わせ
-        </a>
-      </div>
-
-      <TermsModal
-        isVisible={modal === "terms"}
-        onClose={() => setModal(null)}
-      />
-      <PrivacyPolicyModal
-        isVisible={modal === "privacy"}
-        onClose={() => setModal(null)}
-      />
-    </div>
+    </>
   );
 }

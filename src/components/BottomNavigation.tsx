@@ -57,11 +57,11 @@ export default function BottomNavigation() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 gallery-bottom-nav">
       <div className="max-w-[375px] mx-auto flex justify-around items-center h-[70px]">
         <button
           onClick={() => router.push("/")}
-          className="flex flex-col items-center gap-1 text-xs font-[family-name:var(--font-lusitana)]"
+          className="flex flex-col items-center gap-1 text-xs font-[family-name:var(--font-lusitana)] cursor-pointer"
         >
           <svg
             className="w-6 h-6"
@@ -82,7 +82,7 @@ export default function BottomNavigation() {
         <button
           onClick={handleRandom}
           disabled={disabledRandom}
-          className="flex flex-col items-center gap-1 text-xs font-[family-name:var(--font-lusitana)] disabled:opacity-50"
+          className="flex flex-col items-center gap-1 text-xs font-[family-name:var(--font-lusitana)] disabled:opacity-40 cursor-pointer"
         >
           <svg
             className="w-6 h-6"
@@ -102,7 +102,7 @@ export default function BottomNavigation() {
 
         <button
           onClick={() => router.push("/categories")}
-          className="flex flex-col items-center gap-1 text-xs font-[family-name:var(--font-lusitana)]"
+          className="flex flex-col items-center gap-1 text-xs font-[family-name:var(--font-lusitana)] cursor-pointer"
         >
           <svg
             className="w-6 h-6"
@@ -122,7 +122,7 @@ export default function BottomNavigation() {
 
         <button
           onClick={handleShare}
-          className="flex flex-col items-center gap-1 text-xs font-[family-name:var(--font-lusitana)]"
+          className="flex flex-col items-center gap-1 text-xs font-[family-name:var(--font-lusitana)] cursor-pointer"
         >
           <svg
             className="w-6 h-6"

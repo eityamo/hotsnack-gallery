@@ -82,16 +82,20 @@ export default function HotsnackDetailPage() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-pulse text-gray-400">Loading...</div>
+      <div className="gallery-page">
+        <div className="gallery-panel flex justify-center items-center h-64">
+          <div className="animate-pulse text-[#c8a870]">Loading...</div>
+        </div>
       </div>
     );
   }
 
   if (!hotsnack) {
     return (
-      <div className="text-center py-8 pb-24">
-        <p className="text-sm text-gray-600">美術品は見つかりませんでした</p>
+      <div className="gallery-page">
+        <div className="gallery-panel text-center py-8">
+          <p className="text-sm text-[#a08060]">美術品は見つかりませんでした</p>
+        </div>
       </div>
     );
   }
@@ -99,45 +103,47 @@ export default function HotsnackDetailPage() {
   const evaluationAmount = hotsnack.price * hotsnack.like_count;
 
   return (
-    <div className="pb-24 px-2">
+    <div className="gallery-page">
+
       {/* Evaluation & Like/Dislike */}
-      <div className="grid grid-cols-3 gap-1 mt-8 mx-4">
-        <div className="text-center">
-          <button
-            onClick={() => setMoneyModal(true)}
-            className="text-base font-bold relative"
-          >
-            評価額
-            <span className="absolute -top-1 -right-4 bg-black text-white rounded-full w-4 h-4 text-[0.5em] flex items-center justify-center">
-              ?
-            </span>
-          </button>
+      <div className="gallery-panel px-4 pt-6 pb-4">
+        <div className="grid grid-cols-3 gap-1 mb-1">
+          <div className="text-center">
+            <button
+              onClick={() => setMoneyModal(true)}
+              className="text-base font-bold relative cursor-pointer"
+            >
+              評価額
+              <span className="absolute -top-1 -right-4 bg-black text-white rounded-full w-4 h-4 text-[0.5em] flex items-center justify-center">
+                ?
+              </span>
+            </button>
+          </div>
+          <div className="text-center">
+            <button onClick={addLike} disabled={likeDisabled} className="p-1 text-lg disabled:opacity-50 cursor-pointer">
+              👍
+            </button>
+          </div>
+          <div className="text-center">
+            <button onClick={addDislike} disabled={dislikeDisabled} className="p-1 text-lg disabled:opacity-50 cursor-pointer">
+              👎
+            </button>
+          </div>
         </div>
-        <div className="text-center">
-          <button onClick={addLike} disabled={likeDisabled} className="p-1 text-lg disabled:opacity-50">
-            👍
-          </button>
-        </div>
-        <div className="text-center">
-          <button onClick={addDislike} disabled={dislikeDisabled} className="p-1 text-lg disabled:opacity-50">
-            👎
-          </button>
+        <div className="grid grid-cols-3 gap-1">
+          <div className="text-center text-sm">
+            <AnimatedNumber value={evaluationAmount} /> 円
+          </div>
+          <div className="text-center text-sm">{hotsnack.like_count}</div>
+          <div className="text-center text-sm">{hotsnack.dislike_count}</div>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-1 mb-4 mx-4">
-        <div className="text-center text-sm">
-          <AnimatedNumber value={evaluationAmount} /> 円
-        </div>
-        <div className="text-center text-sm">{hotsnack.like_count}</div>
-        <div className="text-center text-sm">{hotsnack.dislike_count}</div>
-      </div>
 
-      <Divider />
+      <div className="gallery-gap" />
 
-      {/* Picture Frame */}
-      <div className="mx-10 my-6">
+      {/* Artwork — picture frame displayed in the gallery room */}
+      <div className="gallery-panel py-8 px-10">
         <PictureFrame>
-
           <img
             src={hotsnack.image}
             alt={hotsnack.name}
@@ -146,7 +152,7 @@ export default function HotsnackDetailPage() {
         </PictureFrame>
 
         {/* Name Plate */}
-        <div className="mx-6 my-10 shadow-lg">
+        <div className="mx-4 mt-10 shadow-lg">
           <div className="text-center text-xs font-bold pt-2 pb-0 whitespace-pre-line text-[#2c281e]">
             {hotsnack.name}
           </div>
@@ -164,34 +170,32 @@ export default function HotsnackDetailPage() {
             {hotsnack.genre} / {hotsnack.ingredient}
           </div>
         </div>
+      </div>
 
-        {/* Description Toggle */}
-        <div className="mt-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1">
-              <span className="text-sm">作品解説</span>
-              <button
-                onClick={speak}
-                disabled={speechDisabled}
-                className="p-1 disabled:opacity-50"
-              >
-                🔊
-              </button>
-            </div>
-            <button onClick={() => setShow(!show)} className="p-1 text-lg">
-              {show ? "▲" : "▼"}
+      <div className="gallery-gap" />
+
+      {/* Description */}
+      <div className="gallery-panel px-4 py-4">
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center gap-1">
+            <span className="text-sm">作品解説</span>
+            <button
+              onClick={speak}
+              disabled={speechDisabled}
+              className="p-1 disabled:opacity-50 cursor-pointer"
+            >
+              🔊
             </button>
           </div>
-
-          {show && (
-            <div>
-              <Divider />
-              <p className="text-sm text-gray-700 py-2">
-                {hotsnack.description}
-              </p>
-            </div>
-          )}
+          <button onClick={() => setShow(!show)} className="p-1 text-lg cursor-pointer">
+            {show ? "▲" : "▼"}
+          </button>
         </div>
+        {show && (
+          <p className="text-sm text-[#c8b08a] pt-2 leading-6">
+            {hotsnack.description}
+          </p>
+        )}
       </div>
 
       <MoneyDescriptionModal
