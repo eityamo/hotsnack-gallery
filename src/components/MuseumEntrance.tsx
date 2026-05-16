@@ -46,8 +46,7 @@ export default function MuseumEntrance({ onComplete }: { onComplete: () => void 
     return () => {
       if (autoTimerRef.current) clearTimeout(autoTimerRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []); // onComplete は mount 時のみ実行、以降は autoTimerRef で管理
 
   if (!visible) return null;
 

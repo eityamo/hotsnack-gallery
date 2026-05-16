@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import PictureFrame from "@/components/PictureFrame";
-import Divider from "@/components/Divider";
 import TermsModal from "@/components/TermsModal";
 import PrivacyPolicyModal from "@/components/PrivacyPolicyModal";
 import MuseumEntrance from "@/components/MuseumEntrance";

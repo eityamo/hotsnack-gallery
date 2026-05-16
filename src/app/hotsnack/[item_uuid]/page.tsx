@@ -5,7 +5,6 @@ import { useParams } from "next/navigation";
 import type { Hotsnack } from "@/db/schema";
 import PictureFrame from "@/components/PictureFrame";
 import AnimatedNumber from "@/components/AnimatedNumber";
-import Divider from "@/components/Divider";
 import MoneyDescriptionModal from "@/components/MoneyDescriptionModal";
 
 function getStoreYear(store: string): string {
