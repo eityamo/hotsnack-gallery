@@ -1057,6 +1057,86 @@ body {
   background: linear-gradient(to right, transparent, rgba(120, 90, 30, 0.18), transparent);
 }
 
+/* ================================================================
+   MUSEUM TITLE ART — タイトルを額縁内の展示作品として表現
+================================================================ */
+.museum-title-art {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 50% 55%, rgba(180, 120, 20, 0.14) 0%, transparent 68%),
+    linear-gradient(160deg, #0c0905 0%, #1a1208 45%, #110e07 100%);
+  padding: 36px 28px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 四隅の装飾コーナー */
+.museum-title-art__corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(212, 160, 23, 0.45);
+  border-style: solid;
+}
+.museum-title-art__corner--tl { top: 10px; left: 10px; border-width: 1px 0 0 1px; }
+.museum-title-art__corner--tr { top: 10px; right: 10px; border-width: 1px 1px 0 0; }
+.museum-title-art__corner--bl { bottom: 10px; left: 10px; border-width: 0 0 1px 1px; }
+.museum-title-art__corner--br { bottom: 10px; right: 10px; border-width: 0 1px 1px 0; }
+
+.museum-title-art__welcome {
+  color: rgba(212, 160, 23, 0.55);
+  font-size: 0.62rem;
+  letter-spacing: 0.5em;
+  font-family: 'Hiragino Mincho Pro', 'Yu Mincho', 'Noto Serif JP', serif;
+  margin-bottom: 4px;
+}
+
+.museum-title-art__name {
+  color: #dfc896;
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.28em;
+  font-family: 'Hiragino Mincho Pro', 'Yu Mincho', 'Noto Serif JP', serif;
+  line-height: 1.5;
+  text-shadow:
+    0 0 22px rgba(212, 160, 23, 0.38),
+    0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+.museum-title-art__name--lg {
+  font-size: 2.4rem;
+  letter-spacing: 0.22em;
+  color: #f0e2b8;
+  text-shadow:
+    0 0 36px rgba(212, 160, 23, 0.55),
+    0 0 12px rgba(212, 160, 23, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+.museum-title-art__rule {
+  width: 55%;
+  height: 1px;
+  margin: 10px 0 8px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(212, 160, 23, 0.65) 30%,
+    rgba(255, 206, 8, 0.85) 50%,
+    rgba(212, 160, 23, 0.65) 70%,
+    transparent
+  );
+}
+
+.museum-title-art__en {
+  color: rgba(212, 160, 23, 0.5);
+  font-size: 0.56rem;
+  letter-spacing: 0.42em;
+  font-family: var(--font-lusitana), 'Georgia', serif;
+}
+
 /* Wall artwork unit */
 .museum-wall-art {
   position: relative;
