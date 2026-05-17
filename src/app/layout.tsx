@@ -3,8 +3,6 @@ import { Lusitana } from "next/font/google";
 import "./globals.css";
 import BottomNavigation from "@/components/BottomNavigation";
 import GalleryRoomBg from "@/components/GalleryRoomBg";
-import GalleryEntrance from "@/components/GalleryEntrance";
-
 const lusitana = Lusitana({
   weight: ["400", "700"],
   subsets: ["latin"],
@@ -70,7 +68,6 @@ export default function RootLayout({
         </header>
 
         <main className="flex-1 max-w-[375px] w-full mx-auto">
-          <GalleryEntrance />
           {children}
         </main>
 
