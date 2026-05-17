@@ -151,7 +151,7 @@ export default function HotsnackDetailPage() {
         </PictureFrame>
 
         {/* Name Plate */}
-        <div className="mx-4 mt-10 shadow-lg">
+        <div className="plate-gold mx-4 mt-10 shadow-lg">
           <div className="text-center text-xs font-bold pt-2 pb-0 whitespace-pre-line text-[#2c281e]">
             {hotsnack.name}
           </div>
