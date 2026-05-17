@@ -17,38 +17,98 @@ body {
   font-weight: bold;
 }
 
-/* Picture frame styles */
+/* ============================================================
+   PICTURE FRAME — museum-quality dark gilt ornate frame
+   Layer 1 frame-outline : 外枠モールディング（ダークウォルナット×金箔）
+   Layer 2 frame-inline  : 金箔フィレット（細い金帯）
+   Layer 3 frame-block   : ダークマット/マウント
+   Layer 4 frame-border  : アートウェル（内側ベベル）
+   ============================================================ */
+
+/* 外枠モールディング — 左上から光を受けた経年金箔加工 */
 .frame-outline {
   width: 100%;
-  height: 100%;
-  background: #f8f8f8;
-  padding: 8px;
-  box-shadow: 0px 2em 4em 0.5em rgba(0, 0, 0, 0.1), inset 0 0.2em 0.1em #fff;
+  padding: 14px;
+  background:
+    /* 木目調の微細テクスチャ */
+    repeating-linear-gradient(
+      83deg,
+      transparent 0px,
+      transparent 8px,
+      rgba(0, 0, 0, 0.055) 8px,
+      rgba(0, 0, 0, 0.055) 9px,
+      transparent 9px,
+      transparent 18px,
+      rgba(255, 255, 255, 0.018) 18px,
+      rgba(255, 255, 255, 0.018) 19px
+    ),
+    /* メインの金箔グラデーション */
+    linear-gradient(
+      150deg,
+      #d4a838 0%,
+      #7a5215 7%,
+      #1c0e06 20%,
+      #0c0804 38%,
+      #180c05 54%,
+      #7a5215 70%,
+      #a07820 80%,
+      #7a5215 90%,
+      #2a1808 100%
+    );
+  box-shadow:
+    /* 壁からの投影 */
+    0 14px 52px rgba(0, 0, 0, 0.92),
+    0 4px 14px rgba(0, 0, 0, 0.7),
+    /* 上端・左端のハイライト（光源：左上） */
+    inset 0 2px 0 rgba(255, 218, 72, 0.68),
+    inset 2px 0 0 rgba(255, 205, 55, 0.42),
+    /* 下端・右端の影（モールディングの厚み） */
+    inset 0 -3px 0 rgba(0, 0, 0, 0.82),
+    inset -3px 0 0 rgba(0, 0, 0, 0.62),
+    /* 内側グルーブ（モールディング段差） */
+    inset 0 0 0 5px rgba(0, 0, 0, 0.42);
 }
 
+/* 金箔フィレット — フレームとマットの境目の細い金帯 */
 .frame-inline {
-  background-color: #f8f8f8;
-  padding: 8px;
-  box-shadow: inset 0px 10px 0.5em rgba(0, 0, 0, 0.25),
-    inset 0.1em 0px 0.1em rgba(0, 0, 0, 0.1),
-    inset -0.1em 0px 0.1em rgba(0, 0, 0, 0.05), 0 0.3em 0.2em #fff;
-  background-image: radial-gradient(
-    circle farthest-corner at 50% 50%,
-    #ffffff,
-    #f8f8f8 100%
+  padding: 5px;
+  background: linear-gradient(
+    145deg,
+    #f2d462 0%,
+    #c09030 18%,
+    #8a6018 42%,
+    #c09030 68%,
+    #ecca52 86%,
+    #b08828 100%
   );
+  box-shadow:
+    /* 左上ハイライト */
+    inset 0 1px 0 rgba(255, 252, 145, 0.78),
+    inset 1px 0 0 rgba(255, 244, 108, 0.52),
+    /* 右下シャドウ */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.68),
+    inset -1px 0 0 rgba(0, 0, 0, 0.52);
 }
 
+/* ダークマット/マウント — 作品に落ち着いた余白を与える */
 .frame-block {
-  padding: 4px;
+  padding: 20px;
+  background: #13100c;
+  box-shadow:
+    inset 0 0 28px rgba(0, 0, 0, 0.72),
+    inset 0 5px 12px rgba(0, 0, 0, 0.58);
 }
 
+/* アートウェル — 作品を包む内側ベベル */
 .frame-border {
-  background: #fff;
-  width: 88%;
-  margin: 0 auto;
-  padding: 6%;
-  box-shadow: inset 0px 0.3em 0.1em rgba(0, 0, 0, 0.2);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px rgba(180, 148, 52, 0.22),
+    inset 3px 3px 10px rgba(0, 0, 0, 0.52),
+    inset -1px -1px 4px rgba(0, 0, 0, 0.32);
 }
 
 /* Divider */
