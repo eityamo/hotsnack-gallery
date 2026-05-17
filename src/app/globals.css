@@ -717,8 +717,7 @@ body {
   position: absolute;
   top: 0;
   height: 100%;
-  width: 34%;
-  z-index: 7;
+  width: 50%;
   background:
     /* Vertical wood grain lines */
     repeating-linear-gradient(
@@ -756,7 +755,7 @@ body {
 }
 
 .museum-door--left {
-  left: 16%;
+  left: 0;
   border-right: 1px solid rgba(212, 160, 23, 0.42);
   box-shadow:
     inset 0 0 0 10px rgba(10, 5, 1, 0.92),
@@ -767,7 +766,7 @@ body {
 }
 
 .museum-door--right {
-  right: 16%;
+  right: 0;
   border-left: 1px solid rgba(212, 160, 23, 0.42);
   box-shadow:
     inset 0 0 0 10px rgba(10, 5, 1, 0.92),
@@ -1008,56 +1007,6 @@ body {
 }
 
 /* ================================================================
-   MUSEUM ENTRANCE — corridor side walls with artwork
-================================================================ */
-
-/* Side wall strips (16% each; doors shrunk to 34% each) */
-.museum-entrance__wall {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 16%;
-  z-index: 8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.museum-entrance__wall--left {
-  left: 0;
-  background: linear-gradient(to right, #080503 0%, #1a1008 65%, #120c06 100%);
-  border-right: 1px solid rgba(180, 130, 40, 0.2);
-}
-
-.museum-entrance__wall--right {
-  right: 0;
-  background: linear-gradient(to left, #080503 0%, #1a1008 65%, #120c06 100%);
-  border-left: 1px solid rgba(180, 130, 40, 0.2);
-}
-
-/* Ceiling rail hint on each wall */
-.museum-entrance__wall::before {
-  content: '';
-  position: absolute;
-  top: 55px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(180, 130, 40, 0.22), transparent);
-}
-
-/* Baseboard hint */
-.museum-entrance__wall::after {
-  content: '';
-  position: absolute;
-  bottom: 70px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(120, 90, 30, 0.18), transparent);
-}
-
-/* ================================================================
    MUSEUM TITLE ART — タイトルを額縁内の展示作品として表現
 ================================================================ */
 .museum-title-art {
@@ -1137,92 +1086,3 @@ body {
   font-family: var(--font-lusitana), 'Georgia', serif;
 }
 
-/* Wall artwork unit */
-.museum-wall-art {
-  position: relative;
-  width: 72%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: -8%;
-}
-
-/* Ceiling spotlight glow above painting */
-.museum-wall-art__spotlight {
-  position: absolute;
-  top: -26px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 130%;
-  height: 28px;
-  background: radial-gradient(ellipse at 50% 100%, rgba(255, 200, 80, 0.3) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-/* Wooden frame */
-.museum-wall-art__frame {
-  width: 100%;
-  background: linear-gradient(150deg, #3d2510 0%, #1e0f04 35%, #2d1b0a 65%, #1e0f04 100%);
-  padding: 3px;
-  box-shadow:
-    0 0 0 1px rgba(212, 160, 23, 0.52),
-    0 0 0 2px rgba(0, 0, 0, 0.85),
-    0 0 0 3px rgba(180, 130, 40, 0.2),
-    2px 6px 14px rgba(0, 0, 0, 0.85),
-    inset 0 1px 0 rgba(255, 200, 80, 0.06);
-}
-
-.museum-wall-art__mat {
-  background: #d4cbb8;
-  padding: 2px;
-}
-
-.museum-wall-art__canvas {
-  width: 100%;
-  display: block;
-  height: 54px;
-}
-
-/* Warm landscape (left wall) */
-.museum-wall-art__canvas--warm {
-  background:
-    radial-gradient(ellipse at 28% 58%, rgba(255, 145, 35, 0.65) 0%, transparent 52%),
-    radial-gradient(ellipse at 72% 28%, rgba(195, 65, 15, 0.38) 0%, transparent 42%),
-    linear-gradient(180deg,
-      #280c04 0%,
-      #742a08 25%,
-      #b24816 45%,
-      #cc6018 55%,
-      #622608 75%,
-      #2a0e04 100%
-    );
-}
-
-/* Cool seascape (right wall) */
-.museum-wall-art__canvas--cool {
-  background:
-    radial-gradient(ellipse at 62% 38%, rgba(95, 165, 225, 0.42) 0%, transparent 52%),
-    radial-gradient(ellipse at 22% 68%, rgba(45, 105, 145, 0.48) 0%, transparent 42%),
-    linear-gradient(170deg,
-      #060f1a 0%,
-      #0d2638 20%,
-      #1a3c5c 40%,
-      #224a6c 55%,
-      #102436 75%,
-      #060c16 100%
-    );
-}
-
-/* Wall label plate below painting */
-.museum-wall-art__label {
-  width: 90%;
-  margin-top: 4px;
-  background: linear-gradient(135deg, #2a1808 0%, #3a2010 50%, #2a1808 100%);
-  border: 1px solid rgba(180, 130, 40, 0.35);
-  text-align: center;
-  padding: 2px 0;
-  font-size: 0.38rem;
-  color: rgba(212, 160, 23, 0.7);
-  letter-spacing: 0.08em;
-  font-family: var(--font-lusitana), serif;
-}

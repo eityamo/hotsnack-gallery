@@ -66,32 +66,6 @@ export default function MuseumEntrance({ onComplete }: { onComplete: () => void 
       {/* Light seeping through the center crack */}
       <div className="museum-entrance__crack" />
 
-      {/* Left corridor wall with mounted painting */}
-      <div className="museum-entrance__wall museum-entrance__wall--left">
-        <div className="museum-wall-art">
-          <div className="museum-wall-art__spotlight" />
-          <div className="museum-wall-art__frame">
-            <div className="museum-wall-art__mat">
-              <div className="museum-wall-art__canvas museum-wall-art__canvas--warm" />
-            </div>
-          </div>
-          <div className="museum-wall-art__label">No.1</div>
-        </div>
-      </div>
-
-      {/* Right corridor wall with mounted painting */}
-      <div className="museum-entrance__wall museum-entrance__wall--right">
-        <div className="museum-wall-art">
-          <div className="museum-wall-art__spotlight" />
-          <div className="museum-wall-art__frame">
-            <div className="museum-wall-art__mat">
-              <div className="museum-wall-art__canvas museum-wall-art__canvas--cool" />
-            </div>
-          </div>
-          <div className="museum-wall-art__label">No.2</div>
-        </div>
-      </div>
-
       {/* Museum nameplate sign */}
       <div
         className="museum-entrance__sign"
