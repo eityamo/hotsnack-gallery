@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import PictureFrame from "@/components/PictureFrame";
 import TermsModal from "@/components/TermsModal";
 import PrivacyPolicyModal from "@/components/PrivacyPolicyModal";
 import MuseumEntrance from "@/components/MuseumEntrance";
@@ -62,22 +61,6 @@ export default function TopPage() {
             <br />
             そんな事態を解決するサービス
           </p>
-        </div>
-
-        <div className="gallery-gap" />
-
-        {/* Title Image */}
-        <div className="gallery-panel py-8 px-8">
-          <PictureFrame>
-            <Image
-              src="/img/TOP_TITLE.jpg"
-              alt="ホットスナック美術館"
-              width={300}
-              height={200}
-              className="w-full h-auto"
-              priority
-            />
-          </PictureFrame>
         </div>
 
         <div className="gallery-gap" />
